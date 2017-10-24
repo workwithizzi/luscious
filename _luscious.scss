@@ -1,19 +1,20 @@
 @charset 'utf-8';
 // Lus v0.0.1
-// ===================================================================s
+// ===================================================================
 
 // Luscious Current Version
-$lus_current_version: "v0.0.1 alpha";
+$lus_current_version: "v0.0.2 alpha";
 // Output a notification of a test to the console
-$output_test_message:         false !default;
+$output_test_message: false !default;
 // Warn user of a deprecated function/mixin
 $output_deprecation_warnings: true !default;
-
+// Output warnings for pesticide and dev_colors during production
+$production_mode: false !default;
 
 // -------------------------------------
 
 // Settings
-@import "settings/index";
+@import "settings";
 
 // Helpers
 @import
@@ -41,14 +42,13 @@ $output_deprecation_warnings: true !default;
 	'bin/hocus',
 	'bin/edges',
 	'bin/square_size',
-	'bin/list_nav_reset',
-	'bin/pull',
+	'bin/move',
 	'bin/visibility',
 	'bin/when_is',
 	'bin/placeholder',
 	'bin/google_fonts',
-	'bin/font_awesome',
-	'bin/grid_susy'
+	'bin/grid_susy',
+	'bin/burgers/burgers'
 ;
 
 // Tests and Info for Luscious Stuff

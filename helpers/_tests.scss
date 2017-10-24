@@ -1,4 +1,4 @@
-// Lus v0.0.1
+// Lus v0.0.2
 //
 // Import Test Mixins
 //
@@ -28,20 +28,19 @@
 	@if $x == "all" { $all: true; }
 
 	@if $x == "info" { @include __info_test; }
-	
+
 	// -------------------------------------
 	// Helpers
 	@if $all or $x == "map_get_check"   { @include __test_map_get_check;  }
 	@if $all or $x == "map_collect"     { @include __test_map_collect;    }
 	@if $all or $x == "map_get_nested"  { @include __test_map_get_nested; }
 	@if $all or $x == "strip_unit"      { @include __test_strip_unit;     }
-	
+
 	// -------------------------------------
 	// Bin
 	@if         $x == "zindex"          { @include __test_zindex;         }
 	@if $all or $x == "z"               { @include __test_z;              }
 	@if $all or $x == "font_stacks"     { @include __test_font_stacks;    }
-	@if $all or $x == "font_weight"     { @include __test_font_weight;    }
 	@if $all or $x == "pesticide"       { @include __test_pesticide;      }
 	@if         $x == "dev_color"       { @include __test_dev_color;      }
 	@if $all or $x == "dev_cl"          { @include __test_dev_cl;         }
@@ -54,9 +53,7 @@
 	@if $all or $x == "hocus"           { @include __test_hocus;          }
 	@if $all or $x == "size"            { @include __test_size;           }
 	@if $all or $x == "square"          { @include __test_square;         }
-	@if $all or $x == "reset_list"      { @include __test_reset_list;     }
-	@if $all or $x == "reset_nav_list"  { @include __test_reset_nav_list; }
-	@if $all or $x == "pull"            { @include __test_pull;           }
+	@if $all or $x == "move"            { @include __test_move;           }
 	@if         $x == "when_is"         { @include __test_when_is;        }
 	@if $all or $x == "at_root"         { @include __test_at_root;        }
 	@if $all or $x == "placeholder"     { @include __test_placeholder;    }
@@ -66,37 +63,24 @@
 	@if         $x == "em_calc"         { @include __test_em_calc;        }
 	@if $all or $x == "em"              { @include __test_em;             }
 	// Queries
-	@if $x == "bp"                      { @include __test_bp;             }
-	@if $x == "mq"                      { @include __test_bp;             }
-	@if $x == "between_sizes"           { @include __test_between_sizes;  }
-	@if $x == "for_phone_only"          { @include __test_for_phone_only; }
-	@if $x == "for_tablet_up"           { @include __test_for_tablet_up;  }
-	@if $x == "for_desktop_up"          { @include __test_for_desktop_up; }
-	@if $x == "print"                   { @include __test_print;          }
-	@if $x == "for_print_only"          { @include __test_for_print_only; }
-	@if $x == "for_tablet_portrait_up"  { @include __test_for_tablet_portrait_up;  }
-	@if $x == "for_tablet_landscape_up" { @include __test_for_tablet_landscape_up; }
-	@if $x == "for_big_desktop_up"      { @include __test_for_big_desktop_up;      }
+	@if $x == "breakpoint"              { @include __test_breakpoint;     }
+	@if $x == "bp"                      { @include __test_breakpoint;     }
+	@if $x == "between_breakpoints"     { @include __test_between_breakpoints; }
+	@if $x == "between_bp"              { @include __test_between_breakpoints; }
+	@if $x == "for_print"               { @include __test_for_print;      }
 	// Test All Queries
 	@if $all or $x == "all_breakpoints" {
-		@include __test_mq;
-		@include __test_between_sizes;
-		@include __test_for_phone_only;
-		@include __test_for_tablet_up;
-		@include __test_for_tablet_landscape_up;
-		@include __test_for_desktop_up;
-		@include __test_for_big_desktop_up;
-		@include __test_for_print_only;
+		@include __test_breakpoint;
+		@include __test_between_breakpoints;
+		@include __test_for_print;
 	}
 	// Colors
-	@if $x == "pallete"              { @include __test_pallete;        }
 	@if $x == "tint"                 { @include __test_tint;           }
 	@if $x == "shade"                { @include __test_shade;          }
 	@if $x == "tone"                 { @include __test_tone;           }
 	@if $x == "color_function"       { @include __test_color_function; }
 	// Test All Color
 	@if $all or $x == "all_color" {
-		@include __test_pallete;
 		@include __test_tint;
 		@include __test_shade;
 		@include __test_tone;
@@ -136,27 +120,19 @@
 		@include __test_invisible;
 	}
 	// Utility Classes
-	@if $x == "zindex_utility_classes"       { @include __test_zindex_utility_classes;       }
 	@if $x == "dev_color_utility_classes"    { @include __test_dev_color_utility_classes;    }
-	@if $x == "font_stacks_utility_classes"  { @include __test_font_stacks_utility_classes;  }
-	@if $x == "font_weights_utility_classes" { @include __test_font_weights_utility_classes; }
 	@if $x == "clearfix_utility_class"       { @include __test_clearfix_utility_class;       }
-	@if $x == "centerblock_utility_class"    { @include __test_centerblock_utility_class;    }
-	@if $x == "pull_utility_classes"         { @include __test_pull_utility_classes;         }
+	@if $x == "move_utility_classes"         { @include __test_move_utility_classes;         }
 	@if $x == "btn_utility_classes"          { @include __test_btn_utility_classes;          }
 	@if $x == "button_utility_classes"       { @include __test_button_utility_classes;       }
 	@if $x == "visibility_utility_classes"   { @include __test_visibility_utility_classes;   }
 	@if $all or $x == "all_utility_classes"  {
-		@include __test_zindex_utility_classes;
 		@include __test_dev_color_utility_classes;
-		@include __test_font_stacks_utility_classes;
-		@include __test_font_weights_utility_classes;
 		@include __test_clearfix_utility_class;
-		@include __test_centerblock_utility_class;
-		@include __test_pull_utility_classes;
+		// @include __test_move_utility_classes;
 		@include __test_btn_utility_classes;
 		@include __test_button_utility_classes;
 		@include __test_visibility_utility_classes;
 	}
-	
+
 } // end: `__test`

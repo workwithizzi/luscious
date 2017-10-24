@@ -1,222 +1,155 @@
-// Lus v0.0.1
+// Lus v0.0.2
 //
-// BreakPoint mixins and Info mixins
+// BreakPoint mixins
+// - breakpoint
+//   - alias: bp
+// - between_breakpoints
+//   - alias: between_bp
+// - for_print
 //
-// sass-lint:disable class-name-format
 // ===================================================================
 
 
-// Info for `bp` mixin
-@mixin __info_bp {
+// Info for `breakpoint` mixin
+@mixin __info_breakpoint {
 	@debug "[INFO]
-	The `bp` mixin creates basic media-queryies.
+	The `breakpoint` mixin creates basic `screen-only` media-queries.
 	Type    : Mixin (Stadalone or Included)
 	Params  :
-	- $size : Required. Uses value from key in `$breakpoints` (default) map.
-	-         Will accept any unit or variable. (See $map param.)
-	- $query: Optional. Can be any sized-based feature. Defaults to `min-width`.
-	- $type : Optional. Can be any query type. Defaults to `screen`.
-	- $map  : Defaults to `$breakpoints` map. Can specify another map or `null`
-	-         to use an individual number or variable.
-	Alias:    mq
+	- $size : Required. Accepts key from `$breakpoints` (default) map
+	-         or any specific number (with unit). To see available keys
+	-         in default map, try `@debug $breakpoints`
+	- $query: Optional. Defaults to `min-width`. Accepts any query.
+	- $map  : Optional. Defaults to `$breakpoints` map.
 	Requires: Content Block
+	Related : Mixins- `between_breakpoints`, `for_print`
+	Alias   : `bp`
 	";
 }
-// Alias
-@mixin __info_mq {
-	@include __info_bp;
-}
 
+// -----------------
 
-// Basic Media Query Mixin
-@mixin bp($size, $query: 'min-width', $type: 'screen', $map: $bp) {
-	@if $size == "info" { @include __info_bp; }
-	@else if $map {
-		@media only #{$type} and (#{$query}: map_get_check($map, $size)) {
-			@content;
-		}
+// Media Query Mixin
+@mixin breakpoint($size, $query: 'min-width', $map: $breakpoints) {
+
+	@if $query == "min" { $query: "min-width"; }
+	@if $query == "max" { $query: "max-width"; }
+	@if $query == "print" {
+		@warn "Use the `for_print` mixin for `print` media queries.";
 	}
+	// Provide info to terminal
+	@if $size == "info" { @include __info_breakpoint; }
 	@else {
-		@media only #{$type} and (#{$query}: $size) {
-			@content;
+
+		// Use the sass map if the key matches the map
+		@if map-has-key($map, $size) {
+			@media only screen and (#{$query}: map-get($map, $size)) {
+				@content;
+			}
+		}
+		// If the key doesn't match the map and is a number, use it.
+		@else if type-of($size) == number {
+			@media only screen and (#{$query}: $size) {
+				@content;
+			}
+		}
+		// If the map/key or number works, send a message to terminal
+		@else {
+			@warn "`#{$size}` is not a number. You're gonna need a number here, bud.";
 		}
 	}
 }
-// Alias for `bp`
-@mixin mq($size, $query: 'min-width', $type: 'screen', $map: $bp) {
-	@include bp($size, $query, $type, $map) {
+
+// -----------------
+
+// Alias mixin
+@mixin bp($size, $query: 'min-width', $map: $breakpoints) {
+	@include breakpoint($size, $query, $map) {
 		@content;
 	}
 }
 
-
 // -------------------------------------
 
-// Info for `between_sizes` mixin
-@mixin __info_between_sizes {
+// Info for `between_breakpoints` mixin
+@mixin __info_between_breakpoints {
 	@debug "[INFO]
-	The `between_sizes` mixin creates a basic `min - max` width media-query.
+	The `between_breakpoints` mixin creates a basic `min - max` width media-query.
 	Type  :   Mixin (Stadalone or Included)
 	Params:
-	- $min:  Required. Uses value from key in `$breakpoints` (default) map.
-	- $max:  Required. Uses value from key in `$breakpoints` (default) map.
-	-        $min/$max will accept any unit or variable. (See $map param.)
-	- $type: Optional. Can be any query type. Defaults to `screen`.
-	- $map:  Defaults to `$breakpoints` map. Can also specify another map.
-	-        Use `null` to use an individual number or custom variable.
-	";
-}
-
-// Generic Min/Max Width Media Query Mixin
-@mixin between_sizes($min, $max, $type: 'screen', $map: $bp) {
-	@if $min == "info" {
-		@include __info_between_sizes;
-	}
-	@else if $map {
-		@media only #{$type} and (min-width: map_get_check($map, $min)) and (max-width: map_get_check($map, $max)) {
-			@content;
-		}
-	}
-	@else {
-		@media only #{$type} and (min-width: $min) and (max-width: $max) {
-			@content;
-		}
-	}
-}
-
-// -------------------------------------
-
-// Helper for declarative queries used internally in Luscious
-@mixin declarative_query($mixin, $size, $query, $type: 'screen', $alias: 'none') {
-	@if $type == "info" {
-		$default_size: map_get_check($breakpoints, $size);
-		$default_type: 'screen';
-		@debug "[INFO]
-		The `#{$mixin}` mixin is a declarative
-		`#{$query}: #{$default_size}` media query.
-		Type  :   Mixin (Stadalone or Included)
-		Params:
-		- $type:  Optional. Defaults to `#{$default_type}`.
-		-         Will accept any media type.
-		Alias :   `#{$alias}`
-		";
-	}
-	@else {
-		@include bp($size, $query, $type) { @content; }
-	}
-}
-
-// -------------------------------------------------------------------
-
-// Declarative Media Queries
-
-// Max-Width Phone
-@mixin for_phone_only($type: 'screen') {
-	@include declarative_query(for_phone_only, phone, max-width, $type) {
-		@content;
-	}
-}
-
-// Info Mixin
-@mixin __info_for_phone_only {
-	@include for_phone_only(info);
-}
-
-// -------------------------------------
-
-@mixin for_tablet_portrait_up($type: 'screen', $alias: for_tablet_up) {
-	@include declarative_query(for_tablet_portrait_up, tablet_portrait, min-width, $type, $alias) {
-		@content;
-	}
-}
-
-// Info Mixin
-@mixin __info_for_tablet_portrait_up {
-	@include for_tablet_portrait_up(info);
-}
-
-// Alias Mixin
-@mixin for_tablet_up($type: 'screen', $alias: for_tablet_portrait_up) {
-	@include declarative_query(for_tablet_up, tablet_portrait, min-width, $type, $alias) {
-		@content;
-	}
-}
-
-// Alias Info
-@mixin __info_for_tablet_up {
-	@include for_tablet_up(info);
-}
-
-// -------------------------------------
-
-@mixin for_tablet_landscape_up($type: 'screen') {
-	@include declarative_query(for_tablet_landscape_up, tablet_landscape, min-width, $type) {
-		@content;
-	}
-}
-
-@mixin __info_for_tablet_landscape_up {
-	@include for_tablet_landscape_up(info);
-}
-
-// -------------------------------------
-
-@mixin for_desktop_up($type: 'screen') {
-	@include declarative_query(for_desktop_up, desktop, min-width, $type) {
-		@content;
-	}
-}
-// Info Mixin 
-@mixin __info_for_desktop_up {
-	@include for_desktop_up(info);
-}
-
-// -------------------------------------
-
-@mixin for_big_desktop_up($type: 'screen') {
-	@include declarative_query(for_big_desktop_up, big_desktop, min-width, $type) {
-		@content;
-	}
-}
-// Info Mixin 
-@mixin __info_for_big_desktop_up {
-	@include for_big_desktop_up(info);
-}
-
-// -------------------------------------------------------------------
-
-// Info Mixin for `print`
-@mixin __info_print {
-	@debug "[INFO]
-	The `print` mixin sets up a basic `@media print` query.
-	Params  : none
-	Alias   : `for_print_only`
+	- $min  : Required.
+	- $max  : Required.
+	-         $min/$max accepts key from `$breakpoints` (default) map
+	-         or any specific number (with unit). To see available keys
+	-         in default map, try `@debug $breakpoints`
+	- $map:   Optional. Defaults to `$breakpoints` map.
 	Requires: Content Block
+	Related : Mixins- `breakpoint`, `for_print`
+	Alias   : `between_bp`
 	";
 }
 
-// Alias Info
-@mixin __info_for_print_only {
-	@include __info_print;
+// -----------------
+
+// Mix-Max Media Query
+@mixin between_breakpoints($min, $max: null, $map: $breakpoints) {
+
+	// Provide info to terminal
+	@if $min == "info" { @include __info_between_breakpoints; }
+	@else {
+
+		// Validate $min param
+		@if map-has-key($map, $min) {
+			$min: map-get($map, $min);
+		} @else if type-of($min) == number {
+			$min: $min;
+		} @else {
+			@warn "`#{$min}` needs to be a number.";
+		}
+
+		// Validate $max param
+		@if map-has-key($map, $max) {
+			$max: map-get($map, $max);
+		} @else if type-of($max) == number {
+			$max: $max;
+		} @else {
+			@warn "`#{$max}` needs to be a number.";
+		}
+
+		@media only screen and (min-width: $min) and (max-width: $max) {
+			@content;
+		}
+	}
 }
 
+// -----------------
 
-// // Print Query
-@mixin print($info: null) {
-	@if $info {
-		@include __info_print;
+// Alias mixin
+@mixin between_bp($size, $query: 'min-width', $map: $breakpoints) {
+	@include between_breakpoints($min, $max, $map) {
+		@content;
 	}
+}
+
+// -------------------------------------
+
+// Info for `for_print` mixin
+@mixin __info_for_print {
+	@debug "[INFO]
+	The `for_print` mixin creates a basic `@media print` query.
+	Params  : none
+	Requires: Content Block
+	Related : Mixins- `breakpoint`, `between_breakpoints`
+	";
+}
+
+// Print Media Query
+@mixin for_print($info: null) {
+	@if $info { @include __info_for_print; }
 	@else {
 		@media print {
 			@content;
 		}
-	}
-}
-
-// Alias Mixin
-@mixin for_print_only($info: null) {
-	@include print($info) {
-		@content;
 	}
 }
 
@@ -226,223 +159,157 @@
 // Tests
 // ===================================================================
 
-@mixin __test_bp {
-	@if $output_test_message { @debug "[TESTING] `bp`"; }
-	/* `bp` or `mq` --------------------- */
+@mixin __test_breakpoint {
+	@if $output_test_message { @debug "[TESTING] `breakpoint`"; }
+	/* `breakpoint` --------------------- */
 	/*
-	.test.bp_basic {
+	.test.breakpoint {
 		color: red;
-		@include bp(desktop) {
+		@include breakpoint(xs) {
 			color: green;
 		}
 	}
 	*/
-	.test.bp_basic {
+	.test.breakpoint {
 		color: red;
-		@include bp(desktop) {
+		@include breakpoint(xs) {
 			color: green;
 		}
 	}
+	/* ================ */
 	/*
-	.test.bp_options {
-		@include mq(phone, max-width, screen, $bp) {
-			color: pink;
+	.test.breakpoint_size {
+		color: pink;
+		@include breakpoint(900px) {
+			color: purple;
 		}
 	}
 	*/
-	.test.bp_options {
-		@include mq(phone, max-width, screen, $bp) {
-			color: pink;
+	.test.breakpoint_size {
+		color: pink;
+		@include breakpoint(900px) {
+			color: purple;
 		}
 	}
-	/* End `bp` or mq ------------------- */
+	/* ================ */
+	/*
+	.test.breakpoint_query {
+		color: blue;
+		@include breakpoint(599px, 'max') {
+			color: seagreen;
+		}
+	}
+	*/
+	.test.breakpoint_query {
+		color: blue;
+		@include breakpoint(599px, 'max') {
+			color: seagreen;
+		}
+	}
+	/* ================ */
+	/*
+	.test.breakpoint_alias {
+		color: deepskyblue;
+		@include bp(599px, 'max') {
+			color: cornsilk;
+		}
+	}
+	*/
+	.test.breakpoint_alias {
+		color: deepskyblue;
+		@include bp(599px, 'max') {
+			color: cornsilk;
+		}
+	}
+	/* End `breakpoint` ------------------- */
 }
 
+// -------------------------------------
 
-@mixin __test_between_sizes {
-	@if $output_test_message { @debug "[TESTING] `between_sizes`"; }
-	/* `between_sizes` ------------------ */
+@mixin __test_between_breakpoints {
+	@if $output_test_message { @debug "[TESTING] `between_breakpoints`"; }
+	/* `between_breakpoints` ------------ */
 	/*
-	.test.between_sizes {
+	.test.between_breakpoints {
 		color: red;
-		@include between_sizes(phone, desktop) {
+		@include between_breakpoints(xs, lg) {
+			color: green;
+		}
+	}
+	*/
+	.test.between_breakpoints {
+		color: red;
+		@include between_breakpoints(xs, lg) {
+			color: green;
+		}
+	}
+	/* ================ */
+	/*
+	.test.between_breakpoints_min {
+		color: pink;
+		@include between_breakpoints(700px, lg) {
 			color: blue;
 		}
 	}
 	*/
-	.test.between_sizes {
-		color: red;
-		@include between_sizes(phone, desktop) {
+	.test.between_breakpoints_min {
+		color: pink;
+		@include between_breakpoints(700px, lg) {
 			color: blue;
 		}
 	}
-	/* End `between_sizes` -------------- */
-}
-
-
-@mixin __test_for_phone_only {
-	@if $output_test_message { @debug "[TESTING] `for_phone_only`"; }
-	/* `for_phone_only` ----------------- */
+	/* ================ */
 	/*
-	.test.for_phone_only {
-		display: block;
-		@include for_phone_only {
-			display: none;
+	.test.between_breakpoints_min-max {
+		color: purple;
+		@include between_breakpoints(700px, 80em) {
+			color: yellow;
 		}
 	}
 	*/
-	.test.for_phone_only {
-		display: block;
-		@include for_phone_only {
-			display: none;
+	.test.between_breakpoints_min-max {
+		color: purple;
+		@include between_breakpoints(700px, 80em) {
+			color: yellow;
 		}
 	}
-	/* End `for_phone_only` ------------- */
-}
-
-
-@mixin __test_for_tablet_portrait_up {
-	@if $output_test_message { @debug "[TESTING] `for_tablet_portrait_up`"; }
-	/* `for_tablet_portrait_up` --------- */
+	/* ================ */
 	/*
-	.test.for_tablet_portrait_up {
-		display: none;
-		@include for_tablet_portrait_up {
-			display: block;
+	.test.between_breakpoints_alias {
+		color: chocolate;
+		@include between_bp(500px, xl) {
+			color: cadetblue;
 		}
 	}
 	*/
-	.test.for_tablet_portrait_up {
-		display: none;
-		@include for_tablet_portrait_up {
-			display: block;
+	.test.between_breakpoints_alias {
+		color: chocolate;
+		@include between_breakpoints(500px, xl) {
+			color: cadetblue;
 		}
 	}
-	/* End `for_tablet_portrait_up` ----- */
+	/* End `between_breakpoints` ---------- */
 }
 
 
-@mixin __test_for_tablet_up {
-	@if $output_test_message { @debug "[TESTING] `for_tablet_up`"; }
-	/* `for_tablet_up` ------------------ */
+// -------------------------------------
+
+@mixin __test_for_print {
+	@if $output_test_message { @debug "[TESTING] `for_print`"; }
+	/* `for_print` ---------------------- */
 	/*
-	.test.for_tablet_up {
-		display: none;
-		@include for_tablet_up {
-			display: block;
-		}
-	}
-	*/
-	.test.for_tablet_up {
-		display: none;
-		@include for_tablet_up {
-			display: block;
-		}
-	}
-	/* End `for_tablet_up` -------------- */
-}
-
-
-@mixin __test_for_tablet_landscape_up {
-	@if $output_test_message { @debug "[TESTING] `for_tablet_landscape_up`"; }
-	/* `for_tablet_landscape_up` -------- */
-	/*
-	.test.for_tablet_landscape_up {
-		display: none;
-		@include for_tablet_landscape_up {
-			display: block;
-		}
-	}
-	*/
-	.test.for_tablet_landscape_up {
-		display: none;
-		@include for_tablet_landscape_up {
-			display: block;
-		}
-	}
-	/* End `for_tablet_landscape_up` ---- */
-}
-
-
-@mixin __test_for_desktop_up {
-	@if $output_test_message { @debug "[TESTING] `for_desktop_up`"; }
-	/* `for_desktop_up` ----------------- */
-	/*
-	.test.for_desktop_up {
-		display: none;
-		@include for_desktop_up {
-			display: block;
-		}
-	}
-	*/
-	.test.for_desktop_up {
-		display: none;
-		@include for_desktop_up {
-			display: block;
-		}
-	}
-	/* End `for_desktop_up` ------------- */
-}
-
-
-@mixin __test_for_big_desktop_up {
-	@if $output_test_message { @debug "[TESTING] `for_big_desktop_up`"; }
-	/* `for_big_desktop_up` ------------- */
-	/*
-	.test.for_big_desktop_up {
-		display: none;
-		@include for_big_desktop_up {
-			display: block;
-		}
-	}
-	*/
-	.test.for_big_desktop_up {
-		display: none;
-		@include for_big_desktop_up {
-			display: block;
-		}
-	}
-	/* End `for_big_desktop_up` --------- */
-}
-
-
-@mixin __test_print {
-	@if $output_test_message { @debug "[TESTING] `print`"; }
-	/* `print` -------------------------- */
-	/*
-	.test.print {
+	.test.for_print {
 		color: red;
-		@include print {
-			color: black;
+		@include for_print {
+			color: green;
 		}
 	}
 	*/
-	.test.print {
+	.test.for_print {
 		color: red;
-		@include print {
-			color: black;
+		@include for_print {
+			color: green;
 		}
 	}
-	/* End `print` ---------------------- */
-}
-
-
-@mixin __test_for_print_only {
-	@if $output_test_message { @debug "[TESTING] `for_print_only`"; }
-	/* `for_print_only` ----------------- */
-	/*
-	.test.for_print_only {
-		color: red;
-		@include for_print_only {
-			color: black;
-		}
-	}
-	*/
-	.test.for_print_only {
-		color: red;
-		@include for_print_only {
-			color: black;
-		}
-	}
-	/* End `for_print_only` ------------- */
+	/* End `for_print` -------------------- */
 }

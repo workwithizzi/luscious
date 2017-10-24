@@ -18,5 +18,7 @@ Good luck :)
 
 
 ## Changelog
+- V0.0.2
+	- So. Many. Changes. This is why it's still a beta version. I'm not even going to write them down here. :)
 - v0.0.1
 	- Added initial task files

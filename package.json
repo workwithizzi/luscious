@@ -1,0 +1,13 @@
+{
+	"name": "luscious-sass",
+	"version": "0.0.3",
+	"description": "",
+	"repository": "https://gitlab.com/ignitecreative/cookbook/luscious-sass",
+	"author": "Yisrael Grimes <yisrael@ignitehere.com>",
+	"license": "MIT",
+	"private": true,
+	"keywords": [
+		"sass",
+		"scss"
+	]
+}

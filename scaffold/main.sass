@@ -1,18 +1,16 @@
 @charset 'utf-8'
-// Lus v0.0.2
-
 /*! ========================================================= */
-/*! Title:    Luscious Sass Starter                           */
+/*! Title:                                                    */
 /*! Version:  0.0.1                                           */
-/*! Info:     Part Sass starter and part front-end tool kit.  */
-/*! @link     https://github.com/yisraelgrimes/luscious       */
+/*! Info:                                                     */
+/*! @link     https://github.com/                             */
 /*! Site:     https://                                        */
-/*! Author:   Yisrael Grimes                                  */
-/*! Email:    yisraelgrimes@gmail.com                         */
+/*! Author:                                                   */
+/*! Email:                                                    */
 /*! ========================================================= */
 
 
-// Normalize is being added with gulp as separate css file through html
+// Normalize is being processed with gulp as separate css file
 // and will be concated into the main.css with gulp during the final build.
 // It is also available in Luscious but isn't imported by default.
 // @import 01_utils/luscious/snippets/_normalize.scss
@@ -22,7 +20,12 @@
 @import settings
 
 // Utilities/Vendors/Tools
-@import ../../dependencies/luscious_sass/luscious
+@import ../../dependencies/luscious-sass/luscious
+// Import Font Awesome Sass
+@import ../../dependencies/luscious-sass/bin/font-awesome/font-awesome
+// Import Font Awesome from CDN
+// https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
+
 
 // Base Styles
 @import base/resets

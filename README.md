@@ -1,8 +1,8 @@
 # Luscious SASS
 *A Library or SASS functions/mixin/variables/stuff*
 
-**Current Version: V0.0.1 on Master branch**
-After testing, Stable version will be released as V1.0.0
+**Current Version: v0.0.3 on Master branch**
+After testing, Stable version will be released as v1.0.0
 
 
 **A work in progress.**
@@ -18,7 +18,9 @@ Good luck :)
 
 
 ## Changelog
-- V0.0.2
+- v0.0.3
+	- 
+- v0.0.2
 	- So. Many. Changes. This is why it's still a beta version. I'm not even going to write them down here. :)
 - v0.0.1
 	- Added initial task files

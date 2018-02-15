@@ -19,7 +19,8 @@ Good luck :)
 
 ## Changelog
 - v0.0.3
-	- 
+	- Moved styles scaffold to the root directory and removed `__rsc__` directory
+	- Added import for Font Awesome sass to `main.sass`.
 - v0.0.2
 	- So. Many. Changes. This is why it's still a beta version. I'm not even going to write them down here. :)
 - v0.0.1

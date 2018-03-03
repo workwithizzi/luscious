@@ -1,7 +1,7 @@
 # Luscious SASS
 *A Library or SASS functions/mixin/variables/stuff*
 
-**Current Version: v0.0.3 on Master branch**
+**Current Version: v0.0.4 on Master branch**
 After testing, Stable version will be released as v1.0.0
 
 
@@ -15,9 +15,21 @@ Still need to:
 
 Good luck :)
 
+---
 
+## Todo
+- Figure out bug with hamburgers
+- Clean up deprecated functions
+- Clean up un-needed utility class mixins.
 
 ## Changelog
+- v0.0.4
+	- A bunch of minor updates to scaffold files.
+	- Added basic navigation styling.
+	- Added variables to settings file for accessibility.
+	- Added skipnav/skiplink styling.
+	- Removed Font-Awesome from Luscious-core in favor of using npm to get it.
+	- Added default animation to settings.
 - v0.0.3
 	- Moved styles scaffold to the root directory and removed `__rsc__` directory
 	- Added import for Font Awesome sass to `main.sass`.

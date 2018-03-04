@@ -1,7 +1,7 @@
 # Luscious SASS
 *A Library or SASS functions/mixin/variables/stuff*
 
-**Current Version: v0.0.4 on Master branch**
+**Current Version: v0.0.5 on Master branch**
 After testing, Stable version will be released as v1.0.0
 
 
@@ -23,6 +23,8 @@ Good luck :)
 - Clean up un-needed utility class mixins.
 
 ## Changelog
+- v0.0.5
+	- Added function alias to `rem()` or `rem_calc()` function. You can now use `r()` to calculate the rem equivalent or a `px` unit.
 - v0.0.4
 	- A bunch of minor updates to scaffold files.
 	- Added basic navigation styling.

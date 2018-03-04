@@ -14,6 +14,7 @@
 	Type  : Function
 	Params:
 	- $pxval: Required. Only accepts unitless or px numbers.
+	Alias : `rem()` and `r()`
 	";
 }
 
@@ -39,6 +40,9 @@
 	@include __info_rem_calc;
 }
 @function rem($pxval) {
+	@return rem_calc($pxval);
+}
+@function r($pxval) {
 	@return rem_calc($pxval);
 }
 

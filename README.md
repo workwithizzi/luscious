@@ -25,6 +25,7 @@ Good luck :)
 ## Changelog
 - v0.0.5
 	- Added function alias to `rem()` or `rem_calc()` function. You can now use `r()` to calculate the rem equivalent or a `px` unit.
+	- Changed units used in Scaffold to now use the `r()` (rem) function instead of using rem units directly in the SASS.
 - v0.0.4
 	- A bunch of minor updates to scaffold files.
 	- Added basic navigation styling.

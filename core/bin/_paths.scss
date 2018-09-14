@@ -74,36 +74,48 @@ $info-font: info-log(
 // Tests
 // ===================================================================
 
-@mixin __test_img {
-	@if $output_test_message { @debug "[TESTING] `img`"; }
-	/* `img` or `image` ----------------- */
-	/*
-	.test.img {
-		background-image: img("test.jpg");
+// -------------------------------------
+// Test img() Mixin
+// -------------------------------------
+@include describe('img path [function]') {
+	@include assert-equal (
+		img("test.jpg"),
+		url("../images/test.jpg")
+	);
+	@include true-report {
+		@include it('Creates the url file path to your image.') {
+			@include assert {
+				@include output {
+					background-image: img("test.jpg");
+				}
+				@include expect {
+					background-image: url("../images/test.jpg");
+				}
+			}
+		}
 	}
-	*/
-	.test.img {
-		background-image: img("test.jpg");
-	}
-	/* End `img` or `image` ------------- */
 }
 
-// Alias
-@mixin __test_image {
-	@include __test_img;
+// -------------------------------------
+// Test path() Mixin
+// -------------------------------------
+@include describe('font path [function]') {
+	@include assert-equal (
+		font("test.otf"),
+		url("../fonts/test.otf")
+	);
+	@include true-report {
+		@include it('Creates the url file path to your font.') {
+			@include assert {
+				@include output {
+					src: font("test.otf");
+				}
+				@include expect {
+					src: url("../fonts/test.otf");
+				}
+			}
+		}
+	}
 }
 
 
-@mixin __test_font {
-	@if $output_test_message { @debug "[TESTING] `font`"; }
-	/* `font` --------------------------- */
-	/*
-	.test.font {
-		src: font("test.otf");
-	}
-	*/
-	.test.font {
-		src: font("test.otf");
-	}
-	/* End `font` ----------------------- */
-}

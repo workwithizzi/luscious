@@ -3,6 +3,13 @@
 // @since v0.0.5
 // ===================================================================
 
+// Sass Unit Testing (http://oddbird.net/true/docs/)
+@import '../node_modules/sass-true/sass/true';
+$true-terminal-output: true;
+// Custom Var for true to determine is tests should print in css report
+$true-css-output: false;
+
+
 // Luscious Current Version
 $lus_current_version: "v0.0.5 alpha";
 // Output a notification of a test to the console
@@ -32,6 +39,7 @@ $base_grid_container-spread: 'wide' !default;
 
 // Helpers
 @import
+	'helpers/true-report',
 	'helpers/deprecation_warning',
 	'helpers/info-log',
 	'helpers/maps',

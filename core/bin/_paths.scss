@@ -98,7 +98,7 @@ $font-info: logger(
 		font("test.otf"),
 		url("../fonts/test.otf")
 	);
-	@include true-report(solo) {
+	@include true-report {
 		@include it('Creates the url file path to your font.') {
 			@include assert {
 				@include output {

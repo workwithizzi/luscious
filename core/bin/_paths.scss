@@ -1,83 +1,44 @@
-// Luscious
-// @since v0.0.1
-//
-// Image/Font Path Function
-//
-// sass-lint:disable no-css-comments
+// @title: Img & Font path Functions
+// @since: v0.0.6
+// @desc:  Creates paths to images and fonts directorys
 // ===================================================================
 
-
-// Images
-$info-img: info-log(
-	'The `img` function creates an `asset-path` to
-	make it easier to insert images in your SASS.
-	Type  :  Function
-	Params:
-	- $file:      Required. Enter the file name including extension in quotes.
-	- $base_path: Optional. Defaults to `$img_base_path` set in the config file.
-	-             $img_base_path == `#{$img_base_path}`
-	Alias:        `image`'
-);
-
-
-@mixin __info_img {
-	@debug $info-img;
-}
-
-
-@function img($file, $base_path: $img_base_path) {
-	@if $file == "info" { @debug $info-img; }
-	@else {
-		@return url($base_path + '/' + $file);
-	}
-}
-
-// Alias
-@mixin __info_image {
-	@include __info_img;
-}
-
-@function image($file) {
-	@return img($file);
-}
-
+// -------------------------------------
+// Img Function
 // -------------------------------------
 
-// Fonts
-$info-font: info-log(
-	'The `font` function creates an `asset-path` to
-	make it easier to source fonts in your SASS.
-	Type  :  Function
-	Params:
-	- $file:      Required. Enter the file name and extension from
-	-             the `$font_base_path` in quotes.
-	- $base_path: Optional. Defaults to `$font_base_path` set in the config file.
-	-             $font_base_path == `#{$font_base_path}`'
+// Debugger
+$img-info: logger(
+	'img <function>',
+	'Creates a file path to your image including the CSS \'url()\' syntax.'
+	'to make it easier to insert images in your SASS.'
+	'Params:'
+	'  $file:  Required. File name with extension wrapped in quotes.'
+	'  $path:  Optional. Path from CSS file to image directory.'
+	'          Defaults to \'$img_base_path\' (#{$img_base_path}).'
+	'---------------'
+	'Example In:'
+	'.element {'
+	'  background: img("photo.jpg");'
+	'}'
+	'Example Out:'
+	'.element {'
+		'  background: url("../images/photo.jpg")'
+		'}'
 );
 
 
-@mixin __info_font {
-	@debug $info-font;
-}
-
-
-@function font($file, $base_path: $font_base_path) {
-	@if $file == "info" { @debug $info-font; }
+// Function
+@function img($file, $path: $img_base_path) {
+	@if $file == "info" { @debug $img-info; }
 	@else {
-		@return url($base_path + '/' + $file);
+		@return url($path + '/' + $file);
 	}
 }
 
 
-
-// ===================================================================
-// Tests
-// ===================================================================
-
-// -------------------------------------
-// Test img() Mixin
-// -------------------------------------
-@include describe('img path [function]') {
+// Unit Tests
+@include describe('Img path [function]') {
 	@include assert-equal (
 		img("test.jpg"),
 		url("../images/test.jpg")
@@ -96,15 +57,48 @@ $info-font: info-log(
 	}
 }
 
+
 // -------------------------------------
-// Test path() Mixin
+// Font Function
 // -------------------------------------
-@include describe('font path [function]') {
+
+// Debugger
+$font-info: logger(
+	'font <function>',
+	'Creates a file path to your font file including the CSS \'url()\' syntax.'
+	'to make it easier to insert fonts in your SASS.'
+	'Params:'
+	'  $file:  Required. File name with extension wrapped in quotes.'
+	'  $path:  Optional. Path from CSS file to font directory.'
+	'          Defaults to \'$font_base_path\' (#{$font_base_path}).'
+	'---------------'
+	'Example In:'
+	'@font-face {'
+	'  src: font("my-font.otf");'
+	'}'
+	'Example Out:'
+	'@font-face {'
+	'  src: url("../fonts/my-font.otf");'
+	'}'
+);
+
+
+// Function
+@function font($file, $path: $font_base_path) {
+	@if $file == "info" { @debug $font-info; }
+	@else {
+		@return url($path + '/' + $file);
+	}
+}
+
+
+// Unit Tests
+@include describe('Font path [function]') {
 	@include assert-equal (
 		font("test.otf"),
 		url("../fonts/test.otf")
 	);
-	@include true-report {
+	@include true-report(solo) {
 		@include it('Creates the url file path to your font.') {
 			@include assert {
 				@include output {
@@ -117,5 +111,3 @@ $info-font: info-log(
 		}
 	}
 }
-
-

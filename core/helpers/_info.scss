@@ -49,9 +49,8 @@ $info_info: info-log(
 	@if $x == "pesticide"              { @include __info_pesticide;       }
 	@if $x == "dev_color"              { @include __info_dev_color;       }
 	@if $x == "dev_cl"                 { @include __info_dev_cl;          }
-	@if $x == "img"                    { @include __info_img;             }
-	@if $x == "image"                  { @include __info_image;           }
-	@if $x == "font"                   { @include __info_font;            }
+	// @if $x == "img"                    { @include __info_img;             }
+	// @if $x == "font"                   { @include __info_font;            }
 	@if $x == "clearfix"               { @include __info_clearfix;        }
 	@if $x == "centerblock"            { @include __info_centerblock;     }
 	@if $x == "bg_image"               { @include __info_bg_image;        }

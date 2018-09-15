@@ -9,5 +9,8 @@
 	"keywords": [
 		"sass",
 		"scss"
-	]
+	],
+	"dependencies": {
+		"sass-true": "^4.0.0"
+	}
 }

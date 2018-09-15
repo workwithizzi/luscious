@@ -18,6 +18,8 @@ $output_test_message: false !default;
 $output_deprecation_warnings: true !default;
 // Output warnings for pesticide and dev_colors during production
 $production_mode: false !default;
+// Tools Map (each mixin/function is added to this map)
+$tools: ();
 
 // -------------------------------------
 
@@ -39,6 +41,7 @@ $base_grid_container-spread: 'wide' !default;
 
 // Helpers
 @import
+	'helpers/info-setup',
 	'helpers/true-report',
 	'helpers/deprecation_warning',
 	'helpers/info-log',
@@ -84,6 +87,7 @@ $base_grid_container-spread: 'wide' !default;
 
 // Tests and Info for Luscious Stuff
 @import
-	'helpers/tests',
+	// 'helpers/tests',
+	'helpers/info.og',
 	'helpers/info'
 ;

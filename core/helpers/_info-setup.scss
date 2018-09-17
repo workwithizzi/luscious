@@ -1,6 +1,0 @@
-
-// TODO: add file header, info, tests. 
-
-@function add-info($val, $key) {
-	@return map-merge($tools, ($val: $key));
-}

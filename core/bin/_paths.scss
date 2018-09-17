@@ -6,7 +6,6 @@
 // -------------------------------------
 // Img Function
 // -------------------------------------
-
 // Debugger
 $img-info: logger(
 	'img <function>',
@@ -40,31 +39,9 @@ $tools: add-info(img, $img-info);
 }
 
 
-// Unit Tests
-@include describe('Img path [function]') {
-	@include assert-equal (
-		img("test.jpg"),
-		url("../images/test.jpg")
-	);
-	@include true-report {
-		@include it('Creates the url file path to your image.') {
-			@include assert {
-				@include output {
-					background-image: img("test.jpg");
-				}
-				@include expect {
-					background-image: url("../images/test.jpg");
-				}
-			}
-		}
-	}
-}
-
-
 // -------------------------------------
 // Font Function
 // -------------------------------------
-
 // Debugger
 $font-info: logger(
 	'font <function>',
@@ -93,26 +70,5 @@ $tools: add-info(font, $font-info);
 	@if $file == "info" { @debug $font-info; }
 	@else {
 		@return url($path + '/' + $file);
-	}
-}
-
-
-// Unit Tests
-@include describe('Font path [function]') {
-	@include assert-equal (
-		font("test.otf"),
-		url("../fonts/test.otf")
-	);
-	@include true-report {
-		@include it('Creates the url file path to your font.') {
-			@include assert {
-				@include output {
-					src: font("test.otf");
-				}
-				@include expect {
-					src: url("../fonts/test.otf");
-				}
-			}
-		}
 	}
 }

@@ -1,0 +1,14 @@
+theme: 'herman'
+dest: docs/
+src: core/
+
+herman:
+  sass:
+    includepaths:
+      - 'core'
+      - 'scaffold'
+  extraDocs:
+    - name: 'ReadMe'
+      path: README.md
+    - name: 'Changelog'
+      path: CHANGELOG.md

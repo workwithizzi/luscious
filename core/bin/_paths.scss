@@ -30,13 +30,40 @@ $img-info: logger(
 $tools: add-info(img, $img-info);
 
 
-// Function
+
+/// Creates a file path to your image including the CSS 'url()'
+/// syntax.to make it easier to insert images in your SASS.
+///
+/// @group utilities
+///
+/// @param {string} $file -
+///   File name with extension wrapped in quotes.
+/// @param {string} $path -
+///   Optional. Path from CSS file to image directory.
+///   Defaults to '$img_base_path'
+///
+/// @example scss -
+///  .element {
+///    background: img("photo.jpg");
+///  }
+///
 @function img($file, $path: $img_base_path) {
 	@if $file == "info" { @debug $img-info; }
 	@else {
 		@return url($path + '/' + $file);
 	}
 }
+
+
+
+
+
+// Example Out:
+// .element {
+//   background: url("../images/photo.jpg")
+// }
+
+
 
 
 // -------------------------------------

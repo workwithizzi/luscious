@@ -11,6 +11,7 @@
 		"scss"
 	],
 	"devDependencies": {
+		"browser-sync": "^2.24.7",
 		"gulp": "^3.9.1",
 		"gulp-autoprefixer": "^6.0.0",
 		"gulp-sass": "^4.0.1",
@@ -22,9 +23,10 @@
 		"sassdoc-theme-herman": "^3.0.0"
 	},
 	"scripts": {
-		"sassdoc": "sassdoc core/"
+		"start": "gulp"
 	},
 	"dependencies": {
+		"modularscale-sass": "^3.0.5",
 		"susy": "^3.0.5"
 	}
 }

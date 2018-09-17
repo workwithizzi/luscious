@@ -26,21 +26,16 @@ $img-info: logger(
 		'}'
 );
 
-// Add Debug Info to $tools list for global mixin
-$tools: add-info(img, $img-info);
-
-
 
 /// Creates a file path to your image including the CSS 'url()'
-/// syntax.to make it easier to insert images in your SASS.
+/// syntax to make it easier to insert images in your SASS.
 ///
-/// @group utilities
+/// @group utils
 ///
-/// @param {string} $file -
+/// @param {string} $file
 ///   File name with extension wrapped in quotes.
-/// @param {string} $path -
-///   Optional. Path from CSS file to image directory.
-///   Defaults to '$img_base_path'
+/// @param {string} $path [$img_base_path]
+///   Path from CSS file to image directory.
 ///
 /// @example scss -
 ///  .element {
@@ -48,23 +43,18 @@ $tools: add-info(img, $img-info);
 ///  }
 ///
 @function img($file, $path: $img_base_path) {
-	@if $file == "info" { @debug $img-info; }
+	@if $file == "info" {
+		@debug "Looks like there's an error with <img>. Check out the docs for more info. #{$sassdoc_base_url}/utils.html";
+		@return null;
+	}
 	@else {
 		@return url($path + '/' + $file);
 	}
 }
 
-
-
-
-
-// Example Out:
-// .element {
-//   background: url("../images/photo.jpg")
-// }
-
-
-
+.element {
+	src: img(info);
+}
 
 // -------------------------------------
 // Font Function
@@ -89,8 +79,6 @@ $font-info: logger(
 	'}'
 );
 
-// Add Debug Info to $tools list for global mixin
-$tools: add-info(font, $font-info);
 
 // Function
 @function font($file, $path: $font_base_path) {

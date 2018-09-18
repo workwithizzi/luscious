@@ -1,14 +1,22 @@
 {
-	"name": "luscious-sass",
+	"name": "luscious",
 	"version": "0.0.6",
 	"description": "A library of SASS mixins, functions, and variables to use in your front-end projects.",
-	"repository": "https://gitlab.com/ignitecreative/cookbook/luscious-sass",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/workwithizzi/luscious"
+	},
+	"bugs": {
+		"url": "https://github.com/workwithizzi/luscious/issues"
+	},
+	"homepage": "https://github.com/workwithizzi/luscious",
 	"author": "Yisrael Grimes <yisrael@ignitehere.com>",
 	"license": "MIT",
 	"private": true,
 	"keywords": [
 		"sass",
-		"scss"
+		"scss",
+		"scaffold"
 	],
 	"devDependencies": {
 		"browser-sync": "^2.24.7",
@@ -21,9 +29,6 @@
 		"sass-true": "^4.0.0",
 		"sassdoc": "^2.5.0",
 		"sassdoc-theme-herman": "^3.0.0"
-	},
-	"scripts": {
-		"start": "gulp"
 	},
 	"dependencies": {
 		"modularscale-sass": "^3.0.5",

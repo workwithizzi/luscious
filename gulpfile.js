@@ -21,7 +21,7 @@ var styles = {
 	src: [
 		'./test/**/*.s+(a|c)ss',
 		'./core/**/*.s+(a|c)ss',
-		'./scaffold/**/*.s+(a|c)ss'
+		// './scaffold/**/*.s+(a|c)ss'
 	],
 	dest: 'test/'
 };
@@ -30,7 +30,7 @@ var styles = {
 var docs = {
 	src: 'core/**/*.s+(a|c)ss',
 	dest: 'docs/',
-	watch: styles.dest + '/**/*.css'
+	watch: styles.dest + 'test.css'
 }
 
 
@@ -47,10 +47,13 @@ g.task('default', [
 // ------------------------------------
 // SASS
 // ------------------------------------
+g.task('styles', ['styles:build', 'styles:watch']);
+
+
 // - Compile Sass
 // - Create Sourcemaps
 // - Autoprefix
-g.task('styles', ['styles:watch'], () => {
+g.task('styles:build', () => {
 	return g.src(styles.src)
 		.pipe(sourcemaps.init())
 		.pipe(sass({
@@ -92,12 +95,22 @@ g.task('lint', () => {
 // ------------------------------------
 // Sassdoc
 // ------------------------------------
+// - Watch & Compile Styles
+// - Watch & Compile Sassdoc
+// - Run local server
+g.task('docs', [
+	'styles:build',
+	'docs:build',
+	'docs:watch'
+]);
+
+
 // Use for dev and testing:
-// - Run Server
+// - Run Local Server
 // - Watch sass & compile
 // - Build sassdoc when sass Compiles
 // - Reload server
-g.task('docs', ['styles', 'docs:build'], () => {
+g.task('docs:watch', () => {
 	browserSync.init({
 		// proxy: 'yoursite.dev',
 		// tunnel: 'yoursite', // yoursite.localtunnel.me
@@ -108,7 +121,7 @@ g.task('docs', ['styles', 'docs:build'], () => {
 		port: 3000,
 		ui: { port: 8080 },
 	});
-	g.watch(styles.src, ['styles']);
+	g.watch(styles.src, ['styles:build']);
 	g.watch(docs.watch, ['docs:build']);
 	g.watch(docs.dest + '**/*.html').on('change', browserSync.reload);
 });

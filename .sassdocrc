@@ -15,11 +15,13 @@ herman:
       path: CHANGELOG.md
 
 groups:
-  Project Settings:
-    settings: 'Settings'
+  Global Settings:
+    global-settings: 'Settings'
   Utilities:
-    utils: 'Utilities'
-    layout: 'Layout'
+    utilities-utilities: 'Utilities'
+    utilities-layout: 'Layout'
+    utilities-typography: 'Typography'
+    utilities-images: 'Images'
   Internal:
-    int-settings: 'Settings'
-    int-help: 'Helpers'
+    internal-settings: 'Settings'
+    internal-help: 'Helpers'

@@ -7,7 +7,7 @@
 // ===================================================================
 
 ////
-/// @group layout
+/// @group utilities-layout
 /// @since v0.0.6
 ////
 
@@ -54,7 +54,7 @@
 	}
 	// Print info to terminal
 	@if $size == "info" {
-		@debug more-info("breakpoint", "mixin", "layout");
+		@debug more-info("breakpoint", "mixin", "utilities-layout");
 	}
 	@else {
 
@@ -129,7 +129,7 @@
 
 	// Provide info to terminal
 	@if $min == "info" {
-		@debug more-info("between_breakpoints", "mixin", "layout");
+		@debug more-info("between_breakpoints", "mixin", "utilities-layout");
 	}
 	@else {
 
@@ -196,7 +196,7 @@
 ///
 @mixin for_print($info: null) {
 	@if $info {
-		@debug more-info("for_print", "mixin", "layout");
+		@debug more-info("for_print", "mixin", "utilities-layout");
 	}
 	@else {
 		@media print {

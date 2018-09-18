@@ -3,7 +3,7 @@
 // ===================================================================
 
 ////
-/// @group utils
+/// @group utilities-utilities
 /// @since v0.0.6
 ////
 
@@ -28,7 +28,7 @@
 ///
 @function img($file, $path: $img_base_path) {
 	@if $file == "info" {
-		@debug more-info("img", "function", "utils");
+		@debug more-info("img", "function", "utilities-utilities");
 		@return null;
 	}
 	@else {
@@ -58,7 +58,7 @@
 ///
 @function font($file, $path: $font_base_path) {
 	@if $file == "info" {
-		@debug more-info("font", "function", "utils");
+		@debug more-info("font", "function", "utilities-utilities");
 		@return null;
 	}
 	@else {

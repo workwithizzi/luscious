@@ -62,6 +62,24 @@ $base_font_size: 1rem;
 $base_indent_amount: 4rem !default;
 
 
+/// Path to your images directory from your compiled `.css` file
+/// Modify this variable in your global settings file.
+/// Make sure to remove `!default` to override Luscious.
+/// @group settings
+/// @since v0.0.5
+/// @see {function} img
+///
+$img_base_path: '../images' !default;
+
+/// Path to your fonts directory from your compiled `.css` file
+/// Modify this variable in your global settings file.
+/// Make sure to remove `!default` to override Luscious.
+/// @group settings
+/// @since v0.0.5
+/// @see {function} font
+///
+$font_base_path: '../fonts' !default;
+
 // -------------------------------------
 // 3. Colors
 // -------------------------------------
@@ -208,8 +226,13 @@ $modularscale     : (
 // -------------------------------------
 // 7. Breakpoints
 // -------------------------------------
-// Use `em` units as they are the most consistent
-// for media queries across browsers
+/// ## Breakpoint Map
+/// A map for your default breakpoint widths. Prefer `em` units as
+/// they are the most consistent for media queries across browsers
+/// @group settings
+/// @since v0.0.4
+/// @see {mixin} breakpoint
+///
 $breakpoints: (
 	xs : 37.437em, // 599px
 	sm : 37.5em ,  // 600px
@@ -235,14 +258,6 @@ $z_index: (
 	base         : 1,
 	bottomless   : -9999,
 ) !default;
-
-
-// -------------------------------------
-// 9. Asset Paths
-// -------------------------------------
-// Path to the root images & fonts folders (in './build')
-$img_base_path: '../images' !default;
-$font_base_path: '../fonts' !default;
 
 
 // -------------------------------------

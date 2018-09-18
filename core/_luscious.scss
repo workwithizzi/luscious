@@ -35,19 +35,18 @@ $base_grid_container-spread: 'wide' !default;
 @import 'settings';
 
 
-// @import '../node_modules/susy/sass/susy';
-@import 'susy';
+@import '../node_modules/susy/sass/susy';
+// @import 'susy';
 
-// @import '../node_modules/modularscale-sass/stylesheets/modularscale';
-@import 'modularscale';
+@import '../node_modules/modularscale-sass/stylesheets/modularscale';
+// @import 'modularscale';
 
 
 // Helpers
 @import
-	'helpers/true-report',
+	'helpers/more-info',
 	'helpers/deprecation_warning',
 	'helpers/info-log',
-	'helpers/info-logger',
 	'helpers/maps',
 	'helpers/in-list',
 	'helpers/strip_unit',
@@ -63,7 +62,6 @@ $base_grid_container-spread: 'wide' !default;
 	'bin/breakpoints',
 	'bin/colors',
 	'bin/disable_outline',
-	'bin/buttons',
 	'bin/pesticide',
 	'bin/dev_colors',
 	'bin/paths',
@@ -82,12 +80,3 @@ $base_grid_container-spread: 'wide' !default;
 	'bin/google_fonts',
 	'bin/font-face',
 	'bin/grid_susy';
-
-
-// Tests and Info for Luscious Stuff
-// @import "helpers/tests";
-
-
-@import
-	'helpers/info.og',
-	'helpers/info';

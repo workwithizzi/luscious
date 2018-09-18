@@ -1,0 +1,5 @@
+
+_deprecating/
+test/
+gulpfile.js
+yarn.lock

@@ -6,9 +6,20 @@ herman:
   sass:
     includepaths:
       - 'core'
-      - 'scaffold'
+    includes:
+      - 'luscious'
   extraDocs:
     - name: 'ReadMe'
       path: README.md
     - name: 'Changelog'
       path: CHANGELOG.md
+
+groups:
+  Project Settings:
+    settings: 'Settings'
+  Utilities:
+    utils: 'Utilities'
+    layout: 'Layout'
+  Internal:
+    int-settings: 'Settings'
+    int-help: 'Helpers'

@@ -12,7 +12,6 @@
 	"homepage": "https://github.com/workwithizzi/luscious",
 	"author": "Yisrael Grimes <yisrael@ignitehere.com>",
 	"license": "MIT",
-	"private": true,
 	"keywords": [
 		"sass",
 		"scss",

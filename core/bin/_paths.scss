@@ -1,113 +1,67 @@
-// @title: Img & Font path Functions
-// @since: v0.0.6
-// @desc:  Creates paths to images and fonts directorys
+// Img & Font path Functions
+// - Creates paths to images and fonts directorys
 // ===================================================================
 
-// -------------------------------------
-// Img Function
-// -------------------------------------
-
-// Debugger
-$img-info: logger(
-	'img <function>',
-	'Creates a file path to your image including the CSS \'url()\' syntax.'
-	'to make it easier to insert images in your SASS.'
-	'Params:'
-	'  $file:  Required. File name with extension wrapped in quotes.'
-	'  $path:  Optional. Path from CSS file to image directory.'
-	'          Defaults to \'$img_base_path\' (#{$img_base_path}).'
-	'---------------'
-	'Example In:'
-	'.element {'
-	'  background: img("photo.jpg");'
-	'}'
-	'Example Out:'
-	'.element {'
-		'  background: url("../images/photo.jpg")'
-		'}'
-);
+////
+/// @group utilities-utilities
+/// @since v0.0.6
+////
 
 
-// Function
+
+/// ## Image Path Function
+/// Creates a file path to your image including the CSS 'url()'
+/// syntax to make it easier to insert images in your SASS.
+///
+/// @param {string} $file
+///   File name with extension wrapped in quotes.
+/// @param {string} $path [$img_base_path]
+///   Path from CSS file to image directory or file.
+///
+/// @see {variable} $img_base_path
+/// @see {function} font
+///
+/// @example scss
+///  .element {
+///    background: img("photo.jpg");
+///  }
+///
 @function img($file, $path: $img_base_path) {
-	@if $file == "info" { @debug $img-info; }
+	@if $file == "info" {
+		@debug more-info("img", "function", "utilities-utilities");
+		@return null;
+	}
 	@else {
 		@return url($path + '/' + $file);
 	}
 }
 
-
-// Unit Tests
-@include describe('Img path [function]') {
-	@include assert-equal (
-		img("test.jpg"),
-		url("../images/test.jpg")
-	);
-	@include true-report {
-		@include it('Creates the url file path to your image.') {
-			@include assert {
-				@include output {
-					background-image: img("test.jpg");
-				}
-				@include expect {
-					background-image: url("../images/test.jpg");
-				}
-			}
-		}
-	}
-}
+// ----------------
 
 
-// -------------------------------------
-// Font Function
-// -------------------------------------
-
-// Debugger
-$font-info: logger(
-	'font <function>',
-	'Creates a file path to your font file including the CSS \'url()\' syntax.'
-	'to make it easier to insert fonts in your SASS.'
-	'Params:'
-	'  $file:  Required. File name with extension wrapped in quotes.'
-	'  $path:  Optional. Path from CSS file to font directory.'
-	'          Defaults to \'$font_base_path\' (#{$font_base_path}).'
-	'---------------'
-	'Example In:'
-	'@font-face {'
-	'  src: font("my-font.otf");'
-	'}'
-	'Example Out:'
-	'@font-face {'
-	'  src: url("../fonts/my-font.otf");'
-	'}'
-);
-
-
-// Function
+/// ## Font Path Function
+/// Creates a file path to your font file including the CSS 'url()'
+/// syntax to make it easier to insert fonts in your SASS.
+///
+/// @param {string} $file
+///   File name with extension wrapped in quotes.
+/// @param {string} $path [$font_base_path]
+///   Path from CSS file to font directory or file.
+///
+/// @see {variable} $font_base_path
+/// @see {function} img
+///
+/// @example scss
+///  @font-face {
+///    src: font("my-font.otf");
+///  }
+///
 @function font($file, $path: $font_base_path) {
-	@if $file == "info" { @debug $font-info; }
+	@if $file == "info" {
+		@debug more-info("font", "function", "utilities-utilities");
+		@return null;
+	}
 	@else {
 		@return url($path + '/' + $file);
-	}
-}
-
-
-// Unit Tests
-@include describe('Font path [function]') {
-	@include assert-equal (
-		font("test.otf"),
-		url("../fonts/test.otf")
-	);
-	@include true-report {
-		@include it('Creates the url file path to your font.') {
-			@include assert {
-				@include output {
-					src: font("test.otf");
-				}
-				@include expect {
-					src: url("../fonts/test.otf");
-				}
-			}
-		}
 	}
 }

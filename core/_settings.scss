@@ -7,6 +7,12 @@
 // @see:   url/to/luscious/documentation
 // ===================================================================
 
+////
+/// @group global-settings
+/// @since v0.0.5
+////
+
+
 // Contents
 // 1. Developement
 // 2. Base
@@ -17,12 +23,11 @@
 //   6.1 Font-Stacks
 //   6.2 Modular Scale
 // 7. Breakpoints
-// 8. Z-index Map
+// 8. Z-Index
 // 9. Asset Paths
 // 10. Icons
 // 11. Grid
 // 12. Buttons
-// 13. Hamburger Menus
 
 // --------------------------------------------------------------------
 
@@ -62,6 +67,20 @@ $base_font_size: 1rem;
 // How much things like lists and blockquotes are indented.
 $base_indent_amount: 4rem !default;
 
+
+/// Path to your images directory from your compiled `.css` file
+/// Modify this variable in your global settings file.
+/// Make sure to remove `!default` to override Luscious.
+/// @see {function} img
+///
+$img_base_path: '../images' !default;
+
+/// Path to your fonts directory from your compiled `.css` file
+/// Modify this variable in your global settings file.
+/// Make sure to remove `!default` to override Luscious.
+/// @see {function} font
+///
+$font_base_path: '../fonts' !default;
 
 // -------------------------------------
 // 3. Colors
@@ -209,8 +228,12 @@ $modularscale     : (
 // -------------------------------------
 // 7. Breakpoints
 // -------------------------------------
-// Use `em` units as they are the most consistent
-// for media queries across browsers
+/// ## Breakpoint Map
+/// A map for your default breakpoint widths. Prefer `em` units as
+/// they are the most consistent for media queries across browsers
+/// @since v0.0.4
+/// @see {mixin} breakpoint
+///
 $breakpoints: (
 	xs : 37.437em, // 599px
 	sm : 37.5em ,  // 600px
@@ -221,30 +244,19 @@ $breakpoints: (
 
 
 // -------------------------------------
-// 8. Z-index Map
+// 8. Z-Index
 // -------------------------------------
-// 2DO-YG: Possibly remove the map in-favor of regular variables
-$z_index: (
-	nosebleed    : 9999,
-	tooltip      : 600,
-	popup        : 500,
-	popup_bg     : 400,
-	nav          : 300,
-	footer       : 200,
-	scrim        : 100,
-	overlay_base : 100,
-	base         : 1,
-	bottomless   : -9999,
-) !default;
 
-
-// -------------------------------------
-// 9. Asset Paths
-// -------------------------------------
-// Path to the root images & fonts folders (in './build')
-$img_base_path: '../images' !default;
-$font_base_path: '../fonts' !default;
-
+$z_nosebleed    : 9999  !default;
+$z_tooltip      : 600   !default;
+$z_popup        : 500   !default;
+$z_popup_bg     : 400   !default;
+$z_nav          : 300   !default;
+$z_footer       : 200   !default;
+$z_scrim        : 100   !default;
+$z_overlay_base : 100   !default;
+$z_base         : 1     !default;
+$z_bottomless   : -9999 !default;
 
 // -------------------------------------
 // 10. Icons
@@ -268,88 +280,9 @@ $fa-li-width:         (30em / 14)      !default;
 // @see: goo.gl/Ak5Bo8
 
 // @IVAN: Can you add a really short description for what each one of these does?
-$base_grid_columns: 6;
-$base_grid_gutters: 0.25;
-$base_grid_spread: 'narrow';
-$base_grid_container-spread: 'narrow';
-
-
-// // -------------------------------------
-// // 12. Buttons
-// // -------------------------------------
-// // Decide if buttons are solid or hollow by defualt
-// $button_fill: solid !default;
-//
-// // Default border-width for buttons
-// $button_border_width: .1rem !default;
-//
-// // Default hover style
-// $button_hover: lighten !default; // Sass color functions: goo.gl/Qdc0rM
-// $button_hover_amount: 30% !default;
-//
-// // Hollow Button
-// $button_hollow_border_width: $button_border_width !default;
-// // $button_hollow_hover: -50%;
-//
-// // Disabled Buttons
-// $button_disabled_opacity: .4 !default;
-//
-// // Set default button to primary
-// $button_default_style: primary !default;
-//
-// $button_styles: (
-// 	default: (
-// 		width: auto,
-// 		margin: .4rem,
-// 		padding: .8rem,
-// 		font-family: inherit,
-// 		font-size: 1rem,
-// 		font-weight: 600,
-// 		line-height: 1,
-// 		text-decoration: none,
-// 		text-transform: none,
-// 		text-align: center,
-// 		transition: all 250ms ease-in-out,
-// 		border-width: $button_border_width,
-// 		border-style: solid,
-// 		border-color: transparent,
-// 		border-radius: 0px,
-// 	),
-// 	primary: (
-// 		color: $cl_white,
-// 		background-color: $cl_primary,
-// 	),
-// 	secondary: (
-// 		color: $cl_white,
-// 		background-color: $cl_secondary,
-// 	),
-// 	light: (
-// 		color: $cl_black,
-// 		background-color: $cl_white,
-// 		border-color: $cl_black,
-// 	),
-// 	dark: (
-// 		color: $cl_white,
-// 		background-color: $cl_black,
-// 	),
-// ) !default;
-
-
-// -------------------------------------
-// 13. Hamburger Menus
-// -------------------------------------
-// TODO: Fix this. Removing Hamburgers until they are fixed
-// Sizes (in rem)
-// $burger-padding-x                       : 1.5rem !default;
-// $burger-padding-y                       : 1.5rem !default;
-// $burger-layer-width                     : 4rem   !default;
-// $burger-layer-height                    : .4rem  !default;
-// $burger-layer-spacing                   : .6rem  !default;
-// $burger-layer-border-radius             : .4rem  !default;
-//
-// // Settings
-// $burger-layer-color                     : $cl_nav-text     !default;
-// $burger-background-color                : transparent !default;
-// $burger-hover-opacity                   : 0.7         !default;
-// $burger-hover-transition-duration       : 0.15s       !default;
-// $burger-hover-transition-timing-function: linear      !default;
+$susy: (
+	'columns': susy-repeat(6),
+	'gutters': 0.25,
+	'spread': 'narrow',
+	'container-spread': 'narrow',
+) !default;

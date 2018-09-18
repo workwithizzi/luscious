@@ -1,0 +1,26 @@
+// @title: Tests for Luscious Core
+// @since: v0.0.6
+// @desc:  Import test files
+// ===================================================================
+
+
+// Sass Unit Testing (http://oddbird.net/true/docs/)
+@import true
+
+// Terminal output for True
+$true-terminal-output: true
+// Custom Var for True to determine if tests should print in css report
+$true-css-output: false
+
+
+// Import Luscious
+@import ../core/luscious
+
+
+// Test Tools
+@import bin/tools/true-report
+
+
+// Import Tests
+@import bin/paths
+@import bin/breakpoints

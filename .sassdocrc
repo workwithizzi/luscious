@@ -1,0 +1,27 @@
+theme: 'herman'
+dest: docs/
+src: core/
+
+herman:
+  sass:
+    includepaths:
+      - 'core'
+    includes:
+      - 'luscious'
+  extraDocs:
+    - name: 'ReadMe'
+      path: README.md
+    - name: 'Changelog'
+      path: CHANGELOG.md
+
+groups:
+  Global Settings:
+    global-settings: 'Settings'
+  Utilities:
+    utilities-utilities: 'Utilities'
+    utilities-layout: 'Layout'
+    utilities-typography: 'Typography'
+    utilities-images: 'Images'
+  Internal:
+    internal-settings: 'Settings'
+    internal-help: 'Helpers'

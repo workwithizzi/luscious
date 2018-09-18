@@ -10,7 +10,23 @@
 		"sass",
 		"scss"
 	],
+	"devDependencies": {
+		"browser-sync": "^2.24.7",
+		"gulp": "^3.9.1",
+		"gulp-autoprefixer": "^6.0.0",
+		"gulp-sass": "^4.0.1",
+		"gulp-sass-lint": "^1.4.0",
+		"gulp-sourcemaps": "^2.6.4",
+		"node-sass": "^4.9.3",
+		"sass-true": "^4.0.0",
+		"sassdoc": "^2.5.0",
+		"sassdoc-theme-herman": "^3.0.0"
+	},
+	"scripts": {
+		"start": "gulp"
+	},
 	"dependencies": {
-		"sass-true": "^4.0.0"
+		"modularscale-sass": "^3.0.5",
+		"susy": "^3.0.5"
 	}
 }

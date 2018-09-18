@@ -1,0 +1,221 @@
+// 2DO-YG: Finish adding tests, research how to do terminal outputs for @content
+
+// -------------------------------------
+// BreakPoint Mixin
+// -------------------------------------
+@include describe('Breakpoint [mixin]') {
+	@include true-report(solo) {
+		
+		@include it('Creates a min-width query with custom width.') {
+			@include assert {
+				@include output {
+					@include breakpoint(401px) {
+						font-size: 2rem;
+					}
+				}
+				@include expect {
+					@media only screen and (min-width: 401px) {
+						font-size: 2rem;
+					}
+				}
+			}
+		}
+		
+		@include it('Creates a max-width query with custom width.') {
+			@include assert {
+				@include output {
+					@include breakpoint(401px, max-width) {
+						font-size: 2rem;
+					}
+				}
+				@include expect {
+					@media only screen and (max-width: 401px) {
+						font-size: 2rem;
+					}
+				}
+			}
+		}
+		
+		@include it('Creates a min-width query using map/key for width.') {
+			@include assert {
+				@include output {
+					@include breakpoint(md) {
+						font-size: 2rem;
+					}
+				}
+				@include expect {
+					@media only screen and (min-width: 61.875em) {
+						font-size: 2rem;
+					}
+				}
+			}
+		}
+
+	}
+}
+
+
+
+
+
+
+// ===================================================================
+// ===================================================================
+// Old Tests
+// ===================================================================
+// ===================================================================
+// 
+// @mixin __test_breakpoint {
+// 	@if $output_test_message { @debug "[TESTING] `breakpoint`"; }
+// 	/* `breakpoint` --------------------- */
+// 	/*
+// 	.test.breakpoint {
+// 		color: red;
+// 		@include breakpoint(xs) {
+// 			color: green;
+// 		}
+// 	}
+// 	*/
+// 	.test.breakpoint {
+// 		color: red;
+// 		@include breakpoint(xs) {
+// 			color: green;
+// 		}
+// 	}
+// 	/* ================ */
+// 	/*
+// 	.test.breakpoint_size {
+// 		color: pink;
+// 		@include breakpoint(900px) {
+// 			color: purple;
+// 		}
+// 	}
+// 	*/
+// 	.test.breakpoint_size {
+// 		color: pink;
+// 		@include breakpoint(900px) {
+// 			color: purple;
+// 		}
+// 	}
+// 	/* ================ */
+// 	/*
+// 	.test.breakpoint_query {
+// 		color: blue;
+// 		@include breakpoint(599px, 'max') {
+// 			color: seagreen;
+// 		}
+// 	}
+// 	*/
+// 	.test.breakpoint_query {
+// 		color: blue;
+// 		@include breakpoint(599px, 'max') {
+// 			color: seagreen;
+// 		}
+// 	}
+// 	/* ================ */
+// 	/*
+// 	.test.breakpoint_alias {
+// 		color: deepskyblue;
+// 		@include bp(599px, 'max') {
+// 			color: cornsilk;
+// 		}
+// 	}
+// 	*/
+// 	.test.breakpoint_alias {
+// 		color: deepskyblue;
+// 		@include bp(599px, 'max') {
+// 			color: cornsilk;
+// 		}
+// 	}
+// 	/* End `breakpoint` ------------------- */
+// }
+// 
+// // -------------------------------------
+// 
+// @mixin __test_between_breakpoints {
+// 	@if $output_test_message { @debug "[TESTING] `between_breakpoints`"; }
+// 	/* `between_breakpoints` ------------ */
+// 	/*
+// 	.test.between_breakpoints {
+// 		color: red;
+// 		@include between_breakpoints(xs, lg) {
+// 			color: green;
+// 		}
+// 	}
+// 	*/
+// 	.test.between_breakpoints {
+// 		color: red;
+// 		@include between_breakpoints(xs, lg) {
+// 			color: green;
+// 		}
+// 	}
+// 	/* ================ */
+// 	/*
+// 	.test.between_breakpoints_min {
+// 		color: pink;
+// 		@include between_breakpoints(700px, lg) {
+// 			color: blue;
+// 		}
+// 	}
+// 	*/
+// 	.test.between_breakpoints_min {
+// 		color: pink;
+// 		@include between_breakpoints(700px, lg) {
+// 			color: blue;
+// 		}
+// 	}
+// 	/* ================ */
+// 	/*
+// 	.test.between_breakpoints_min-max {
+// 		color: purple;
+// 		@include between_breakpoints(700px, 80em) {
+// 			color: yellow;
+// 		}
+// 	}
+// 	*/
+// 	.test.between_breakpoints_min-max {
+// 		color: purple;
+// 		@include between_breakpoints(700px, 80em) {
+// 			color: yellow;
+// 		}
+// 	}
+// 	/* ================ */
+// 	/*
+// 	.test.between_breakpoints_alias {
+// 		color: chocolate;
+// 		@include between_bp(500px, xl) {
+// 			color: cadetblue;
+// 		}
+// 	}
+// 	*/
+// 	.test.between_breakpoints_alias {
+// 		color: chocolate;
+// 		@include between_breakpoints(500px, xl) {
+// 			color: cadetblue;
+// 		}
+// 	}
+// 	/* End `between_breakpoints` ---------- */
+// }
+// 
+// 
+// // -------------------------------------
+// 
+// @mixin __test_for_print {
+// 	@if $output_test_message { @debug "[TESTING] `for_print`"; }
+// 	/* `for_print` ---------------------- */
+// 	/*
+// 	.test.for_print {
+// 		color: red;
+// 		@include for_print {
+// 			color: green;
+// 		}
+// 	}
+// 	*/
+// 	.test.for_print {
+// 		color: red;
+// 		@include for_print {
+// 			color: green;
+// 		}
+// 	}
+// 	/* End `for_print` -------------------- */
+// }

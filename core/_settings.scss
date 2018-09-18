@@ -7,6 +7,12 @@
 // @see:   url/to/luscious/documentation
 // ===================================================================
 
+////
+/// @group global-settings
+/// @since v0.0.5
+////
+
+
 // Contents
 // 1. Developement
 // 2. Base
@@ -65,8 +71,6 @@ $base_indent_amount: 4rem !default;
 /// Path to your images directory from your compiled `.css` file
 /// Modify this variable in your global settings file.
 /// Make sure to remove `!default` to override Luscious.
-/// @group settings
-/// @since v0.0.5
 /// @see {function} img
 ///
 $img_base_path: '../images' !default;
@@ -74,8 +78,6 @@ $img_base_path: '../images' !default;
 /// Path to your fonts directory from your compiled `.css` file
 /// Modify this variable in your global settings file.
 /// Make sure to remove `!default` to override Luscious.
-/// @group settings
-/// @since v0.0.5
 /// @see {function} font
 ///
 $font_base_path: '../fonts' !default;
@@ -229,7 +231,6 @@ $modularscale     : (
 /// ## Breakpoint Map
 /// A map for your default breakpoint widths. Prefer `em` units as
 /// they are the most consistent for media queries across browsers
-/// @group settings
 /// @since v0.0.4
 /// @see {mixin} breakpoint
 ///
@@ -282,68 +283,9 @@ $fa-li-width:         (30em / 14)      !default;
 // @see: goo.gl/Ak5Bo8
 
 // @IVAN: Can you add a really short description for what each one of these does?
-$base_grid_columns: 6;
-$base_grid_gutters: 0.25;
-$base_grid_spread: 'narrow';
-$base_grid_container-spread: 'narrow';
-
-
-// // -------------------------------------
-// // 12. Buttons
-// // -------------------------------------
-// // Decide if buttons are solid or hollow by defualt
-// $button_fill: solid !default;
-//
-// // Default border-width for buttons
-// $button_border_width: .1rem !default;
-//
-// // Default hover style
-// $button_hover: lighten !default; // Sass color functions: goo.gl/Qdc0rM
-// $button_hover_amount: 30% !default;
-//
-// // Hollow Button
-// $button_hollow_border_width: $button_border_width !default;
-// // $button_hollow_hover: -50%;
-//
-// // Disabled Buttons
-// $button_disabled_opacity: .4 !default;
-//
-// // Set default button to primary
-// $button_default_style: primary !default;
-//
-// $button_styles: (
-// 	default: (
-// 		width: auto,
-// 		margin: .4rem,
-// 		padding: .8rem,
-// 		font-family: inherit,
-// 		font-size: 1rem,
-// 		font-weight: 600,
-// 		line-height: 1,
-// 		text-decoration: none,
-// 		text-transform: none,
-// 		text-align: center,
-// 		transition: all 250ms ease-in-out,
-// 		border-width: $button_border_width,
-// 		border-style: solid,
-// 		border-color: transparent,
-// 		border-radius: 0px,
-// 	),
-// 	primary: (
-// 		color: $cl_white,
-// 		background-color: $cl_primary,
-// 	),
-// 	secondary: (
-// 		color: $cl_white,
-// 		background-color: $cl_secondary,
-// 	),
-// 	light: (
-// 		color: $cl_black,
-// 		background-color: $cl_white,
-// 		border-color: $cl_black,
-// 	),
-// 	dark: (
-// 		color: $cl_white,
-// 		background-color: $cl_black,
-// 	),
-// ) !default;
+$susy: (
+	'columns': susy-repeat(6),
+	'gutters': 0.25,
+	'spread': 'narrow',
+	'container-spread': 'narrow',
+) !default;

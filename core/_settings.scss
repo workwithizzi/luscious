@@ -23,7 +23,7 @@
 //   6.1 Font-Stacks
 //   6.2 Modular Scale
 // 7. Breakpoints
-// 8. Z-index Map
+// 8. Z-Index
 // 9. Asset Paths
 // 10. Icons
 // 11. Grid
@@ -244,22 +244,19 @@ $breakpoints: (
 
 
 // -------------------------------------
-// 8. Z-index Map
+// 8. Z-Index
 // -------------------------------------
-// 2DO-YG: Possibly remove the map in-favor of regular variables
-$z_index: (
-	nosebleed    : 9999,
-	tooltip      : 600,
-	popup        : 500,
-	popup_bg     : 400,
-	nav          : 300,
-	footer       : 200,
-	scrim        : 100,
-	overlay_base : 100,
-	base         : 1,
-	bottomless   : -9999,
-) !default;
 
+$z_nosebleed    : 9999  !default;
+$z_tooltip      : 600   !default;
+$z_popup        : 500   !default;
+$z_popup_bg     : 400   !default;
+$z_nav          : 300   !default;
+$z_footer       : 200   !default;
+$z_scrim        : 100   !default;
+$z_overlay_base : 100   !default;
+$z_base         : 1     !default;
+$z_bottomless   : -9999 !default;
 
 // -------------------------------------
 // 10. Icons

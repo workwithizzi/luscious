@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <title>utilities | luscious-sass Documentation</title>
+  <title>Utilities | luscious-sass Documentation</title>
 
   <link href="assets/img/favicon.ico" rel="shortcut icon">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600|Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
@@ -81,12 +81,38 @@
     
     <div class="nav-subsection">
       <ul>
+            <li class="nav-subsection">
+              <h3 class="nav-title">Project Settings</h3>
+              <ul>
+                
+  
+    <li class="nav-item">
+      <a href="settings.html" data-nav="is-not-active">Settings</a>
+    </li>
+  </ul>
+            </li>
+            <li class="nav-subsection">
+              <h3 class="nav-title">Utilities</h3>
+              <ul>
+                
+  
+    <li class="nav-item">
+      <a href="utils.html" data-nav="is-active">Utilities</a>
+    </li>
   
   
     <li class="nav-item">
-      <a href="utilities.html" data-nav="is-active">utilities</a>
+      <a href="layout.html" data-nav="is-not-active">Layout</a>
     </li>
   </ul>
+            </li>
+            <li class="nav-subsection">
+              <h3 class="nav-title">Internal</h3>
+              <ul>
+                
+  
+  </ul>
+            </li></ul>
     </div>
 
     
@@ -122,11 +148,11 @@
   <nav class="breadcrumb">
     
     <a href="index.html" >luscious-sass</a> »
-    <strong>utilities</strong>
+    <strong>Utilities</strong>
   </nav>
 
 
-        <div data-page="utilities">
+        <div data-page="utils">
           
   
     
@@ -180,10 +206,18 @@
 
   
     <div class="text-block">
-      <p>Creates a file path to your image including the CSS ‘url()’
-<a href="http://syntax.to">syntax.to</a> make it easier to insert images in your<span class="widont">&nbsp;</span>SASS.</p>
+      <h2 id="image-path-function">Image Path Function</h2>
+<p>Creates a file path to your image including the CSS ‘url()’
+syntax to make it easier to insert images in your<span class="widont">&nbsp;</span>SASS.</p>
 
       
+  
+    
+      <section class="summary-subsection">
+        <h3 class="summary-subtitle">Since <code>v0.0.6</code>:</h3>
+        <div class="subsection-details"></div>
+      </section>
+    
   
 
       
@@ -256,7 +290,7 @@
       
         <span class="item-name">$path:</span>
       
-      
+      <span class="item-value">$img_base_path</span>
       <span class="value-type">(string)</span>
       
     </h4>
@@ -264,8 +298,7 @@
     
       
       <div class="param-details text-block">
-        <p>Optional. Path from CSS file to image directory.
-Defaults to<span class="widont">&nbsp;</span>‘$img_base_path’</p>
+        <p>Path from CSS file to image directory or<span class="widont">&nbsp;</span>file.</p>
 
       </div>
     
@@ -359,7 +392,7 @@ Defaults to<span class="widont">&nbsp;</span>‘$img_base_path’</p>
       
       
       <pre class="hljs-pre"><code class="lang-css">.element {
-  background: img(&quot;photo.jpg&quot;);
+  background: url(&quot;../images/photo.jpg&quot;);
 }
 </code></pre>
     </div>
@@ -374,6 +407,418 @@ Defaults to<span class="widont">&nbsp;</span>‘$img_base_path’</p>
     </div>
   
 
+
+  
+
+    
+  <div data-item-section="related">
+    
+      <h3 class="item-subtitle">
+        <span class="item-subtitle-main">Related</span>
+        
+      </h3>
+    
+
+    
+      
+
+      
+        
+  
+  
+  
+  
+  
+
+  
+  <div class="param-list">
+    <h4 class="param-title">
+      
+      
+        <a href="
+  settings.html#variable--img_base_path" class="item-name">$img_base_path</a>
+      
+      
+      
+      
+    </h4>
+
+    
+  </div>
+
+
+      
+        
+  
+  
+  
+  
+  
+
+  
+  <div class="param-list">
+    <h4 class="param-title">
+      <span class="item-type">@function</span>
+      
+        <a href="
+  utils.html#function--font" class="item-name">font()</a>
+      
+      
+      
+      
+    </h4>
+
+    
+  </div>
+
+
+      
+    
+  </div>
+
+  
+  
+  
+  
+    
+    
+  
+
+  
+
+  
+  
+
+
+  
+  
+
+  
+  
+
+</section>
+
+  
+    
+    
+
+
+
+
+
+
+
+
+
+
+<section class="item" id="function--font">
+  
+    
+  
+  
+
+  
+  
+  
+  
+
+  <div data-item-section="header">
+    <h2 class="item-title">
+      
+        <span class="item-type">@function</span>
+      
+
+      
+        <a href="#function--font" class="item-name">font()</a>
+      
+
+      
+
+      
+    </h2>
+
+    
+  
+
+
+    
+    
+  
+  
+  
+  
+
+  
+    <div class="text-block">
+      <h2 id="font-path-function">Font Path Function</h2>
+<p>Creates a file path to your font file including the CSS ‘url()’
+syntax to make it easier to insert fonts in your<span class="widont">&nbsp;</span>SASS.</p>
+
+      
+  
+    
+      <section class="summary-subsection">
+        <h3 class="summary-subtitle">Since <code>v0.0.6</code>:</h3>
+        <div class="subsection-details"></div>
+      </section>
+    
+  
+
+      
+  
+
+      
+  
+
+    </div>
+  
+
+  </div>
+
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    
+  <div data-item-section="parameter">
+    
+      <h3 class="item-subtitle">
+        <span class="item-subtitle-main">Parameters</span>
+        
+      </h3>
+    
+
+    
+      
+        
+  
+  
+
+  
+  <div class="param-list">
+    <h4 class="param-title">
+      
+      
+        <span class="item-name">$file:</span>
+      
+      
+      <span class="value-type">(string)</span>
+      
+    </h4>
+
+    
+      
+      <div class="param-details text-block">
+        <p>File name with extension wrapped in<span class="widont">&nbsp;</span>quotes.</p>
+
+      </div>
+    
+  </div>
+
+
+      
+        
+  
+  
+
+  
+  <div class="param-list">
+    <h4 class="param-title">
+      
+      
+        <span class="item-name">$path:</span>
+      
+      <span class="item-value">$font_base_path</span>
+      <span class="value-type">(string)</span>
+      
+    </h4>
+
+    
+      
+      <div class="param-details text-block">
+        <p>Path from CSS file to font directory or<span class="widont">&nbsp;</span>file.</p>
+
+      </div>
+    
+  </div>
+
+
+      
+
+      
+  
+
+      
+  
+
+      
+  
+
+      
+  
+
+    
+  </div>
+
+  
+
+
+  
+  
+    
+
+    <div data-item-section="examples">
+      <h3 class="item-subtitle">
+        <span class="item-subtitle-main">Example</span>
+      </h3>
+
+      
+        
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  <div class="example">
+    <div class="example-code">
+      
+  
+    <div class="code-block">
+      
+        <div class="code-header">
+          <span class="code-language">
+            scss
+          </span>
+
+          
+        </div>
+      
+
+      
+      
+      <pre class="hljs-pre"><code class="lang-scss">@font-face {
+  src: font(&quot;my-font.otf&quot;);
+}</code></pre>
+    </div>
+  
+
+  
+    <div class="code-block">
+      
+        <div class="code-header">
+          <span class="code-language">
+            css
+          </span>
+
+          
+            <span class='code-description'>
+              compiled
+            </span>
+          
+        </div>
+      
+
+      
+      
+      <pre class="hljs-pre"><code class="lang-css">@font-face {
+  src: url(&quot;../fonts/my-font.otf&quot;);
+}
+</code></pre>
+    </div>
+  
+
+    </div>
+
+    
+  </div>
+
+      
+    </div>
+  
+
+
+  
+
+    
+  <div data-item-section="related">
+    
+      <h3 class="item-subtitle">
+        <span class="item-subtitle-main">Related</span>
+        
+      </h3>
+    
+
+    
+      
+
+      
+        
+  
+  
+  
+  
+  
+
+  
+  <div class="param-list">
+    <h4 class="param-title">
+      
+      
+        <a href="
+  settings.html#variable--font_base_path" class="item-name">$font_base_path</a>
+      
+      
+      
+      
+    </h4>
+
+    
+  </div>
+
+
+      
+        
+  
+  
+  
+  
+  
+
+  
+  <div class="param-list">
+    <h4 class="param-title">
+      <span class="item-type">@function</span>
+      
+        <a href="
+  utils.html#function--img" class="item-name">img()</a>
+      
+      
+      
+      
+    </h4>
+
+    
+  </div>
+
+
+      
+    
+  </div>
 
   
   

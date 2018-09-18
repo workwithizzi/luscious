@@ -1,7 +1,7 @@
 # Luscious SASS
 *A Library of SASS functions/mixin/variables/stuff*
 
-**Current Version: v0.0.5: Unstable**
+**Current Version: v0.0.6: Unstable**
 Don't use this package until v1.0.0
 
 

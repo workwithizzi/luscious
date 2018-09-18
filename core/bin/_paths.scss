@@ -1,0 +1,67 @@
+// Img & Font path Functions
+// - Creates paths to images and fonts directorys
+// ===================================================================
+
+////
+/// @group utilities-utilities
+/// @since v0.0.6
+////
+
+
+
+/// ## Image Path Function
+/// Creates a file path to your image including the CSS 'url()'
+/// syntax to make it easier to insert images in your SASS.
+///
+/// @param {string} $file
+///   File name with extension wrapped in quotes.
+/// @param {string} $path [$img_base_path]
+///   Path from CSS file to image directory or file.
+///
+/// @see {variable} $img_base_path
+/// @see {function} font
+///
+/// @example scss
+///  .element {
+///    background: img("photo.jpg");
+///  }
+///
+@function img($file, $path: $img_base_path) {
+	@if $file == "info" {
+		@debug more-info("img", "function", "utilities-utilities");
+		@return null;
+	}
+	@else {
+		@return url($path + '/' + $file);
+	}
+}
+
+// ----------------
+
+
+/// ## Font Path Function
+/// Creates a file path to your font file including the CSS 'url()'
+/// syntax to make it easier to insert fonts in your SASS.
+///
+/// @param {string} $file
+///   File name with extension wrapped in quotes.
+/// @param {string} $path [$font_base_path]
+///   Path from CSS file to font directory or file.
+///
+/// @see {variable} $font_base_path
+/// @see {function} img
+///
+/// @example scss
+///  @font-face {
+///    src: font("my-font.otf");
+///  }
+///
+@function font($file, $path: $font_base_path) {
+	@if $file == "info" {
+		@debug more-info("font", "function", "utilities-utilities");
+		@return null;
+	}
+	@else {
+		@return url($path + '/' + $file);
+	}
+}

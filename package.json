@@ -1,6 +1,6 @@
 {
 	"name": "luscious-sass",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"description": "A library of SASS mixins, functions, and variables to use in your front-end projects.",
 	"repository": "https://gitlab.com/ignitecreative/cookbook/luscious-sass",
 	"author": "Yisrael Grimes <yisrael@ignitehere.com>",
@@ -9,5 +9,24 @@
 	"keywords": [
 		"sass",
 		"scss"
-	]
+	],
+	"devDependencies": {
+		"browser-sync": "^2.24.7",
+		"gulp": "^3.9.1",
+		"gulp-autoprefixer": "^6.0.0",
+		"gulp-sass": "^4.0.1",
+		"gulp-sass-lint": "^1.4.0",
+		"gulp-sourcemaps": "^2.6.4",
+		"node-sass": "^4.9.3",
+		"sass-true": "^4.0.0",
+		"sassdoc": "^2.5.0",
+		"sassdoc-theme-herman": "^3.0.0"
+	},
+	"scripts": {
+		"start": "gulp"
+	},
+	"dependencies": {
+		"modularscale-sass": "^3.0.5",
+		"susy": "^3.0.5"
+	}
 }

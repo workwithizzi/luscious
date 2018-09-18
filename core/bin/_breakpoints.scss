@@ -1,0 +1,206 @@
+// BreakPoint Mixins
+// - breakpoint
+//   - alias: bp
+// - between_breakpoints
+//   - alias: between_bp
+// - for_print
+// ===================================================================
+
+////
+/// @group utilities-layout
+/// @since v0.0.6
+////
+
+
+
+/// ## Media Query Mixin
+/// Creates a `screen-only` media-queries.
+///
+/// @param {string | number} $size
+///   Enter the desired view-port width size or key from a map.
+///   If a string is used, it needs to match a map key.
+///   If a number is used, it requires a unit (px/em/rem). **em is preferred.**
+/// @param {string} $query ['min-width']
+///   Will accept `min-width` and `max-width` queries.
+/// @param {string} $map [$breakpoints]
+///   Enter your own map to override the default map in the global settings.
+///
+/// @content [CSS content for the breakpoint]
+///
+/// @see {variable} $breakpoints
+/// @see {mixin} between_breakpoints
+/// @see {mixin} for_print
+///
+/// @example scss
+///  @include breakpoint(md) {
+///    .element {
+///      font-size: 2rem;
+///    }
+///  }
+/// @example scss
+///  .element {
+///    font-size: 1rem;
+///    @include bp(480px) {
+///      font-size: 1.4rem
+///    }
+///  }
+///
+@mixin breakpoint($size, $query: 'min-width', $map: $breakpoints) {
+
+	@if $query == "min" { $query: "min-width"; }
+	@if $query == "max" { $query: "max-width"; }
+	@if $query == "print" {
+		@warn "Use the `for_print` mixin for `print` media queries only.";
+	}
+	// Print info to terminal
+	@if $size == "info" {
+		@debug more-info("breakpoint", "mixin", "utilities-layout");
+	}
+	@else {
+
+		// Use the sass map if the key matches the map
+		@if map-has-key($map, $size) {
+			@media only screen and (#{$query}: map-get($map, $size)) {
+				@content;
+			}
+		}
+		// If the key doesn't match the map and is a number, use it.
+		@else if type-of($size) == number {
+			@media only screen and (#{$query}: $size) {
+				@content;
+			}
+		}
+		// If the map/key or number works, send a message to terminal
+		@else {
+			@warn "`#{$size}` is not a number. You're gonna need a number here, bud.";
+		}
+	}
+}
+
+/// ## BP
+/// Alias for `breakpoint`
+///
+/// @alias breakpoint
+///
+@mixin bp($size, $query: 'min-width', $map: $breakpoints) {
+	@include breakpoint($size, $query, $map) {
+		@content;
+	}
+}
+
+// -----------------
+
+
+/// ## Min-Max Media Query Mixin
+/// Creates a `screen-only` media-query between a min and max size.
+///
+/// @param {string | number} $min
+///   Enter the desired view-port min-width size or key from a map.
+///   If a string is used, it needs to match a map key.
+///   If a number is used, it requires a unit (px/em/rem). **em is preferred.**
+/// @param {string | number} $max
+///   Enter the desired view-port min-width size or key from a map.
+///   If a string is used, it needs to match a map key.
+///   If a number is used, it requires a unit (px/em/rem). **em is preferred.**
+/// @param {string} $map [$breakpoints]
+///   Enter your own map to override the default map in the global settings.
+///
+/// @content [CSS content for the breakpoint]
+///
+/// @see {variable} $breakpoints
+/// @see {mixin} breakpoint
+/// @see {mixin} for_print
+///
+/// @example scss
+///  @include between_breakpoints(sm, md) {
+///    .element {
+///      font-size: 2rem;
+///    }
+///  }
+/// @example scss
+///  .element {
+///    font-size: 2rem;
+///    @include between_breakpoints(480px, 890px) {
+///      font-size: 2.4rem;
+///    }
+///  }
+///
+@mixin between_breakpoints($min, $max: null, $map: $breakpoints) {
+
+	// Provide info to terminal
+	@if $min == "info" {
+		@debug more-info("between_breakpoints", "mixin", "utilities-layout");
+	}
+	@else {
+
+		// Validate $min param
+		@if map-has-key($map, $min) {
+			$min: map-get($map, $min);
+		} @else if type-of($min) == number {
+			$min: $min;
+		} @else {
+			@warn "`#{$min}` needs to be a number.";
+		}
+
+		// Validate $max param
+		@if map-has-key($map, $max) {
+			$max: map-get($map, $max);
+		} @else if type-of($max) == number {
+			$max: $max;
+		} @else {
+			@warn "`#{$max}` needs to be a number.";
+		}
+
+		@media only screen and (min-width: $min) and (max-width: $max) {
+			@content;
+		}
+	}
+}
+
+
+/// ## Between_BP
+/// Alias for `between_breakpoints`
+///
+/// @alias between_breakpoints
+///
+@mixin between_bp($min, $max: null, $map: $breakpoints) {
+	@include between_breakpoints($min, $max, $map) {
+		@content;
+	}
+}
+
+// ----------------
+
+
+/// ## Print Media Query Mixin
+/// Creates a `@media print` media-query.
+///
+/// @content [CSS content for the breakpoint]
+///
+/// @see {mixin} breakpoint
+/// @see {mixin} between_breakpoints
+///
+/// @example scss
+///  @include for_print {
+///    .element {
+///      font-size: 20px;
+///    }
+///  }
+/// @example scss
+///  .element {
+///    font-size: 2rem;
+///    @include for_print {
+///      font-size: 20px;
+///    }
+///  }
+///
+@mixin for_print($info: null) {
+	@if $info {
+		@debug more-info("for_print", "mixin", "utilities-layout");
+	}
+	@else {
+		@media print {
+			@content;
+		}
+	}
+}

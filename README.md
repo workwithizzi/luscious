@@ -1,8 +1,8 @@
 # Luscious SASS
-*A Library or SASS functions/mixin/variables/stuff*
+*A Library of SASS functions/mixin/variables/stuff*
 
-**Current Version: v0.0.5 on Master branch**
-After testing, Stable version will be released as v1.0.0
+**Current Version: v0.0.6: Unstable**
+Don't use this package until v1.0.0
 
 
 **A work in progress.**

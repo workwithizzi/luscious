@@ -1,3 +1,9 @@
+
+# Development and Testing Environment for Luscious
+
+docs/
+test/*.css
+
 # Created by https://www.gitignore.io/api/node,sass,macos,windows,sublimetext
 
 ### macOS ###

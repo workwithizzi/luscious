@@ -1,0 +1,19 @@
+// From main settings file
+
+
+// -------------------------------------
+// 8. Z-index Map
+// -------------------------------------
+// 2DO-YG: Possibly remove the map in-favor of regular variables
+$z_index: (
+	nosebleed    : 9999,
+	tooltip      : 600,
+	popup        : 500,
+	popup_bg     : 400,
+	nav          : 300,
+	footer       : 200,
+	scrim        : 100,
+	overlay_base : 100,
+	base         : 1,
+	bottomless   : -9999,
+) !default;

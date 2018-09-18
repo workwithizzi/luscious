@@ -1,0 +1,288 @@
+// @title: Project Settings
+// @since: v0.0.5
+// @desc:  Use this file to override Luscious defualt configs or create
+//         new configs. If overriding a default, remove the `!default`
+//         flag. You can remove any default here and the setting will
+//         fall back to Luscious' settings.
+// @see:   url/to/luscious/documentation
+// ===================================================================
+
+////
+/// @group global-settings
+/// @since v0.0.5
+////
+
+
+// Contents
+// 1. Developement
+// 2. Base
+// 3. Colors
+// 4. Accessibility
+// 5. Animation
+// 6. Typography
+//   6.1 Font-Stacks
+//   6.2 Modular Scale
+// 7. Breakpoints
+// 8. Z-Index
+// 9. Asset Paths
+// 10. Icons
+// 11. Grid
+// 12. Buttons
+
+// --------------------------------------------------------------------
+
+
+// -------------------------------------
+// 1. Developement
+// -------------------------------------
+// Use pesticide.css to debug layouts. @see: git.io/fAe8o
+$pesticide_debug_outlines: false !default;
+$pesticide_debug_depth:    false !default;
+// CSS Utility Classes for debugging.
+$output_dev_color_classes: false !default;
+
+
+// -------------------------------------
+// 2. Base
+// -------------------------------------
+// HTML Root Font Size (use percent values)
+$document_font_size: 100%;
+// Based on $document_font_size. (62.5% == 10, 100% == 16)
+// Used for Luscious utilities
+$rembase: 16;
+
+// Baseline Height
+// Used for vertical rhythm and baseline grids
+// 2DO-YG: Test and add info - Possibly go back to using rem units
+$base_line_height: 24px;
+
+// Used for vertical rhythm (with baseline grids)
+// Incremental steps for vr
+// 2DO-YG: Test and add info - Possibly go back to using rem units
+$baseline-grid: 8px;
+
+// Base Font-Size
+$base_font_size: 1rem;
+
+// How much things like lists and blockquotes are indented.
+$base_indent_amount: 4rem !default;
+
+
+/// Path to your images directory from your compiled `.css` file
+/// Modify this variable in your global settings file.
+/// Make sure to remove `!default` to override Luscious.
+/// @see {function} img
+///
+$img_base_path: '../images' !default;
+
+/// Path to your fonts directory from your compiled `.css` file
+/// Modify this variable in your global settings file.
+/// Make sure to remove `!default` to override Luscious.
+/// @see {function} font
+///
+$font_base_path: '../fonts' !default;
+
+// -------------------------------------
+// 3. Colors
+// -------------------------------------
+// Base: All Project colors are built using these.
+
+// Grey Scale
+$cl_black  : #1F2D3D !default;
+$cl_dark   : #3C4858 !default;
+$cl_middle : #8492A6 !default;
+$cl_light  : #EFF2F7 !default;
+$cl_white  : #F9FAFC !default;
+
+// Brand
+$cl_primary   :   #1FB6FF !default;
+$cl_primary-dk:   #009EEB !default;
+$cl_primary-lt:   #85D7FF !default;
+$cl_secondary :   #F24878 !default;
+$cl_secondary-dk: #Ef1855 !default;
+$cl_secondary-lt: #F5789B !default;
+
+// Feedback
+$cl_success   : #13CE66 !default;
+$cl_warning   : #FFC82C !default;
+$cl_alert     : #FF4949 !default;
+
+// ----------------
+// UI Colors: These colors are the ones used throughout the project files
+
+// Default
+$cl_bg              : $cl_white      !default;
+$cl_text            : $cl_black      !default;
+$cl_border          : $cl_light      !default;
+$cl_text-highlight  : #ff0           !default;
+$cl_link            : $cl_primary    !default;
+$cl_link-hover      : $cl_primary-dk !default;
+
+// Nav
+$cl_nav-bg          : $cl_primary    !default;
+$cl_nav-text        : $cl_white      !default;
+$cl_nav-active      : $cl_secondary  !default;
+
+// Icons
+$cl_icon-border     : $cl_white      !default;
+$cl_icon-inverse    : $cl_white      !default;
+
+// Buttons
+$btn_text-primary       : $cl_white      !default;
+$btn_bg-primary         : $cl_primary    !default;
+$btn_bg-primary-hover   : $cl_primary-dk !default;
+$btn_text-secondary     : $cl_white      !default;
+$btn_bg-secondary       : $cl_secondary  !default;
+$btn_bg-secondary-hover : $cl_secondary-dk  !default;
+
+// This color-map makes the profile available in the `+btn()` mixin.
+// To add more profiles, just add another array to the map with the same keys.
+// The only required profile is 'primary'.
+$btn-colors: (
+	primary: (
+		color: $cl_white,
+		background: $cl_primary,
+		border: transparent,
+		hover-color: $cl_white,
+		hover-background: $cl_primary-dk,
+		hover-border: transparent
+	),
+	secondary: (
+		color: $cl_white,
+		background: $cl_secondary,
+		border: transparent,
+		hover-color: $cl_white,
+		hover-background: $cl_secondary-dk,
+		hover-border: transparent
+	)
+);
+
+// ------------------------------------
+// 4. A11Y
+// ------------------------------------
+// Colors
+$a11y_attention : #E60000 !default;
+$a11y_light     : #ffffff !default;
+
+// Z-index
+$a11y_zindex    : 19999   !default;
+
+
+// ------------------------------------
+// 5. Animation
+// ------------------------------------
+
+// Timing Function
+$base_timing: ease-in-out !default;
+
+// Delay Time
+$base_delay: 250ms !default;
+
+// Animation Combined
+$base_animation: all $base_delay $base_timing !default;
+
+
+// -------------------------------------
+// 6. Typography
+// -------------------------------------
+
+// ----------------
+// 6.1 Font-Stacks
+// ----------------
+// Base: Project font-stacks are built using these as fallback.
+
+// Sans-Serif
+$font_stack_sans: ('Helvetica Neue', 'Helvetica', 'Arial', sans-serif,) !default;
+
+// Serif
+$font_stack_serif: ('Georgia', 'Times', 'Times New Roman', serif,) !default;
+
+// Monospace
+$font_stack_mono: ('Courier New', 'Courier', 'Lucida Typewriter', monospace,) !default;
+
+// ----------------
+// UI Font-Stacks: Use these throughout in the project files.
+
+// Default Headings
+$font_stack_heading: ('Open Sans', $font_stack_sans,) !default;
+
+// Default Body
+$font_stack_body: ('Open Sans', $font_stack_sans,) !default;
+
+// Default Monospace
+$font_stack_code: $font_stack_mono !default;
+
+
+// ----------------
+// 6.2 Modular Scale
+// ----------------
+// 2DO-YG: Test and add info
+$ms-base          : 1em;
+$ms-ratio         : 1.5;
+$modularscale     : (
+	base: $base_font_size,
+	ratio: 1.33
+) !default;
+
+
+// -------------------------------------
+// 7. Breakpoints
+// -------------------------------------
+/// ## Breakpoint Map
+/// A map for your default breakpoint widths. Prefer `em` units as
+/// they are the most consistent for media queries across browsers
+/// @since v0.0.4
+/// @see {mixin} breakpoint
+///
+$breakpoints: (
+	xs : 37.437em, // 599px
+	sm : 37.5em ,  // 600px
+	md : 61.875em, // 990px
+	lg : 75em,     // 1200px
+	xl : 112.5em,  // 1800px
+) !default;
+
+
+// -------------------------------------
+// 8. Z-Index
+// -------------------------------------
+
+$z_nosebleed    : 9999  !default;
+$z_tooltip      : 600   !default;
+$z_popup        : 500   !default;
+$z_popup_bg     : 400   !default;
+$z_nav          : 300   !default;
+$z_footer       : 200   !default;
+$z_scrim        : 100   !default;
+$z_overlay_base : 100   !default;
+$z_base         : 1     !default;
+$z_bottomless   : -9999 !default;
+
+// -------------------------------------
+// 10. Icons
+// -------------------------------------
+// Font-Awesome
+$fa-font-path:        $font_base_path  !default;
+$fa-font-size-base:   1.4rem           !default;
+$fa-line-height-base: 1                !default;
+$fa-css-prefix:       fa               !default;
+$fa-border-color:     $cl_icon-border  !default;
+$fa-inverse:          $cl_icon-inverse !default;
+$fa-li-width:         (30em / 14)      !default;
+
+
+// -------------------------------------
+// 11. Grid - Susy Config
+// -------------------------------------
+// These vars override !defaults declared in Luscious settings.
+// All $susy map options available as variables so they can
+// be controled globally here.
+// @see: goo.gl/Ak5Bo8
+
+// @IVAN: Can you add a really short description for what each one of these does?
+$susy: (
+	'columns': susy-repeat(6),
+	'gutters': 0.25,
+	'spread': 'narrow',
+	'container-spread': 'narrow',
+) !default;

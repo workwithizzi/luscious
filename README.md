@@ -1,42 +1,53 @@
 # Luscious SASS
 *A Library of SASS functions/mixin/variables/stuff*
 
-**Current Version: v0.0.6: Unstable**
+**Current Version: v0.0.7: Unstable**
 Don't use this package until v1.0.0
 
 
-**A work in progress.**
-Still need to:
-1. A documentation.
-2. A proper README.
-3. Test a few things.
-4. Add a few things.
-5. Make another cup of coffee.
+## Installation
 
-Good luck :)
+```sh
+npm install luscious
+```
 
----
+or
 
-## Todo
-- Figure out bug with hamburgers
-- Clean up deprecated functions
-- Clean up un-needed utility class mixins.
+```sh
+yarn add -D luscious
+```
 
-## Changelog
-- v0.0.5
-	- Added function alias to `rem()` or `rem_calc()` function. You can now use `r()` to calculate the rem equivalent or a `px` unit.
-	- Changed units used in Scaffold to now use the `r()` (rem) function instead of using rem units directly in the SASS.
-- v0.0.4
-	- A bunch of minor updates to scaffold files.
-	- Added basic navigation styling.
-	- Added variables to settings file for accessibility.
-	- Added skipnav/skiplink styling.
-	- Removed Font-Awesome from Luscious-core in favor of using npm to get it.
-	- Added default animation to settings.
-- v0.0.3
-	- Moved styles scaffold to the root directory and removed `__rsc__` directory
-	- Added import for Font Awesome sass to `main.sass`.
-- v0.0.2
-	- So. Many. Changes. This is why it's still a beta version. I'm not even going to write them down here. :)
-- v0.0.1
-	- Added initial task files
+
+## Setup
+
+### Import
+In your main SASS file, import Luscious
+```scss
+// main.scss
+@import 'node_modules/luscious/core/luscious';
+```
+
+or, using Gulp:
+```js
+// gulpfile.js
+gulp.task('sass', function() {
+	return gulp.src('sass/*.scss')
+			.pipe(sass({
+					outputStyle: 'compressed',
+					includePaths: ['node_modules/luscious/core']
+			}).on('error', sass.logError))
+			.pipe(gulp.dest('dist/css'));
+});
+```
+
+```scss
+// main.scss
+@import 'luscious';
+```
+
+### Override Luscious Settings
+If you want to override default settings in Luscious, copy the settings file to your `sass` directory and import it before Luscious.
+
+```sh
+cp node_modules/luscious/core/_settings.scss path/to/sass
+```

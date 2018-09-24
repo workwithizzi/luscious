@@ -2,6 +2,17 @@ Luscious Changelog
 ==================
 
 
+0.0.7 - HOTFIX
+----------------
+- Fixed broken `@import` for [susy](https://www.npmjs.com/package/susy) and [modularscale](https://github.com/modularscale/modularscale-sass).
+- Added install and setup info to the readme
+
+
+0.0.6
+----------------
+- Almost everything changed. Seriously. Consider this another "new" starting point for Luscious.
+
+
 0.0.5
 ----------------
 - Added function alias to `rem()` or `rem_calc()` function. You can now use `r()` to calculate the rem equivalent or a `px` unit.

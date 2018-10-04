@@ -275,14 +275,17 @@ $fa-li-width:         (30em / 14)      !default;
 // 11. Grid - Susy Config
 // -------------------------------------
 // These vars override !defaults declared in Luscious settings.
-// All $susy map options available as variables so they can
-// be controled globally here.
-// @see: goo.gl/Ak5Bo8
+// Susy 3 Docs: https://goo.gl/Ak5Bo8
+// Susy Map Docs: https://goo.gl/BDui9p
 
-// @IVAN: Can you add a really short description for what each one of these does?
+// Default Config
 $susy: (
+	// Number of columns
 	'columns': susy-repeat(6),
+	// Spaces between each column
 	'gutters': 0.25,
+	// Controls outer gutters. Can be narrow, wide, or wider
 	'spread': 'narrow',
+	// Controls outer gutters of parent-container. Can be narrow, wide, or wider
 	'container-spread': 'narrow',
 ) !default;

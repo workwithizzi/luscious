@@ -46,10 +46,9 @@ $output_dev_color_classes: false !default;
 // 2. Base
 // -------------------------------------
 // HTML Root Font Size (use percent values)
+// To use multiples of "10" in your sizes,
+// declare 62.5% instead of the standard "100%"
 $document_font_size: 100%;
-// Based on $document_font_size. (62.5% == 10, 100% == 16)
-// Used for Luscious utilities
-$rembase: 16;
 
 // Baseline Height
 // Used for vertical rhythm and baseline grids

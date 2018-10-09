@@ -154,7 +154,7 @@ $btn-colors: (
 		hover-background: $cl_secondary-dk,
 		hover-border: transparent
 	)
-);
+) !default;
 
 // ------------------------------------
 // 4. A11Y
@@ -189,7 +189,7 @@ $base_animation: all $base_delay $base_timing !default;
 // 6.1 Font-Stacks
 // ----------------
 // Base: Project font-stacks are built using these as fallback.
-
+// REVIEW: 2DO-YG: Should we remove these default stacks alltogether and just use the ones specific to UI usage?
 // Sans-Serif
 $font_stack_sans: ('Helvetica Neue', 'Helvetica', 'Arial', sans-serif,) !default;
 
@@ -202,22 +202,41 @@ $font_stack_mono: ('Courier New', 'Courier', 'Lucida Typewriter', monospace,) !d
 // ----------------
 // UI Font-Stacks: Use these throughout in the project files.
 
-// Default Headings
-$font_stack_heading: ('Open Sans', $font_stack_sans,) !default;
-
 // Default Body
-$font_stack_body: ('Open Sans', $font_stack_sans,) !default;
+$font_stack_body: (
+	'Open Sans',
+	'Helvetica Neue',
+	'Helvetica',
+	'Arial',
+	sans-serif
+	) !default;
 
-// Default Monospace
-$font_stack_code: $font_stack_mono !default;
+// Default Headings
+$font_stack_heading: (
+	'Georgia',
+	'Times',
+	'Times New Roman',
+	serif
+	) !default;
+
+// 2DO-YG: Remove this temporary override before v0.0.8 release
+$font_stack_heading: $font_stack_body;
+
+// Default Code/Monospace
+$font_stack_code: (
+	'Courier New',
+	'Courier',
+	'Lucida Typewriter',
+	monospace
+	) !default;
 
 
 // ----------------
 // 6.2 Modular Scale
 // ----------------
 // 2DO-YG: Test and add info
-$ms-base          : 1em;
-$ms-ratio         : 1.5;
+$ms-base          : 1em !default;
+$ms-ratio         : 1.5 !default;
 $modularscale     : (
 	base: $base_font_size,
 	ratio: 1.33

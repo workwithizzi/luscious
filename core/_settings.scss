@@ -9,7 +9,7 @@
 
 ////
 /// @group global-settings
-/// @since v0.0.5
+/// @since v0.0.7
 ////
 
 
@@ -48,20 +48,20 @@ $output_dev_color_classes: false !default;
 // HTML Root Font Size (use percent values)
 // To use multiples of "10" in your sizes,
 // declare 62.5% instead of the standard "100%"
-$document_font_size: 100%;
+$document_font_size: 100% !default;
 
 // Baseline Height
 // Used for vertical rhythm and baseline grids
 // 2DO-YG: Test and add info - Possibly go back to using rem units
-$base_line_height: 24px;
+$base_line_height: 24px !default;
 
 // Used for vertical rhythm (with baseline grids)
 // Incremental steps for vr
 // 2DO-YG: Test and add info - Possibly go back to using rem units
-$baseline-grid: 8px;
+$baseline-grid: 8px !default;
 
 // Base Font-Size
-$base_font_size: 1rem;
+$base_font_size: 1rem !default;
 
 // How much things like lists and blockquotes are indented.
 $base_indent_amount: 4rem !default;

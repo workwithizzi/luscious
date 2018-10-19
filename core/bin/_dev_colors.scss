@@ -41,7 +41,7 @@ $info_dev_color: info-log(
 	Params:
 	- $color:        Required. Accepts any color from the map `$dev_colors`
 	-                s1-s9 for saturated colors, d1-d9 for desaturated.
-	- $type:         Optional. Either `bg` (defualt) for background, or `border`.
+	- $type:         Optional. Either `bg` (default) for background, or `border`.
 	- $border-width: Optional. Defaults to `1px`.
 	- $border-style: Optional. Defaults to `solid`.
 	Alias:    `dev_cl`'

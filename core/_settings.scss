@@ -1,6 +1,6 @@
 // @title: Project Settings
 // @since: v0.0.5
-// @desc:  Use this file to override Luscious defualt configs or create
+// @desc:  Use this file to override Luscious default configs or create
 //         new configs. If overriding a default, remove the `!default`
 //         flag. You can remove any default here and the setting will
 //         fall back to Luscious' settings.
@@ -14,7 +14,7 @@
 
 
 // Contents
-// 1. Developement
+// 1. Development
 // 2. Base
 // 3. Colors
 // 4. Accessibility
@@ -33,7 +33,7 @@
 
 
 // -------------------------------------
-// 1. Developement
+// 1. Development
 // -------------------------------------
 // Use pesticide.css to debug layouts. @see: git.io/fAe8o
 $pesticide_debug_outlines: false !default;
@@ -189,7 +189,7 @@ $base_animation: all $base_delay $base_timing !default;
 // 6.1 Font-Stacks
 // ----------------
 // Base: Project font-stacks are built using these as fallback.
-// REVIEW: 2DO-YG: Should we remove these default stacks alltogether and just use the ones specific to UI usage?
+// REVIEW: 2DO-YG: Should we remove these default stacks all together and just use the ones specific to UI usage?
 // Sans-Serif
 $font_stack_sans: ('Helvetica Neue', 'Helvetica', 'Arial', sans-serif,) !default;
 

@@ -1,0 +1,172 @@
+#############################
+## Sass Lint Configuration ##
+#############################
+# Rules: https://git.io/vDfxc
+
+options:
+  formatter: stylish
+  merge-default-rules: true
+files:
+  include: "**/*.s+(a|c)ss"
+  ignore:
+    - node_modules/**
+syntax:
+  include:
+    - scss
+    - sass
+rules:
+  # Extends
+  no-extends: 1 # Try not to use extends
+  extends-before-mixins: 1
+  extends-before-declarations: 1
+  placeholder-in-extend: 0 # Can extend classes too
+
+  # Mixins
+  # Write them first (other than media queries)
+  # in-case you need to override something.
+  mixins-before-declarations:
+    - 1
+    - exclude:
+        - breakpoint
+        - bp
+        - between_breakpoints
+        - between_bp
+        - for_print
+
+  # Colors: Prefer variables for maintainability
+  no-color-hex: 1
+  no-color-keywords: 1
+  no-color-literals: 1
+  no-invalid-hex: 1
+
+  # Selectors
+  no-attribute-selectors: 0
+  no-combinators: 0
+  no-empty-rulesets: 1
+  no-ids: 1 # Only use ids relating to js. Disable linting per line
+  no-qualifying-elements: 0
+  no-universal-selectors: 0
+  attribute-quotes: 1 #true
+  bem-depth: 0
+  nesting-depth:
+    - 1
+    - max-depth: 3
+  pseudo-element: 1 # https://git.io/fxrAu
+
+  # Properties
+  no-disallowed-properties:
+    - 1
+    - properties: [] # blacklist
+  no-important: 1 # Only use for hacks. Disable linting per line
+  no-misspelled-properties: 1
+  no-transition-all: 0
+  no-url-domains: 0
+  no-url-protocols: 0
+  no-vendor-prefixes: 0
+  property-units: # Disallows the use of units not specified below
+    - 0
+    - global: []
+    - per-property:
+        # - font-size: ["rem", "em"]
+  property-sort-order:
+    - 1
+    - order: concentric # https://git.io/fxw8Q
+  quotes:
+    - 1
+    - style: single
+  url-quotes: 1
+  variable-for-property:
+    - 1
+    - allow-map-get: true
+      properties:
+        - font-family
+        - color
+        - background-color
+        - z-index
+
+  # Name Formats
+  # TODO: Should figure out a good regex pattern at some point
+  class-name-format:
+    - 0
+    - allow-leading-underscore: true
+    - convention: ^[_A-Z]+$
+    - convention-explanation: ""
+    - ignore: []
+  function-name-format: 0
+  id-name-format: 0
+  mixin-name-format: 0
+  placeholder-name-format: 0
+  variable-name-format: 0
+
+  # Error Handling
+  no-debug: 0
+  no-warn: 0
+
+  #############################
+  # Code Readibility #
+  #############################
+
+  # Selectors
+  no-mergeable-selectors:
+    - 1
+    - whitelist: []
+  declarations-before-nesting: 1
+  brace-style:
+    - 1
+    - style: # https://git.io/fxwlu
+        - 1tbs
+        - stroustrup
+      allow-single-line: true
+  # Nesting
+  force-attribute-nesting: 0
+  force-element-nesting: 0
+  force-pseudo-nesting: 0
+
+  # Properties/Rules
+  no-duplicate-properties:
+    - 1
+    - exclude: # whitelist
+        - margin
+        - padding
+        - border
+  shorthand-values:
+    - 1
+    - allowed-shorthands: [1, 2]
+  leading-zero: 0 #false
+  zero-unit: 0 #false
+  border-zero: 0 #0
+
+  # Colors
+  hex-length: 0 #short
+  hex-notation:
+    - 1
+    - style: uppercase
+
+  # Spacing
+  one-declaration-per-line: 1
+  empty-line-between-blocks:
+    - 1
+    - include: true
+      allow-single-line-rulesets: true
+  single-line-per-selector: 1
+  no-trailing-whitespace: 0 # Should be removed onSave
+  no-trailing-zero: 1
+  space-after-comma: 1 #true
+  space-before-colon: 0 #false
+  space-after-colon: 0 #true
+  space-before-brace: 1 #true
+  space-before-bang: 1 #true
+  space-after-bang: 1 #false
+  space-between-parens: 1 #false
+  space-around-operator: 1 #true
+  final-newline: 0 #true # Should be corrected onSave
+
+  # Misc
+  clean-import-paths: 1
+  empty-args: 1 #false --Used for mixins
+  max-line-length: 0 #80
+  max-file-line-count: 0 #300
+  trailing-semicolon: 1 #true
+  indentation:
+    - 0 # Auto-convert to tabs onSave
+    - size: tab

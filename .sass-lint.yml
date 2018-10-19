@@ -5,9 +5,9 @@
 
 options:
   formatter: stylish
-  merge-default-rules: true
+  # merge-default-rules: true
 files:
-  include: "**/*.s+(a|c)ss"
+  include: '**/*.s+(a|c)ss'
   ignore:
     - node_modules/**
 syntax:
@@ -90,7 +90,7 @@ rules:
     - 0
     - allow-leading-underscore: true
     - convention: ^[_A-Z]+$
-    - convention-explanation: ""
+    - convention-explanation: ''
     - ignore: []
   function-name-format: 0
   id-name-format: 0

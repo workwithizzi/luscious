@@ -40,7 +40,6 @@ $info_clearfix: info-log(
 	@if $info { @debug $info_clearfix; }
 
 	@else {
-		*zoom: 1;
 		&:before,
 		&:after {
 			content: '';

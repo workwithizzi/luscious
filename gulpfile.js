@@ -9,7 +9,8 @@ var g = require("gulp"),
 	sassLint = require("gulp-sass-lint"),
 	sourcemaps = require("gulp-sourcemaps"),
 	sassdoc = require("sassdoc"),
-	browserSync = require("browser-sync");
+	browserSync = require("browser-sync"),
+	run = require("gulp-run");
 
 // ------------------------------------
 // Paths
@@ -93,9 +94,7 @@ g.task("lint", () => {
 });
 
 // Fix Sass Files based on linter
-// g.task("fix", () =>
-// TODO: add node command for package.json script
-// );
+g.task("fix", () => run("yarn fix").exec());
 
 // ------------------------------------
 // Sassdoc

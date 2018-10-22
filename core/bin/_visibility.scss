@@ -6,7 +6,7 @@
 
 
 // Hidden
-// Hide from both screenreaders and browsers
+// Hide from both screen-readers and browsers
 
 $info_hidden: info-log(
 	'The `hidden` mixin hides the element from
@@ -110,11 +110,11 @@ $info_vissuallyhidden: info-log(
 // -------------------------------------
 
 // Invisible
-// Hide visually and from screenreaders, but maintains layout
+// Hide visually and from screen-readers, but maintains layout
 
 $info_invisible: info-log(
 	'The `invisible` mixin hides the element visually
-	and from screenreaders, but maintains layout.
+	and from screen-readers, but maintains layout.
 	Type  : Included Mixin
 	Params: none'
 );
@@ -149,6 +149,7 @@ $info_show: info-log(
 
 	@else {
 		display: block !important;
+		visibility: visible;
 	}
 }
 

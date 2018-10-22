@@ -1,7 +1,7 @@
-#############################
 ## Sass Lint Configuration ##
+# Sass-Lint Rules: https://git.io/vDfxc
+# Auto-Fix Docs: https://git.io/fxoxa
 #############################
-# Rules: https://git.io/vDfxc
 
 options:
   formatter: stylish
@@ -35,7 +35,6 @@ rules:
 
   # Colors: Prefer variables for maintainability
   no-color-hex: 1
-  no-color-keywords: 1
   no-color-literals: 1
   no-invalid-hex: 1
 
@@ -46,7 +45,6 @@ rules:
   no-ids: 1 # Only use ids relating to js. Disable linting per line
   no-qualifying-elements: 0
   no-universal-selectors: 0
-  attribute-quotes: 1 #true
   bem-depth: 0
   nesting-depth:
     - 1
@@ -68,13 +66,10 @@ rules:
     - global: []
     - per-property:
         # - font-size: ["rem", "em"]
-  property-sort-order:
-    - 1
-    - order: concentric # https://git.io/fxw8Q
+  property-sort-order: 0
   quotes:
     - 1
     - style: single
-  url-quotes: 1
   variable-for-property:
     - 1
     - allow-map-get: true
@@ -133,40 +128,43 @@ rules:
     - 1
     - allowed-shorthands: [1, 2]
   leading-zero: 0 #false
-  zero-unit: 0 #false
-  border-zero: 0 #0
-
-  # Colors
-  hex-length: 0 #short
-  hex-notation:
-    - 1
-    - style: uppercase
 
   # Spacing
   one-declaration-per-line: 1
-  empty-line-between-blocks:
-    - 1
-    - include: true
-      allow-single-line-rulesets: true
   single-line-per-selector: 1
   no-trailing-whitespace: 0 # Should be removed onSave
-  no-trailing-zero: 1
   space-after-comma: 1 #true
-  space-before-colon: 0 #false
-  space-after-colon: 0 #true
+  space-before-colon: 0 #false | allow for alignment
+  space-after-colon: 0 #true | allow for alignment
   space-before-brace: 1 #true
-  space-before-bang: 1 #true
-  space-after-bang: 1 #false
   space-between-parens: 1 #false
   space-around-operator: 1 #true
-  final-newline: 0 #true # Should be corrected onSave
 
   # Misc
+  no-css-comments: 0 # Removed during minification
   clean-import-paths: 1
   empty-args: 1 #false --Used for mixins
   max-line-length: 0 #80
   max-file-line-count: 0 #300
   trailing-semicolon: 1 #true
-  indentation:
-    - 0 # Auto-convert to tabs onSave
-    - size: tab
+  hex-length: 0 #short | Allow long for alignment
+
+  indentation: 0 #2 spaces | Auto-convert to tabs onSave
+  empty-line-between-blocks:
+    - 1
+    - include: true
+      allow-single-line-rulesets: true
+
+  #############################
+  # Corrected using sass-lint-auto-fix
+  #############################
+  no-color-keywords: 0 # auto-fixed
+  hex-notation: 0 #lowercase | auto-fixed
+  border-zero: 0 #0
+  attribute-quotes: 1 #true
+  final-newline: 0 #true # Should be corrected onSave
+  no-trailing-zero: 0 #disallowed | auto-fixed
+  space-before-bang: 0 #true | auto-fixed
+  space-after-bang: 0 #false | auto-fixed
+  url-quotes: 0 #use quotes | auto-fixed
+  zero-unit: 0 #don't include unit | auto-fixed

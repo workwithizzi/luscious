@@ -9,8 +9,7 @@ var g = require("gulp"),
 	sassLint = require("gulp-sass-lint"),
 	sourcemaps = require("gulp-sourcemaps"),
 	sassdoc = require("sassdoc"),
-	browserSync = require("browser-sync"),
-	prettier = require("gulp-plugin-prettier");
+	browserSync = require("browser-sync");
 
 // ------------------------------------
 // Paths
@@ -22,7 +21,13 @@ var styles = {
 		"./core/**/*.s+(a|c)ss"
 		// './scaffold/**/*.s+(a|c)ss'
 	],
-	dest: "test/"
+	dest: "test/",
+	lintConfig: {
+		configFile: "./.sasslint.yml"
+	},
+	lintFixConfig: {
+		configFile: "./.sasslint-fix.yml"
+	}
 };
 
 // Sassdoc
@@ -82,21 +87,14 @@ g.task("styles:watch", () => {
 g.task("lint", () => {
 	return g
 		.src(styles.src)
-		.pipe(
-			sassLint({
-				configFile: "./.sass-lint.yml"
-			})
-		)
+		.pipe(sassLint(styles.lintConfig))
 		.pipe(sassLint.format());
 	// .pipe(sassLint.failOnError())
 });
 
 // Fix Sass Files based on linter
 g.task("fix", () =>
-	g
-		.src(styles.src)
-		.pipe(prettier.format({ configFile: "./.sass-lint.yml" }))
-		.pipe(g.dest(file => file.base))
+	// TODO: add node command for package.json script
 );
 
 // ------------------------------------

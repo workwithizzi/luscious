@@ -17,17 +17,18 @@
 		"scss",
 		"scaffold"
 	],
-	"prettier": {},
+	"scripts": {
+		"fix": "sass-lint-auto-fix -c .sasslint-fix.yml"
+	},
 	"devDependencies": {
 		"browser-sync": "^2.24.7",
 		"gulp": "^3.9.1",
 		"gulp-autoprefixer": "^6.0.0",
-		"gulp-plugin-prettier": "^1.1.0",
 		"gulp-sass": "^4.0.1",
 		"gulp-sass-lint": "^1.4.0",
 		"gulp-sourcemaps": "^2.6.4",
 		"node-sass": "^4.9.3",
-		"prettier": "^1.14.3",
+		"sass-lint-auto-fix": "^0.15.0",
 		"sass-true": "^4.0.0",
 		"sassdoc": "^2.5.0",
 		"sassdoc-theme-herman": "^3.0.0"

@@ -77,7 +77,7 @@ $info_hocus: info-log(
 	*/
 	.test.hocus {
 		@include hocus {
-			color: red;
+			color: #ff0000;
 		}
 	}
 	/* `length` ------------------------- */

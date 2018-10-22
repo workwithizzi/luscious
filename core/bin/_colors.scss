@@ -170,7 +170,7 @@ $info_color_function: info-log(
 	}
 	*/
 	.test.tint {
-		color: tint(red, 30%);
+		color: tint(#ff0000, 30%);
 	}
 	/* End `tint` ----------------------- */
 }
@@ -185,7 +185,7 @@ $info_color_function: info-log(
 	}
 	*/
 	.test.shade {
-		color: shade(red, 30%);
+		color: shade(#ff0000, 30%);
 	}
 	/* End `shade` ---------------------- */
 }
@@ -200,7 +200,7 @@ $info_color_function: info-log(
 	}
 	*/
 	.test.tone {
-		color: tone(red, 30%);
+		color: tone(#ff0000, 30%);
 	}
 	/* End `tone` ----------------------- */
 }
@@ -215,7 +215,7 @@ $info_color_function: info-log(
 	}
 	*/
 	.test.color_function {
-		color: color_function(tint, red, 30%);
+		color: color_function(tint, #ff0000, 30%);
 	}
 	/* End `color_function` ------------- */
 }

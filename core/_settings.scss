@@ -87,24 +87,24 @@ $font_base_path: '../fonts' !default;
 // Base: All Project colors are built using these.
 
 // Grey Scale
-$cl_black  : #1F2D3D !default;
-$cl_dark   : #3C4858 !default;
-$cl_middle : #8492A6 !default;
-$cl_light  : #EFF2F7 !default;
-$cl_white  : #F9FAFC !default;
+$cl_black  : #1f2d3d !default;
+$cl_dark   : #3c4858 !default;
+$cl_middle : #8492a6 !default;
+$cl_light  : #eff2f7 !default;
+$cl_white  : #f9fafc !default;
 
 // Brand
-$cl_primary   :   #1FB6FF !default;
-$cl_primary-dk:   #009EEB !default;
-$cl_primary-lt:   #85D7FF !default;
-$cl_secondary :   #F24878 !default;
-$cl_secondary-dk: #Ef1855 !default;
-$cl_secondary-lt: #F5789B !default;
+$cl_primary   :   #1fb6ff !default;
+$cl_primary-dk:   #009eeb !default;
+$cl_primary-lt:   #85d7ff !default;
+$cl_secondary :   #f24878 !default;
+$cl_secondary-dk: #ef1855 !default;
+$cl_secondary-lt: #f5789b !default;
 
 // Feedback
-$cl_success   : #13CE66 !default;
-$cl_warning   : #FFC82C !default;
-$cl_alert     : #FF4949 !default;
+$cl_success   : #13ce66 !default;
+$cl_warning   : #ffc82c !default;
+$cl_alert     : #ff4949 !default;
 
 // ----------------
 // UI Colors: These colors are the ones used throughout the project files
@@ -160,7 +160,7 @@ $btn-colors: (
 // 4. A11Y
 // ------------------------------------
 // Colors
-$a11y_attention : #E60000 !default;
+$a11y_attention : #e60000 !default;
 $a11y_light     : #ffffff !default;
 
 // Z-index

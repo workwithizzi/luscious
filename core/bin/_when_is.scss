@@ -81,7 +81,7 @@ $info_when_is: info-log(
 	*/
 	.test.when_is {
 		@include when_is(".test_parent") {
-			color: red;
+			color: #ff0000;
 		}
 	}
 	/*
@@ -93,7 +93,7 @@ $info_when_is: info-log(
 	*/
 	.test.at_root {
 		@include at_root(".test_parent") {
-			color: red;
+			color: #ff0000;
 		}
 	}
 	/* End `when_is` -------------------- */

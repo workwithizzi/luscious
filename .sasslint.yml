@@ -5,11 +5,12 @@
 
 options:
   formatter: stylish
-  # merge-default-rules: true
+  merge-default-rules: false
 files:
   include: '**/*.s+(a|c)ss'
   ignore:
     - node_modules/**
+    - _deprecating/**
 syntax:
   include:
     - scss
@@ -150,8 +151,8 @@ rules:
   hex-length: 0 #short | Allow long for alignment
 
   indentation: 0 #2 spaces | Auto-convert to tabs onSave
-  empty-line-between-blocks:
-    - 1
+  empty-line-between-blocks: # turned off because linter & auto-fix has trouble
+    - 0
     - include: true
       allow-single-line-rulesets: true
 

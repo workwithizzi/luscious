@@ -93,9 +93,9 @@ g.task("lint", () => {
 });
 
 // Fix Sass Files based on linter
-g.task("fix", () =>
-	// TODO: add node command for package.json script
-);
+// g.task("fix", () =>
+// TODO: add node command for package.json script
+// );
 
 // ------------------------------------
 // Sassdoc

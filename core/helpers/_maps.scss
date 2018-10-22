@@ -111,6 +111,7 @@ $info_map_get_nested: info-log(
 
 @mixin __test_map_collect {
 	@if $output_test_message { @debug "[TESTING] `map_collect`"; }
+
 	/* `map_collect` -------------------- */
 	/*
 	$test_map1: ( 1one: red, 1two: blue );
@@ -122,6 +123,7 @@ $info_map_get_nested: info-log(
 		color: map_get_check($collect_test, 1one);
 	}
 	*/
+
 	$test_map1: ( 1one: red, 1two: blue );
 	$test_map2: ( 2one: pink, 2two: purple );
 	$test_map3: ( 3one: white, 3two: black );

@@ -1,52 +1,5 @@
 {
-	"editor.fontSize": 14,
-	"editor.fontFamily": "'Dank Mono', Input, Menlo, monospace",
-	"editor.renderWhitespace": "boundary",
-	"editor.wordWrap": "on",
-	"editor.acceptSuggestionOnEnter": "off",
-	"editor.accessibilitySupport": "off",
-	"editor.fontLigatures": true,
-	"editor.minimap.enabled": false,
 	"editor.insertSpaces": false,
-	"editor.minimap.maxColumn": 120,
-	"editor.multiCursorModifier": "alt",
-	"editor.quickSuggestions": {
-		"other": true,
-		"comments": true,
-		"strings": true
-	},
-	"editor.selectionHighlight": true,
-	"editor.showFoldingControls": "always",
-	"editor.showUnused": true,
-	"editor.smoothScrolling": true,
-	"editor.stablePeek": false,
-	"editor.suggestOnTriggerCharacters": true,
-	"editor.wordBasedSuggestions": true,
-	"editor.formatOnSave": true,
-	"workbench.editor.closeEmptyGroups": true,
-	"workbench.editor.labelFormat": "default",
-	"workbench.editor.openPositioning": "last",
-	"workbench.editor.openSideBySideDirection": "right",
-	"workbench.editor.showIcons": true,
-	"workbench.editor.swipeToNavigate": true,
-	"workbench.editor.tabSizing": "fit",
-	"workbench.startupEditor": "newUntitledFile",
-	"workbench.statusBar.feedback.visible": false,
-	"workbench.statusBar.visible": true,
-	"workbench.tree.horizontalScrolling": true,
-	"workbench.view.alwaysShowHeaderActions": true,
-	"window.title": "${activeEditorShort}${separator}${rootName}",
-	"files.associations": {},
-	"files.defaultLanguage": "",
-	"files.exclude": {
-		"**/.git": true,
-		"**/.svn": true,
-		"**/.hg": true,
-		"**/CVS": true,
-		"**/.DS_Store": true
-	},
-	"files.hotExit": "onExit",
-	"files.maxMemoryForLargeFilesMB": 4096,
 	"files.trimFinalNewlines": true,
 	"files.trimTrailingWhitespace": true,
 	"files.watcherExclude": {
@@ -54,56 +7,7 @@
 		"**/.git/subtree-cache/**": true,
 		"**/node_modules/**": true
 	},
-	"zenMode.hideTabs": false,
-	"explorer.confirmDragAndDrop": false,
-	"explorer.sortOrder": "default",
-	"search.exclude": {
-		"**/node_modules": true,
-		"**/bower_components": true
-	},
-	"search.location": "panel",
-	"search.smartCase": true,
-	"search.useIgnoreFiles": true,
-	"debug.inlineValues": true,
 	"html.format.indentInnerHtml": true,
-	"markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif",
-	"markdown.preview.fontSize": 14,
-	"terminal.integrated.cursorStyle": "line",
-	"terminal.integrated.fontSize": 14,
-	"window.zoomLevel": 0,
-	"editor.tokenColorCustomizations": {
-		"textMateRules": [
-			{
-				"scope": [
-					// Italic Style
-					"comment",
-					"entity.name.type.class", //class names
-					"keyword", //import, export, return…
-					"storage.modifier", //static keyword
-					"storage.type.class.js" //class keyword
-				],
-				"settings": {
-					"fontStyle": "italic"
-				}
-			},
-			{
-				"scope": [
-					// Non-Italic Style
-					"invalid",
-					"keyword.operator",
-					"constant.numeric.css",
-					"constant", //String, Number, Boolean…, this, super
-					// "keyword.other.unit.px.css",
-					"variable",
-					"constant.numeric.decimal.js",
-					"constant.numeric.json"
-				],
-				"settings": {
-					"fontStyle": ""
-				}
-			}
-		]
-	},
 	"editor.tabSize": 2,
 	"prettier.useTabs": true,
 	"prettier.singleQuote": true,
@@ -112,7 +16,10 @@
 	"npm.packageManager": "yarn",
 	"scss.validate": false,
 	"css.validate": false,
-	"prettier.disableLanguages": ["scss", "sass"],
+	"prettier.disableLanguages": [
+		"scss",
+		"sass"
+	],
 	"editor.detectIndentation": false,
 	"[yaml]": {
 		"editor.detectIndentation": false,
@@ -124,6 +31,5 @@
 			"strings": true
 		}
 	},
-	"editor.renderLineHighlight": "gutter",
 	"sasslint.configFile": ".sasslint.yml"
 }

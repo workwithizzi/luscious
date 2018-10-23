@@ -1,12 +1,11 @@
 // Luscious
-// @since v0.0.1
+// @since v0.0.8
 //
 // Description
-//
-// sass-lint:disable class-name-format
 // Reference: https://codepen.io/jakob-e/pen/LVVXjO
 // ===================================================================
-
+// sass-lint:disable space-after-comma
+// sass-lint:disable space-between-parens
 
 //  Subset config
 //
@@ -79,7 +78,7 @@ $info_google_fonts: info-log(
 
 		@if $name == 'info' { @debug $info_google_fonts; }
 
-		//  base url
+		// base url
 		$URL: 'https://fonts.googleapis.com/css?family=';
 
 		//  create global variables

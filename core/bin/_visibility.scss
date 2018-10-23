@@ -20,7 +20,7 @@ $info_hidden: info-log(
 }
 
 @mixin hidden($info: null) {
-	display: none !important;
+	display: none !important; // sass-lint:disable-line no-important
 	visibility: hidden;
 	@if $info { @debug $info_hidden; }
 }
@@ -53,7 +53,7 @@ $info_hide_text: info-log(
 // -------------------------------------
 
 // Visually Hidden
-// Hide only visually, but have it available for screenreaders
+// Hide only visually, but have it available for screen-readers
 
 $info_vissuallyhidden: info-log(
 	'The `visuallyhidden` mixin hides the element for visual browsers
@@ -148,7 +148,7 @@ $info_show: info-log(
 	@if $info { @debug $info_show; }
 
 	@else {
-		display: block !important;
+		display: block !important; // sass-lint:disable-line no-important
 		visibility: visible;
 	}
 }
@@ -161,7 +161,7 @@ $info_show: info-log(
 $utility_class_prefix: 'u_' !default;
 
 $info_visibility_utility_classes: info-log(
-	'Adds utilitiy classes:
+	'Adds utility classes:
 	- .#{$utility_class_prefix}hidden         (mixin: +hidden)
 	- .#{$utility_class_prefix}hide_text      (mixin: +hide_text)
 	- .#{$utility_class_prefix}visuallyhidden (mixin: +visuallyhidden)

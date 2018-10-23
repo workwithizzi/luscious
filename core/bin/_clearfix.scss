@@ -40,12 +40,12 @@ $info_clearfix: info-log(
 	@if $info { @debug $info_clearfix; }
 
 	@else {
-		&:before,
-		&:after {
+		&::before,
+		&::after {
 			content: '';
 			display: table;
 		}
-		&:after { clear: both; }
+		&::after { clear: both; }
 	}
 }
 
@@ -76,7 +76,7 @@ $info_clearfix_utility_class: info-log(
 	@if $info { @debug $info_clearfix_utility_class; }
 		@else {
 		.#{$utility_class_prefix}clearfix {
-			@extend %clearfix;
+			@extend %clearfix; // sass-lint:disable-line no-extends
 		}
 	}
 }
@@ -104,7 +104,7 @@ $info_clearfix_utility_class: info-log(
 	}
 	*/
 	.test.clearfix_placeholder {
-		@extend %clearfix;
+		@extend %clearfix; // sass-lint:disable-line no-extends
 	}
 	/* End `clearfix` ------------------- */
 }

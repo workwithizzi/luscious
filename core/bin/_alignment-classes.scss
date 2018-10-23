@@ -61,7 +61,7 @@
 	@if $info { @debug more-info('t-center--justify', 'mixin', 'gr-typo'); }
 	@else {
 		text-align: justify;
-		text-align-last: center
+		text-align-last: center;
 		// 2DO-LUS: Check on browser support
 	}
 }

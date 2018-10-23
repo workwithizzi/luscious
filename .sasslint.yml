@@ -16,6 +16,11 @@ syntax:
     - scss
     - sass
 rules:
+  # Turn these on during project, ignore during testing
+  no-color-hex: 0
+  no-color-literals: 0
+
+  #################
   # Extends
   no-extends: 1 # Try not to use extends
   extends-before-mixins: 1
@@ -33,11 +38,6 @@ rules:
         - between_breakpoints
         - between_bp
         - for_print
-
-  # Colors: Prefer variables for maintainability
-  no-color-hex: 1
-  no-color-literals: 1
-  no-invalid-hex: 1
 
   # Selectors
   no-attribute-selectors: 0
@@ -97,6 +97,8 @@ rules:
   # Error Handling
   no-debug: 0
   no-warn: 0
+
+  no-invalid-hex: 1
 
   #############################
   # Code Readibility #

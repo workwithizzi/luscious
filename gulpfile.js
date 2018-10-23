@@ -10,6 +10,7 @@ var g = require("gulp"),
 	sourcemaps = require("gulp-sourcemaps"),
 	sassdoc = require("sassdoc"),
 	browserSync = require("browser-sync"),
+	replaceQuotes = require("gulp-replace-quotes"),
 	run = require("gulp-run");
 
 // ------------------------------------
@@ -91,6 +92,14 @@ g.task("lint", () => {
 		.pipe(sassLint(styles.lintConfig))
 		.pipe(sassLint.format());
 	// .pipe(sassLint.failOnError())
+});
+
+g.task('quotes', function () {
+	g.src(styles.src, { base: './' })
+		.pipe(replaceQuotes({
+			quote: 'single'
+		}))
+		.pipe(g.dest('./'));
 });
 
 // Fix Sass Files based on linter

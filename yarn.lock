@@ -2482,6 +2482,13 @@ gulp-rename@^1.2.0, gulp-rename@^1.2.2:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/gulp-rename/-/gulp-rename-1.4.0.tgz#de1c718e7c4095ae861f7296ef4f3248648240bd"
 
+gulp-replace-quotes@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/gulp-replace-quotes/-/gulp-replace-quotes-1.0.1.tgz#9a8b84cc72705fbb548c10c6b00dff9be174e4ff"
+  dependencies:
+    gulp-util "^3.0.7"
+    through2 "^2.0.1"
+
 gulp-run@^1.7.1:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/gulp-run/-/gulp-run-1.7.1.tgz#e17c0acb7c30b6e2aeee23c04442a96c0caceffa"
@@ -2553,7 +2560,7 @@ gulp-svg-symbols@^3.1.0:
     through2 "^2.0.1"
     vinyl "^2.2.0"
 
-gulp-util@^3.0.0, gulp-util@^3.0.1:
+gulp-util@^3.0.0, gulp-util@^3.0.1, gulp-util@^3.0.7:
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/gulp-util/-/gulp-util-3.0.8.tgz#0054e1e744502e27c04c187c3ecc505dd54bbb4f"
   dependencies:

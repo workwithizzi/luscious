@@ -72,7 +72,7 @@
 		}
 		// If the map/key or number works, send a message to terminal
 		@else {
-			@warn "`#{$size}` is not a number. You're gonna need a number here, bud.";
+			@warn "`#{$size}` is not a number. You\'re gonna need a number here, bud.";
 		}
 	}
 }

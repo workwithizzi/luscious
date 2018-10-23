@@ -134,7 +134,7 @@ $info_dev_color_utility_classes: info-log(
 				}
 			}
 		} @else {
-			@warn "The map `$dev_colors` isn’t defined or isn't found.";
+			@warn "The map `$dev_colors` isn\’t defined or isn\'t found.";
 		}
 	} // end: @else
 } // end: mixin

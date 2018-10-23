@@ -137,7 +137,7 @@ rules:
   space-after-comma: 1 #true
   space-before-colon: 0 #false | allow for alignment
   space-after-colon: 0 #true | allow for alignment
-  space-before-brace: 1 #true
+  space-before-brace: 0 #true | ignore due to interpolation
   space-between-parens: 1 #false
   space-around-operator: 1 #true
 

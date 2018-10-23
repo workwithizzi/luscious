@@ -94,16 +94,16 @@ g.task("lint", () => {
 	// .pipe(sassLint.failOnError())
 });
 
-g.task('quotes', function () {
-	g.src(styles.src, { base: './' })
+g.task("quotes", () => {
+	g.src(styles.src, { base: "./" })
 		.pipe(replaceQuotes({
-			quote: 'single'
+			quote: "single"
 		}))
-		.pipe(g.dest('./'));
+		.pipe(g.dest("./"));
 });
 
 // Fix Sass Files based on linter
-g.task("fix", () => run("yarn fix").exec());
+g.task("fix", ["quotes"], () => run("yarn fix").exec());
 
 // ------------------------------------
 // Sassdoc

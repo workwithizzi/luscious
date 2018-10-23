@@ -65,7 +65,7 @@ $info_hocus: info-log(
 // ===================================================================
 
 @mixin __test_hocus {
-	@if $output_test_message { @debug "[TESTING] `hocus`"; }
+	@if $output_test_message { @debug '[TESTING] `hocus`'; }
 	/* `length` ------------------------- */
 	/* `hocus` -------------------- */
 	/*

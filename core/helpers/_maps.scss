@@ -25,8 +25,8 @@ $info_map_get_check: info-log(
 	@if map-has-key($map, $key) {
 		@return map-get($map, $key);
 	}
-	@warn "The key `#{$key}` is not in the map `#{$map}`.
-	For more info, try the `__info(map_get_check)` mixin.";
+	@warn 'The key `#{$key}` is not in the map `#{$map}`.
+	For more info, try the `__info(map_get_check)` mixin.';
 	@return null;
 }
 
@@ -93,7 +93,7 @@ $info_map_get_nested: info-log(
 // ===================================================================
 
 @mixin __test_map_get_check {
-	@if $output_test_message { @debug "[TESTING] `map_get_check`"; }
+	@if $output_test_message { @debug '[TESTING] `map_get_check`'; }
 	/* `map_get_check` ------------------ */
 	/*
 	$test_map: ( one: red, two: blue );
@@ -110,7 +110,7 @@ $info_map_get_nested: info-log(
 
 
 @mixin __test_map_collect {
-	@if $output_test_message { @debug "[TESTING] `map_collect`"; }
+	@if $output_test_message { @debug '[TESTING] `map_collect`'; }
 
 	/* `map_collect` -------------------- */
 	/*
@@ -137,7 +137,7 @@ $info_map_get_nested: info-log(
 
 
 @mixin __test_map_get_nested {
-	@if $output_test_message { @debug "[TESTING] `map_get_nested`"; }
+	@if $output_test_message { @debug '[TESTING] `map_get_nested`'; }
 	/* `map_get_nested` ----------------- */
 	/*
 	$nested_map: (

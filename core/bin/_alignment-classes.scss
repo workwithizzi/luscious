@@ -16,7 +16,7 @@
 
 // Align Left
 @mixin t-left($info: null) {
-	@if $info { @debug more-info("t-left", "mixin", "gr-typo"); }
+	@if $info { @debug more-info('t-left', 'mixin', 'gr-typo'); }
 	@else {
 		text-align: left;
 	}
@@ -24,7 +24,7 @@
 
 // Align Left-Justify
 @mixin t-left--justify($info: null) {
-	@if $info { @debug more-info("t-left--justify", "mixin", "gr-typo"); }
+	@if $info { @debug more-info('t-left--justify', 'mixin', 'gr-typo'); }
 	@else {
 		text-align: justify;
 		direction: ltr;
@@ -33,7 +33,7 @@
 
 // Align Right
 @mixin t-right($info: null) {
-	@if $info { @debug more-info("t-right", "mixin", "gr-typo"); }
+	@if $info { @debug more-info('t-right', 'mixin', 'gr-typo'); }
 	@else {
 		text-align: right;
 	}
@@ -41,7 +41,7 @@
 
 // Align Right-Justify
 @mixin t-right--justify($info: null) {
-	@if $info { @debug more-info("t-right--justify", "mixin", "gr-typo"); }
+	@if $info { @debug more-info('t-right--justify', 'mixin', 'gr-typo'); }
 	@else {
 		text-align: justify;
 		direction: rtl;
@@ -50,7 +50,7 @@
 
 // Align Center
 @mixin t-center($info: null) {
-	@if $info { @debug more-info("t-center", "mixin", "gr-typo"); }
+	@if $info { @debug more-info('t-center', 'mixin', 'gr-typo'); }
 	@else {
 		text-align: center;
 	}
@@ -58,7 +58,7 @@
 
 // Align Center-Justify
 @mixin t-center--justify($info: null) {
-	@if $info { @debug more-info("t-center--justify", "mixin", "gr-typo"); }
+	@if $info { @debug more-info('t-center--justify', 'mixin', 'gr-typo'); }
 	@else {
 		text-align: justify;
 		text-align-last: center
@@ -78,7 +78,7 @@
 // Img Left
 @mixin img-left($info: null, $margin: r(10)) {
 	// TODO: Add error handler to make sure margin is not unitless
-	@if $info { @debug more-info("img-left", "mixin", "utilities-images"); }
+	@if $info { @debug more-info('img-left', 'mixin', 'utilities-images'); }
 	@else {
 		float: left;
 		margin-right: $margin;
@@ -88,7 +88,7 @@
 // Img Right
 @mixin img-right($info: null, $margin: r(10)) {
 	// TODO: Add error handler to make sure margin is not unitless
-	@if $info { @debug more-info("img-right", "mixin", "utilities-images"); }
+	@if $info { @debug more-info('img-right', 'mixin', 'utilities-images'); }
 	@else {
 		float: right;
 		margin-left: $margin;
@@ -98,7 +98,7 @@
 // Img Center
 @mixin img-center($info: null) {
 	// TODO: Add error handler to make sure margin is not unitless
-	@if $info { @debug more-info("img-center", "mixin", "utilities-images"); }
+	@if $info { @debug more-info('img-center', 'mixin', 'utilities-images'); }
 	@else {
 		display: block;
 		margin-left: auto;

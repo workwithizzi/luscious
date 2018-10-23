@@ -51,7 +51,7 @@ $info_centerblock: info-log(
 // ===================================================================
 
 @mixin __test_centerblock {
-	@if $output_test_message { @debug "[TESTING] `centerblock`"; }
+	@if $output_test_message { @debug '[TESTING] `centerblock`'; }
 	/* `centerblock` -------------------- */
 	/*
 	.test.centerblock {

@@ -15,16 +15,16 @@
 @function in-list($list,$val) {
 	@if( index($demo-list, $val) ) {
 		@return true;
-		// @debug "yes";
+		// @debug 'yes';
 		}
 		@else {
 			@return false;
-			// @debug "no";
+			// @debug 'no';
 		}
 }
 
 // $test: in-list($demo-list, one);
 //
 // @if $test {
-// 	@debug "Value was found"
+// 	@debug 'Value was found'
 // }

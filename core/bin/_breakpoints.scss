@@ -47,14 +47,14 @@
 ///
 @mixin breakpoint($size, $query: 'min-width', $map: $breakpoints) {
 
-	@if $query == "min" { $query: "min-width"; }
-	@if $query == "max" { $query: "max-width"; }
-	@if $query == "print" {
-		@warn "Use the `for_print` mixin for `print` media queries only.";
+	@if $query == 'min' { $query: 'min-width'; }
+	@if $query == 'max' { $query: 'max-width'; }
+	@if $query == 'print' {
+		@warn 'Use the `for_print` mixin for `print` media queries only.';
 	}
 	// Print info to terminal
-	@if $size == "info" {
-		@debug more-info("breakpoint", "mixin", "utilities-layout");
+	@if $size == 'info' {
+		@debug more-info('breakpoint', 'mixin', 'utilities-layout');
 	}
 	@else {
 
@@ -72,7 +72,7 @@
 		}
 		// If the map/key or number works, send a message to terminal
 		@else {
-			@warn "`#{$size}` is not a number. You\'re gonna need a number here, bud.";
+			@warn '`#{$size}` is not a number. You\'re gonna need a number here, bud.';
 		}
 	}
 }
@@ -128,8 +128,8 @@
 @mixin between_breakpoints($min, $max: null, $map: $breakpoints) {
 
 	// Provide info to terminal
-	@if $min == "info" {
-		@debug more-info("between_breakpoints", "mixin", "utilities-layout");
+	@if $min == 'info' {
+		@debug more-info('between_breakpoints', 'mixin', 'utilities-layout');
 	}
 	@else {
 
@@ -139,7 +139,7 @@
 		} @else if type-of($min) == number {
 			$min: $min;
 		} @else {
-			@warn "`#{$min}` needs to be a number.";
+			@warn '`#{$min}` needs to be a number.';
 		}
 
 		// Validate $max param
@@ -148,7 +148,7 @@
 		} @else if type-of($max) == number {
 			$max: $max;
 		} @else {
-			@warn "`#{$max}` needs to be a number.";
+			@warn '`#{$max}` needs to be a number.';
 		}
 
 		@media only screen and (min-width: $min) and (max-width: $max) {
@@ -196,7 +196,7 @@
 ///
 @mixin for_print($info: null) {
 	@if $info {
-		@debug more-info("for_print", "mixin", "utilities-layout");
+		@debug more-info('for_print', 'mixin', 'utilities-layout');
 	}
 	@else {
 		@media print {

@@ -26,7 +26,7 @@ $info_size: info-log(
 }
 
 @mixin size($width, $height: $width) {
-	@if $width == "info" { @debug $info_size; }
+	@if $width == 'info' { @debug $info_size; }
 	@else {
 		width: $width;
 		height: $height;
@@ -50,7 +50,7 @@ $info_square: info-log(
 	@debug $info_square;
 }
 @mixin square($size) {
-	@if $size == "info" { @debug $info_square; }
+	@if $size == 'info' { @debug $info_square; }
 	@else { @include size($size, $size); }
 }
 
@@ -61,7 +61,7 @@ $info_square: info-log(
 // ===================================================================
 
 @mixin __test_size {
-	@if $output_test_message { @debug "[TESTING] `size`"; }
+	@if $output_test_message { @debug '[TESTING] `size`'; }
 	/* `size` --------------------------- */
 	/*
 	.test.size.first_param {
@@ -84,7 +84,7 @@ $info_square: info-log(
 
 
 @mixin __test_square {
-	@if $output_test_message { @debug "[TESTING] `square`"; }
+	@if $output_test_message { @debug '[TESTING] `square`'; }
 	/* `square` ------------------------- */
 	/*
 	.test.square {

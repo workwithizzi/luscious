@@ -11,7 +11,7 @@
 
 
 // Font-Face helper function
-@function _ff-str-replace($string, $search, $replace: "") {
+@function _ff-str-replace($string, $search, $replace: '') {
 	$index: str-index($string, $search);
 
 	@if $index {
@@ -33,30 +33,30 @@ $font-types: ( eot woff2 woff ttf svg ) !default;
 // $svgID = override the default svg id given to the font (must match font file id)
 @mixin font-face($name, $path, $weight: null, $style: null, $exts: $font-types, $svgID: null) {
 	$src: null;
-	@if $exts == "all" { $exts: $font-types; }
+	@if $exts == 'all' { $exts: $font-types; }
 
-	$svgmod: _ff-str-replace($name, " ", "_");
+	$svgmod: _ff-str-replace($name, ' ', '_');
 	@if $svgID {
 		$svgmod: $svgID;
 	}
 
 	$extmods: (
-		eot: "?",
-		svg: "#" + $svgmod
+		eot: '?',
+		svg: '#' + $svgmod
 	);
 
 	$formats: (
-		otf: "opentype",
-		ttf: "truetype"
+		otf: 'opentype',
+		ttf: 'truetype'
 	);
 
 	@each $ext in $exts {
 		@if index($font-types, $ext) {
 			$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
 			$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
-			$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+			$src: append($src, url(quote($path + '.' + $extmod)) format(quote($format)), comma);
 		} @else {
-			@warn "The extension '#{$ext}' is not a supported font-type. Available font-types are: #{$font-types}";
+			@warn 'The extension '#{$ext}' is not a supported font-type. Available font-types are: #{$font-types}';
 		}
 	}
 
@@ -81,25 +81,25 @@ $font-types: ( eot woff2 woff ttf svg ) !default;
 
 // CSS Outputs
 // @font-face {
-// 	font-family: "Open Sans";
+// 	font-family: 'Open Sans';
 // 	font-style: normal;
 // 	font-weight: 400;
-// 	src: url("path/to/font-file.eot?") format("eot"),
-// 			 url("path/to/font-file.woff2") format("woff2"),
-// 			 url("path/to/font-file.woff") format("woff"),
-// 			 url("path/to/font-file.ttf") format("truetype"),
-// 			 url("path/to/font-file.svg#Open_Sans") format("svg");
+// 	src: url('path/to/font-file.eot?') format('eot'),
+// 			 url('path/to/font-file.woff2') format('woff2'),
+// 			 url('path/to/font-file.woff') format('woff'),
+// 			 url('path/to/font-file.ttf') format('truetype'),
+// 			 url('path/to/font-file.svg#Open_Sans') format('svg');
 // 	/* fftest */
 // }
 //
 // @font-face {
-// 	font-family: "Open Sans";
+// 	font-family: 'Open Sans';
 // 	font-style: italic;
 // 	font-weight: 400;
-// 	src: url("path/to/font-file.eot?") format("eot"),
-// 			 url("path/to/font-file.woff2") format("woff2"),
-// 			 url("path/to/font-file.woff") format("woff"),
-// 			 url("path/to/font-file.ttf") format("truetype"),
-// 			 url("path/to/font-file.svg#OpenSansItalic") format("svg");
+// 	src: url('path/to/font-file.eot?') format('eot'),
+// 			 url('path/to/font-file.woff2') format('woff2'),
+// 			 url('path/to/font-file.woff') format('woff'),
+// 			 url('path/to/font-file.ttf') format('truetype'),
+// 			 url('path/to/font-file.svg#OpenSansItalic') format('svg');
 // 	/* fftest */
 // }

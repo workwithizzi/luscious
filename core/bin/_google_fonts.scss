@@ -56,7 +56,7 @@ $info_google_fonts: info-log(
 	See       : https://goo.gl/LSNXCF
 
 	Example SCSS: (Single font import)
-	@include google_fonts(\"Open Sans\", 400 700, normal);
+	@include google_fonts(\'Open Sans\', 400 700, normal);
 
 	Example SCSS: (Multiple imports)
 	@include google_fonts {
@@ -193,7 +193,7 @@ $info_google_fonts: info-log(
 // ===================================================================
 
 @mixin __test_google_fonts {
-	@if $output_test_message { @debug "[TESTING] `google_fonts`"; }
+	@if $output_test_message { @debug '[TESTING] `google_fonts`'; }
 	/* `google_fonts` ------------------- */
 	/*
 	@include google_fonts {

@@ -161,7 +161,7 @@ $info_show: info-log(
 $utility_class_prefix: 'u_' !default;
 
 $info_visibility_utility_classes: info-log(
-	"Adds utilitiy classes:
+	'Adds utilitiy classes:
 	- .#{$utility_class_prefix}hidden         (mixin: +hidden)
 	- .#{$utility_class_prefix}hide_text      (mixin: +hide_text)
 	- .#{$utility_class_prefix}visuallyhidden (mixin: +visuallyhidden)
@@ -173,7 +173,7 @@ $info_visibility_utility_classes: info-log(
 	parameter to see what it specifically does.
 
 	Example:
-	+__info(hidden)"
+	+__info(hidden)'
 );
 
 @mixin __info_visibility_utility_classes {
@@ -199,7 +199,7 @@ $info_visibility_utility_classes: info-log(
 // ===================================================================
 
 @mixin __test_hidden {
-	@if $output_test_message { @debug "[TESTING] `hidden`"; }
+	@if $output_test_message { @debug '[TESTING] `hidden`'; }
 	/* `hidden` ------------------------- */
 	/*
 	.test.hidden {
@@ -214,7 +214,7 @@ $info_visibility_utility_classes: info-log(
 
 
 @mixin __test_hide_text {
-	@if $output_test_message { @debug "[TESTING] `hide_text`"; }
+	@if $output_test_message { @debug '[TESTING] `hide_text`'; }
 	/* `hide_text` ---------------------- */
 	/*
 	.test.hide_text {
@@ -229,7 +229,7 @@ $info_visibility_utility_classes: info-log(
 
 
 @mixin __test_visuallyhidden {
-	@if $output_test_message { @debug "[TESTING] `visuallyhidden`"; }
+	@if $output_test_message { @debug '[TESTING] `visuallyhidden`'; }
 	/* `visuallyhidden` ----------------- */
 	/*
 	.test.visuallyhidden {
@@ -257,7 +257,7 @@ $info_visibility_utility_classes: info-log(
 
 
 @mixin __test_invisible {
-	@if $output_test_message { @debug "[TESTING] `invisible`"; }
+	@if $output_test_message { @debug '[TESTING] `invisible`'; }
 	/* `invisible` ---------------------- */
 	/*
 	.test.invisible {
@@ -272,7 +272,7 @@ $info_visibility_utility_classes: info-log(
 
 
 @mixin __test_show {
-	@if $output_test_message { @debug "[TESTING] `show`"; }
+	@if $output_test_message { @debug '[TESTING] `show`'; }
 	/* `show` --------------------------- */
 	/*
 	.test.show {
@@ -287,7 +287,7 @@ $info_visibility_utility_classes: info-log(
 
 
 @mixin __test_visibility_utility_classes {
-	@if $output_test_message { @debug "[TESTING] `visibility_utility_classes`"; }
+	@if $output_test_message { @debug '[TESTING] `visibility_utility_classes`'; }
 	/* `visibility_utility_classes` ----------- */
 	/*
 	@include visibility_utility_classes;

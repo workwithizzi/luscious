@@ -88,7 +88,7 @@ $info_clearfix_utility_class: info-log(
 // ===================================================================
 
 @mixin __test_clearfix {
-	@if $output_test_message { @debug "[TESTING] `clearfix`"; }
+	@if $output_test_message { @debug '[TESTING] `clearfix`'; }
 	/* `clearfix` ----------------------- */
 	/*
 	.test.clearfix {
@@ -111,7 +111,7 @@ $info_clearfix_utility_class: info-log(
 
 
 @mixin __test_clearfix_utility_class {
-	@if $output_test_message { @debug "[TESTING] `clearfix_utility_class`"; }
+	@if $output_test_message { @debug '[TESTING] `clearfix_utility_class`'; }
 	/* `clearfix_utility_class` --------- */
 	/*
 	@include clearfix_utility_class;

@@ -5,17 +5,17 @@
 // -------------------------------------
 @include describe('Img path [function]') {
 	@include assert-equal (
-		img("test.jpg"),
-		url("../images/test.jpg")
+		img('test.jpg'),
+		url('../images/test.jpg')
 	);
 	@include true-report {
 		@include it('Creates the url file path to your image.') {
 			@include assert {
 				@include output {
-					background-image: img("test.jpg");
+					background-image: img('test.jpg');
 				}
 				@include expect {
-					background-image: url("../images/test.jpg");
+					background-image: url('../images/test.jpg');
 				}
 			}
 		}
@@ -28,17 +28,17 @@
 // -------------------------------------
 @include describe('Font path [function]') {
 	@include assert-equal (
-		font("test.otf"),
-		url("../fonts/test.otf")
+		font('test.otf'),
+		url('../fonts/test.otf')
 	);
 	@include true-report {
 		@include it('Creates the url file path to your font.') {
 			@include assert {
 				@include output {
-					src: font("test.otf");
+					src: font('test.otf');
 				}
 				@include expect {
-					src: url("../fonts/test.otf");
+					src: url('../fonts/test.otf');
 				}
 			}
 		}

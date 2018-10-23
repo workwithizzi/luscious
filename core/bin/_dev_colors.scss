@@ -56,14 +56,14 @@ $info_dev_color: info-log(
 @mixin dev_color($color, $type: bg, $width: 1px, $style: solid) {
 	// Notify me if I'm outputting these classes during production build.
 	@if $production_mode {
-		@warn "[TIP] [Production Mode]
+		@warn '[TIP] [Production Mode]
 		Don\'t forget to remove the `dev_colors` (`dev_cl` - alias) mixin from
-		the output before final production so things aren\'t jacked up!";
+		the output before final production so things aren\'t jacked up!';
 	}
-	@if $color == "info" { @debug $info_dev_color; }
+	@if $color == 'info' { @debug $info_dev_color; }
 	@else {
 		$color: map_get_check($dev_colors, $color);
-		@if $type == "bg" {
+		@if $type == 'bg' {
 			background-color: $color !important;
 		}
 		@else {
@@ -111,13 +111,13 @@ $info_dev_color_utility_classes: info-log(
 
 // Outputs Utility Classes for `dev_colors`
 @mixin dev_color_utility_classes($width: 1px, $style: solid) {
-	@if $width == "info" { @debug $info_dev_color_utility_classes; }
+	@if $width == 'info' { @debug $info_dev_color_utility_classes; }
 	@else {
 		// Notify me if I'm outputting these classes.
 		@if $production_mode {
-			@warn "[TIP] [Production Mode]
+			@warn '[TIP] [Production Mode]
 			Don\'t forget to remove the `dev_color_utility_classes` mixin from the output
-			before production so things stay clean!";
+			before production so things stay clean!';
 		}
 		// Output CSS
 		@if variable-exists(dev_colors) {
@@ -134,7 +134,7 @@ $info_dev_color_utility_classes: info-log(
 				}
 			}
 		} @else {
-			@warn "The map `$dev_colors` isn\’t defined or isn\'t found.";
+			@warn 'The map `$dev_colors` isn\’t defined or isn\'t found.';
 		}
 	} // end: @else
 } // end: mixin
@@ -152,7 +152,7 @@ $info_dev_color_utility_classes: info-log(
 // ===================================================================
 
 @mixin __test_dev_color {
-	@if $output_test_message { @debug "[TESTING] `dev_color`"; }
+	@if $output_test_message { @debug '[TESTING] `dev_color`'; }
 	/* `dev_color` or `dev_cl` ---------- */
 	/*
 	.test.dev_color.default {
@@ -190,7 +190,7 @@ $info_dev_color_utility_classes: info-log(
 
 
 @mixin __test_dev_color_utility_classes {
-	@if $output_test_message { @debug "[TESTING] `dev_color_utility_classes`"; }
+	@if $output_test_message { @debug '[TESTING] `dev_color_utility_classes`'; }
 	/* `dev_color_utility_classes` ------ */
 	/*
 	@include dev_color_utility_classes;

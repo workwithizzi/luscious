@@ -55,7 +55,7 @@ g.task("styles", ["styles:build", "styles:watch"]);
 
 // - Compile Sass
 // - Create Sourcemaps
-// - Autoprefix
+// - Auto-prefix
 g.task("styles:build", () => {
 	return g
 		.src(styles.src)

@@ -66,6 +66,7 @@ $base_font_size: 1rem !default;
 $base_indent_amount: 4rem !default;
 
 
+/// ## Image Asset-Path
 /// Path to your images directory from your compiled `.css` file
 /// Modify this variable in your global settings file.
 /// Make sure to remove `!default` to override Luscious.
@@ -73,6 +74,7 @@ $base_indent_amount: 4rem !default;
 ///
 $img_base_path: '../images' !default;
 
+/// ## Font Asset-Path
 /// Path to your fonts directory from your compiled `.css` file
 /// Modify this variable in your global settings file.
 /// Make sure to remove `!default` to override Luscious.
@@ -106,13 +108,13 @@ $cl_warning   : #ffc82c !default;
 $cl_alert     : #ff4949 !default;
 
 // ----------------
-// UI Colors: These colors are the ones used throughout the project files
+// UI Colors: These colors are used throughout the project files
 
 // Default
 $cl_bg              : $cl_white      !default;
 $cl_text            : $cl_black      !default;
 $cl_border          : $cl_light      !default;
-$cl_text-highlight  : #ff0           !default;
+$cl_text-highlight  : #ff0         !default;
 $cl_link            : $cl_primary    !default;
 $cl_link-hover      : $cl_primary-dk !default;
 
@@ -133,11 +135,11 @@ $btn_text-secondary     : $cl_white      !default;
 $btn_bg-secondary       : $cl_secondary  !default;
 $btn_bg-secondary-hover : $cl_secondary-dk  !default;
 
-// This color-map makes the profile available in the `+btn()` mixin.
-// To add more profiles, just add another array to the map with the same keys.
-// The only required profile is 'primary'.
+// This map makes the color-profiles available in `+btn()` mixin.
+// To add more profiles, just add another array to
+// the map with the same keys.
 $btn-colors: (
-	primary: (
+	primary: ( // Only required array
 		color: $cl_white,
 		background: $cl_primary,
 		border: transparent,
@@ -165,20 +167,17 @@ $a11y_light     : #ffffff !default;
 // Z-index
 $a11y_zindex    : 19999   !default;
 
-
 // ------------------------------------
 // 5. Animation
 // ------------------------------------
-
-// Timing Function
+// Timing
 $base_timing: ease-in-out !default;
 
-// Delay Time
+// Delay
 $base_delay: 250ms !default;
 
-// Animation Combined
+// Combined
 $base_animation: all $base_delay $base_timing !default;
-
 
 // -------------------------------------
 // 6. Typography
@@ -187,20 +186,6 @@ $base_animation: all $base_delay $base_timing !default;
 // -----------------
 // 6.1 Font-Stacks
 // -----------------
-// Base: Project font-stacks are built using these as fallback.
-// REVIEW: 2DO-YG: Should we remove these default stacks all together and just use the ones specific to UI usage?
-// Sans-Serif
-$font_stack_sans: ('Helvetica Neue', 'Helvetica', 'Arial', sans-serif,) !default;
-
-// Serif
-$font_stack_serif: ('Georgia', 'Times', 'Times New Roman', serif,) !default;
-
-// Monospace
-$font_stack_mono: ('Courier New', 'Courier', 'Lucida Typewriter', monospace,) !default;
-
-// ----------------
-// UI Font-Stacks: Use these throughout in the project files.
-
 // Default Body
 $font_stack_body: (
 	'Open Sans',
@@ -218,9 +203,6 @@ $font_stack_heading: (
 	serif
 	) !default;
 
-// 2DO-YG: Remove this temporary override before v0.0.8 release
-$font_stack_heading: $font_stack_body;
-
 // Default Code/Monospace
 $font_stack_code: (
 	'Courier New',
@@ -229,9 +211,8 @@ $font_stack_code: (
 	monospace
 	) !default;
 
-
 // ----------------
-// 6.2 Modular Scale
+// 6.2 Modular Scale (font sizes)
 // ----------------
 // 2DO-YG: Test and add info
 $ms-base          : 1em !default;
@@ -240,7 +221,6 @@ $modularscale     : (
 	base: $base_font_size,
 	ratio: 1.33
 ) !default;
-
 
 // -------------------------------------
 // 7. Breakpoints
@@ -259,11 +239,9 @@ $breakpoints: (
 	xl : 112.5em,  // 1800px
 ) !default;
 
-
 // -------------------------------------
 // 8. Z-Index
 // -------------------------------------
-
 $z_nosebleed    : 9999  !default;
 $z_tooltip      : 600   !default;
 $z_popup        : 500   !default;
@@ -278,6 +256,7 @@ $z_bottomless   : -9999 !default;
 // -------------------------------------
 // 10. Icons
 // -------------------------------------
+// 2DO: Review: Should we remove icon-font settings since they are no longer considered "best-practices"?
 // Font-Awesome
 $fa-font-path:        $font_base_path  !default;
 $fa-font-size-base:   1.4rem           !default;
@@ -287,11 +266,9 @@ $fa-border-color:     $cl_icon-border  !default;
 $fa-inverse:          $cl_icon-inverse !default;
 $fa-li-width:         (30em / 14)      !default;
 
-
 // -------------------------------------
 // 11. Grid - Susy Config
 // -------------------------------------
-// These vars override !defaults declared in Luscious settings.
 // Susy 3 Docs: https://goo.gl/Ak5Bo8
 // Susy Map Docs: https://goo.gl/BDui9p
 
@@ -303,6 +280,7 @@ $susy: (
 	'gutters': 0.25,
 	// Controls outer gutters. Can be narrow, wide, or wider
 	'spread': 'narrow',
-	// Controls outer gutters of parent-container. Can be narrow, wide, or wider
+	// Controls outer gutters of parent-container.
+	// Can be narrow, wide, or wider
 	'container-spread': 'narrow',
 ) !default;

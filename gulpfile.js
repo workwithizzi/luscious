@@ -34,6 +34,10 @@ var styles = {
 	settingsFile: {
 		src: "./core/_settings.scss",
 		dest: "./scaffold"
+	},
+	buttonFile: {
+		src: "./core/bin/_button_config.scss",
+		dest: "./scaffold/objects"
 	}
 };
 
@@ -44,13 +48,21 @@ var docs = {
 	watch: styles.dest + "test.css"
 };
 
-// ------------------------------------
+// -------------------------------------
 // Main Task
-// ------------------------------------
+// -------------------------------------
 // - Compile & Watch SASS
 g.task("default", [
 	// 'styles',
 	"docs"
+]);
+
+// -------------------------------------
+// Production Tasks
+// -------------------------------------
+g.task("production", [
+	"clean:settings",
+	"clean:button-configs"
 ]);
 
 // ------------------------------------
@@ -111,6 +123,12 @@ g.task("clean:settings", () => {
 	g.src(styles.settingsFile.src)
 		.pipe(removeCode({ scaffold: true }))
 		.pipe(g.dest(styles.settingsFile.dest));
+});
+
+g.task("clean:button-configs", () => {
+	g.src(styles.buttonFile.src)
+		.pipe(removeCode({ scaffold: true }))
+		.pipe(g.dest(styles.buttonFile.dest));
 });
 
 

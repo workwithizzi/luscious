@@ -254,19 +254,6 @@ $z_base         : 1     !default;
 $z_bottomless   : -9999 !default;
 
 // -------------------------------------
-// 10. Icons
-// -------------------------------------
-// 2DO: Review: Should we remove icon-font settings since they are no longer considered "best-practices"?
-// Font-Awesome
-$fa-font-path:        $font_base_path  !default;
-$fa-font-size-base:   1.4rem           !default;
-$fa-line-height-base: 1                !default;
-$fa-css-prefix:       fa               !default;
-$fa-border-color:     $cl_icon-border  !default;
-$fa-inverse:          $cl_icon-inverse !default;
-$fa-li-width:         (30em / 14)      !default;
-
-// -------------------------------------
 // 11. Grid - Susy Config
 // -------------------------------------
 // Susy 3 Docs: https://goo.gl/Ak5Bo8

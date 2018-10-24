@@ -1,0 +1,23 @@
+// ===================================================================
+// Tests
+// ===================================================================
+
+@mixin __test_strip_unit {
+	@if $output_test_message { @debug '[TESTING] `strip_unit`'; }
+	/* `strip_unit` --------------------- */
+	/*
+	$test_num_with_unit: 1.5rem;
+	.test_strip_unit {
+		font-size: $test_num_with_unit;
+		line-height: strip_unit($test_num_with_unit);
+	}
+	*/
+
+	$test_num_with_unit: 1.5rem;
+
+	.test_strip_unit {
+		font-size: $test_num_with_unit;
+		line-height: strip_unit($test_num_with_unit);
+	}
+	/* End `strip_unit` ----------------- */
+}

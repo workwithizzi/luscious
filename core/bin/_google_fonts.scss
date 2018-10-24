@@ -1,12 +1,11 @@
 // Luscious
-// @since v0.0.1
+// @since v0.0.8
 //
 // Description
-//
-// sass-lint:disable class-name-format
 // Reference: https://codepen.io/jakob-e/pen/LVVXjO
 // ===================================================================
-
+// sass-lint:disable space-after-comma
+// sass-lint:disable space-between-parens
 
 //  Subset config
 //
@@ -49,14 +48,14 @@ $info_google_fonts: info-log(
 	- $styles : Optional. Defaults to `normal`. Accepts word (`italic`)
 	-           or numeric value (`400i`). If a word is used, it will
 	-           apply to all $weights.
-	- $limit  : Optional. Defualts to `null`. Allows you to limit the request
+	- $limit  : Optional. defaults to `null`. Allows you to limit the request
 	-           to specific characters for optimization.
 	Extra     : This mixin allows nesting within itself (parent accepts no params)
 	-           so that the all fonts will be imported in the same request.
 	See       : https://goo.gl/LSNXCF
 
 	Example SCSS: (Single font import)
-	@include google_fonts(\"Open Sans\", 400 700, normal);
+	@include google_fonts(\'Open Sans\', 400 700, normal);
 
 	Example SCSS: (Multiple imports)
 	@include google_fonts {
@@ -79,7 +78,7 @@ $info_google_fonts: info-log(
 
 		@if $name == 'info' { @debug $info_google_fonts; }
 
-		//  base url
+		// base url
 		$URL: 'https://fonts.googleapis.com/css?family=';
 
 		//  create global variables
@@ -118,7 +117,7 @@ $info_google_fonts: info-log(
 		$subset: if(str-length($subset) > 0 and $subset != latin, '&subset=' + $subset, '');
 
 		@if $name {
-			//  replace name whitespaces
+			//  replace name whitespace
 			$name: if(type-of($name) == string, unquote($name),$name);
 			$name: __gf__str-replace(inspect($name),' ','+');
 			@if $__gf__combine and not $limit {
@@ -133,7 +132,7 @@ $info_google_fonts: info-log(
 				$query: __gf__str-replace($query, ' ');
 				$query: $name + if(str-length($query) > 0 and $query != '400',  ':'+ $query, '');
 
-				//  create single immport
+				//  create single import
 				@at-root { @import url($URL + $query + if($limit, $limit, '') + $subset); }
 			}
 		} @else {
@@ -152,10 +151,10 @@ $info_google_fonts: info-log(
 								'', ':' + join((), $weights, comma));
 			}
 
-			//  remove query whitespaces
+			//  remove query whitespace
 			$query: __gf__str-replace($query,' ');
 
-			//  create combined immport
+			//  create combined import
 			@at-root { @import url($URL + $query + $subset); }
 
 			//  reset combine flag
@@ -193,7 +192,7 @@ $info_google_fonts: info-log(
 // ===================================================================
 
 @mixin __test_google_fonts {
-	@if $output_test_message { @debug "[TESTING] `google_fonts`"; }
+	@if $output_test_message { @debug '[TESTING] `google_fonts`'; }
 	/* `google_fonts` ------------------- */
 	/*
 	@include google_fonts {

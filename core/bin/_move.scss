@@ -20,10 +20,10 @@ $info_move: info-log(
 }
 
 @mixin move($val) {
-	@if $val == "info" { @debug $info_move; }
+	@if $val == 'info' { @debug $info_move; }
 	@else {
-		@if $val == "left"  { float: left;  }
-		@if $val == "right" { float: right; }
+		@if $val == 'left'  { float: left;  }
+		@if $val == 'right' { float: right; }
 	}
 
 }
@@ -64,7 +64,7 @@ $info_move_utility_classes: info-log(
 // ===================================================================
 
 @mixin __test_move {
-	@if $output_test_message { @debug "[TESTING] `move`"; }
+	@if $output_test_message { @debug '[TESTING] `move`'; }
 	/* `move` --------------------------- */
 	/*
 	.test.move_left {
@@ -87,7 +87,7 @@ $info_move_utility_classes: info-log(
 
 
 @mixin __test_move_utility_classes {
-	@if $output_test_message { @debug "[TESTING] `move_utility_classes`"; }
+	@if $output_test_message { @debug '[TESTING] `move_utility_classes`'; }
 	/* `move_utility_classes` ----------- */
 	/*
 	@include move_utility_classes;

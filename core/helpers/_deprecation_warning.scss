@@ -18,9 +18,9 @@ $output_deprecation_warnings: true !default;
 // Mixin to add to deprecated features
 @mixin _deprecate_message($feature, $message: null) {
 	@if $output_deprecation_warnings {
-		@warn "[Luscious Deprecation]
+		@warn '[Luscious Deprecation]
 		The current version of Luscious is #{$lus_current_version}.
-		`#{$feature}` is deprecated and will be removed in 1.0.0. #{$message}";
+		`#{$feature}` is deprecated and will be removed in 1.0.0. #{$message}';
 		@content;
 	}
 }
@@ -40,7 +40,7 @@ $output_deprecation_warnings: true !default;
 // @example scss
 //   // Used in a Mixin
 //   @mixin example {
-//     @include _deprecate("example-mixin");
+//     @include _deprecate('example-mixin');
 //
 //     display: inline-block;
 //   }
@@ -49,8 +49,8 @@ $output_deprecation_warnings: true !default;
 //   // Used in Function
 //   @function example() {
 //     @if $output-luscious-deprecation-warnings {
-//       @warn "[Luscious] [Deprecation] `example` is deprecated and
-//       will be removed in 1.0.0.";
+//       @warn '[Luscious] [Deprecation] `example` is deprecated and
+//       will be removed in 1.0.0.';
 //     }
 //   }
 //

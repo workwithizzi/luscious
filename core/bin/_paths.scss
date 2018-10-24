@@ -23,12 +23,12 @@
 ///
 /// @example scss
 ///  .element {
-///    background: img("photo.jpg");
+///    background: img('photo.jpg');
 ///  }
 ///
 @function img($file, $path: $img_base_path) {
-	@if $file == "info" {
-		@debug more-info("img", "function", "utilities-utilities");
+	@if $file == 'info' {
+		@debug more-info('img', 'function', 'utilities-utilities');
 		@return null;
 	}
 	@else {
@@ -53,12 +53,12 @@
 ///
 /// @example scss
 ///  @font-face {
-///    src: font("my-font.otf");
+///    src: font('my-font.otf');
 ///  }
 ///
 @function font($file, $path: $font_base_path) {
-	@if $file == "info" {
-		@debug more-info("font", "function", "utilities-utilities");
+	@if $file == 'info' {
+		@debug more-info('font', 'function', 'utilities-utilities');
 		@return null;
 	}
 	@else {

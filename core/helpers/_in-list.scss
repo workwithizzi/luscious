@@ -6,25 +6,25 @@
 // Compares a value against a list.
 // Returns 'true' if value is found, else returns 'false'
 
-// Not sure if we should keep this helper function or remove it since it is redundant and can easily be used by just writing the index() function. Though, keeping it would allow us to have error handling built into it here instead of doing it everytime we need to use the function.
+// Not sure if we should keep this helper function or remove it since it is redundant and can easily be used by just writing the index() function. Though, keeping it would allow us to have error handling built into it here instead of doing it every time we need to use the function.
 
 // https://git.io/fAqgs
 
 // $demo-list: (one two three);
 
-@function in-list($list,$val) {
+@function in-list($list, $val) {
 	@if( index($demo-list, $val) ) {
 		@return true;
-		// @debug "yes";
+		// @debug 'yes';
 		}
 		@else {
 			@return false;
-			// @debug "no";
+			// @debug 'no';
 		}
 }
 
 // $test: in-list($demo-list, one);
 //
 // @if $test {
-// 	@debug "Value was found"
+// 	@debug 'Value was found'
 // }

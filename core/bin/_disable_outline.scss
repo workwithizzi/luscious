@@ -35,7 +35,7 @@ $info_disable_mouse_outline: info-log(
 // ===================================================================
 
 @mixin __test_disable_mouse_outline {
-	@if $output_test_message { @debug "[TESTING] `disable_mouse_outline`"; }
+	@if $output_test_message { @debug '[TESTING] `disable_mouse_outline`'; }
 	/* `disable_mouse_outline` ---------- */
 	/*
 	.test.disable_mouse_outline {

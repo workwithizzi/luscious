@@ -26,7 +26,7 @@ $info_vertical: info-log(
 }
 
 @mixin vertical($property, $val: null) {
-	@if $property == "info" { @debug $info_vertical; }
+	@if $property == 'info' { @debug $info_vertical; }
 	@else {
 		#{$property}-top: $val;
 		#{$property}-bottom: $val;
@@ -65,7 +65,7 @@ $info_horizontal: info-log(
 }
 
 @mixin horizontal($property, $val: null) {
-	@if $property == "info" { @debug $info_horizontal; }
+	@if $property == 'info' { @debug $info_horizontal; }
 	@else {
 		#{$property}-right: $val;
 		#{$property}-left: $val;
@@ -89,7 +89,7 @@ $info_horizontal: info-log(
 // ===================================================================
 
 @mixin __test_vertical {
-	@if $output_test_message { @debug "[TESTING] `vertical`"; }
+	@if $output_test_message { @debug '[TESTING] `vertical`'; }
 	/* `vertical` ----------------------- */
 	/*
 	.test.vertical {
@@ -109,7 +109,7 @@ $info_horizontal: info-log(
 
 
 @mixin __test_horizontal {
-	@if $output_test_message { @debug "[TESTING] `horizontal`"; }
+	@if $output_test_message { @debug '[TESTING] `horizontal`'; }
 	/* `horizontal` --------------------- */
 	/*
 	.test.horizontal {

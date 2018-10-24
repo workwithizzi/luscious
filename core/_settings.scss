@@ -1,20 +1,29 @@
-// @title: Project Settings
-// @since: v0.0.5
-// @desc:  Use this file to override Luscious defualt configs or create
-//         new configs. If overriding a default, remove the `!default`
-//         flag. You can remove any default here and the setting will
+//removeIf(scaffold)
+// @desc:  Default Settings (used for core & scaffold)
+//         This file is automatically copied to './scaffold/' and
+//         anything between the 'removeIf/endRemoveIf' tags is removed.
+//         DONT modify the file './scaffold/_settings.scss' directly.
+//endRemoveIf(scaffold)
+
+// @since: v0.0.8
+// @desc:  Project Settings
+//         Use this file to override Luscious default configs or create
+//         new configs. If modifying a default, remove the `!default`
+//         flag. You can remove anything here and the setting will
 //         fall back to Luscious' settings.
+// TODO: Add url to Luscious documentation
 // @see:   url/to/luscious/documentation
 // ===================================================================
 
+//removeIf(scaffold)
 ////
 /// @group global-settings
-/// @since v0.0.5
+/// @since v0.0.7
 ////
-
+//endRemoveIf(scaffold)
 
 // Contents
-// 1. Developement
+// 1. Development
 // 2. Base
 // 3. Colors
 // 4. Accessibility
@@ -33,7 +42,7 @@
 
 
 // -------------------------------------
-// 1. Developement
+// 1. Development
 // -------------------------------------
 // Use pesticide.css to debug layouts. @see: git.io/fAe8o
 $pesticide_debug_outlines: false !default;
@@ -46,28 +55,18 @@ $output_dev_color_classes: false !default;
 // 2. Base
 // -------------------------------------
 // HTML Root Font Size (use percent values)
-$document_font_size: 100%;
-// Based on $document_font_size. (62.5% == 10, 100% == 16)
-// Used for Luscious utilities
-$rembase: 16;
-
-// Baseline Height
-// Used for vertical rhythm and baseline grids
-// 2DO-YG: Test and add info - Possibly go back to using rem units
-$base_line_height: 24px;
-
-// Used for vertical rhythm (with baseline grids)
-// Incremental steps for vr
-// 2DO-YG: Test and add info - Possibly go back to using rem units
-$baseline-grid: 8px;
+// To use multiples of '10' in your sizes,
+// declare 62.5% instead of the standard '100%'
+$document_font_size: 100% !default;
 
 // Base Font-Size
-$base_font_size: 1rem;
+$base_font_size: 1rem !default;
 
 // How much things like lists and blockquotes are indented.
 $base_indent_amount: 4rem !default;
 
 
+/// ## Image Asset-Path
 /// Path to your images directory from your compiled `.css` file
 /// Modify this variable in your global settings file.
 /// Make sure to remove `!default` to override Luscious.
@@ -75,6 +74,7 @@ $base_indent_amount: 4rem !default;
 ///
 $img_base_path: '../images' !default;
 
+/// ## Font Asset-Path
 /// Path to your fonts directory from your compiled `.css` file
 /// Modify this variable in your global settings file.
 /// Make sure to remove `!default` to override Luscious.
@@ -88,33 +88,33 @@ $font_base_path: '../fonts' !default;
 // Base: All Project colors are built using these.
 
 // Grey Scale
-$cl_black  : #1F2D3D !default;
-$cl_dark   : #3C4858 !default;
-$cl_middle : #8492A6 !default;
-$cl_light  : #EFF2F7 !default;
-$cl_white  : #F9FAFC !default;
+$cl_black  : #1f2d3d !default;
+$cl_dark   : #3c4858 !default;
+$cl_middle : #8492a6 !default;
+$cl_light  : #eff2f7 !default;
+$cl_white  : #f9fafc !default;
 
 // Brand
-$cl_primary   :   #1FB6FF !default;
-$cl_primary-dk:   #009EEB !default;
-$cl_primary-lt:   #85D7FF !default;
-$cl_secondary :   #F24878 !default;
-$cl_secondary-dk: #Ef1855 !default;
-$cl_secondary-lt: #F5789B !default;
+$cl_primary   :   #1fb6ff !default;
+$cl_primary-dk:   #009eeb !default;
+$cl_primary-lt:   #85d7ff !default;
+$cl_secondary :   #f24878 !default;
+$cl_secondary-dk: #ef1855 !default;
+$cl_secondary-lt: #f5789b !default;
 
 // Feedback
-$cl_success   : #13CE66 !default;
-$cl_warning   : #FFC82C !default;
-$cl_alert     : #FF4949 !default;
+$cl_success   : #13ce66 !default;
+$cl_warning   : #ffc82c !default;
+$cl_alert     : #ff4949 !default;
 
 // ----------------
-// UI Colors: These colors are the ones used throughout the project files
+// UI Colors: These colors are used throughout the project files
 
 // Default
 $cl_bg              : $cl_white      !default;
 $cl_text            : $cl_black      !default;
 $cl_border          : $cl_light      !default;
-$cl_text-highlight  : #ff0           !default;
+$cl_text-highlight  : #ff0         !default;
 $cl_link            : $cl_primary    !default;
 $cl_link-hover      : $cl_primary-dk !default;
 
@@ -135,11 +135,11 @@ $btn_text-secondary     : $cl_white      !default;
 $btn_bg-secondary       : $cl_secondary  !default;
 $btn_bg-secondary-hover : $cl_secondary-dk  !default;
 
-// This color-map makes the profile available in the `+btn()` mixin.
-// To add more profiles, just add another array to the map with the same keys.
-// The only required profile is 'primary'.
+// This map makes the color-profiles available in `+btn()` mixin.
+// To add more profiles, just add another array to
+// the map with the same keys.
 $btn-colors: (
-	primary: (
+	primary: ( // Only required array
 		color: $cl_white,
 		background: $cl_primary,
 		border: transparent,
@@ -155,75 +155,72 @@ $btn-colors: (
 		hover-background: $cl_secondary-dk,
 		hover-border: transparent
 	)
-);
+) !default;
 
 // ------------------------------------
 // 4. A11Y
 // ------------------------------------
 // Colors
-$a11y_attention : #E60000 !default;
+$a11y_attention : #e60000 !default;
 $a11y_light     : #ffffff !default;
 
 // Z-index
 $a11y_zindex    : 19999   !default;
 
-
 // ------------------------------------
 // 5. Animation
 // ------------------------------------
-
-// Timing Function
+// Timing
 $base_timing: ease-in-out !default;
 
-// Delay Time
+// Delay
 $base_delay: 250ms !default;
 
-// Animation Combined
+// Combined
 $base_animation: all $base_delay $base_timing !default;
-
 
 // -------------------------------------
 // 6. Typography
 // -------------------------------------
 
-// ----------------
+// -----------------
 // 6.1 Font-Stacks
-// ----------------
-// Base: Project font-stacks are built using these as fallback.
-
-// Sans-Serif
-$font_stack_sans: ('Helvetica Neue', 'Helvetica', 'Arial', sans-serif,) !default;
-
-// Serif
-$font_stack_serif: ('Georgia', 'Times', 'Times New Roman', serif,) !default;
-
-// Monospace
-$font_stack_mono: ('Courier New', 'Courier', 'Lucida Typewriter', monospace,) !default;
-
-// ----------------
-// UI Font-Stacks: Use these throughout in the project files.
+// -----------------
+// Default Body
+$font_stack_body: (
+	'Open Sans',
+	'Helvetica Neue',
+	'Helvetica',
+	'Arial',
+	sans-serif
+	) !default;
 
 // Default Headings
-$font_stack_heading: ('Open Sans', $font_stack_sans,) !default;
+$font_stack_heading: (
+	'Georgia',
+	'Times',
+	'Times New Roman',
+	serif
+	) !default;
 
-// Default Body
-$font_stack_body: ('Open Sans', $font_stack_sans,) !default;
-
-// Default Monospace
-$font_stack_code: $font_stack_mono !default;
-
+// Default Code/Monospace
+$font_stack_code: (
+	'Courier New',
+	'Courier',
+	'Lucida Typewriter',
+	monospace
+	) !default;
 
 // ----------------
-// 6.2 Modular Scale
+// 6.2 Modular Scale (font sizes)
 // ----------------
 // 2DO-YG: Test and add info
-$ms-base          : 1em;
-$ms-ratio         : 1.5;
+$ms-base          : 1em !default;
+$ms-ratio         : 1.5 !default;
 $modularscale     : (
 	base: $base_font_size,
 	ratio: 1.33
 ) !default;
-
 
 // -------------------------------------
 // 7. Breakpoints
@@ -242,11 +239,9 @@ $breakpoints: (
 	xl : 112.5em,  // 1800px
 ) !default;
 
-
 // -------------------------------------
 // 8. Z-Index
 // -------------------------------------
-
 $z_nosebleed    : 9999  !default;
 $z_tooltip      : 600   !default;
 $z_popup        : 500   !default;
@@ -259,30 +254,20 @@ $z_base         : 1     !default;
 $z_bottomless   : -9999 !default;
 
 // -------------------------------------
-// 10. Icons
-// -------------------------------------
-// Font-Awesome
-$fa-font-path:        $font_base_path  !default;
-$fa-font-size-base:   1.4rem           !default;
-$fa-line-height-base: 1                !default;
-$fa-css-prefix:       fa               !default;
-$fa-border-color:     $cl_icon-border  !default;
-$fa-inverse:          $cl_icon-inverse !default;
-$fa-li-width:         (30em / 14)      !default;
-
-
-// -------------------------------------
 // 11. Grid - Susy Config
 // -------------------------------------
-// These vars override !defaults declared in Luscious settings.
-// All $susy map options available as variables so they can
-// be controled globally here.
-// @see: goo.gl/Ak5Bo8
+// Susy 3 Docs: https://goo.gl/Ak5Bo8
+// Susy Map Docs: https://goo.gl/BDui9p
 
-// @IVAN: Can you add a really short description for what each one of these does?
+// Default Config
 $susy: (
+	// Number of columns
 	'columns': susy-repeat(6),
+	// Spaces between each column
 	'gutters': 0.25,
+	// Controls outer gutters. Can be narrow, wide, or wider
 	'spread': 'narrow',
+	// Controls outer gutters of parent-container.
+	// Can be narrow, wide, or wider
 	'container-spread': 'narrow',
 ) !default;

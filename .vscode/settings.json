@@ -16,10 +16,7 @@
 	"npm.packageManager": "yarn",
 	"scss.validate": false,
 	"css.validate": false,
-	"prettier.disableLanguages": [
-		"scss",
-		"sass"
-	],
+	"prettier.disableLanguages": ["scss", "sass"],
 	"editor.detectIndentation": false,
 	"[yaml]": {
 		"editor.detectIndentation": false,

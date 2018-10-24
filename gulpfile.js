@@ -11,6 +11,7 @@ var g = require("gulp"),
 	sassdoc = require("sassdoc"),
 	browserSync = require("browser-sync"),
 	replaceQuotes = require("gulp-replace-quotes"),
+	removeCode = require('gulp-remove-code'),
 	run = require("gulp-run");
 
 // ------------------------------------
@@ -29,6 +30,10 @@ var styles = {
 	},
 	lintFixConfig: {
 		configFile: "./.sasslint-fix.yml"
+	},
+	settingsFile: {
+		src: "./core/_settings.scss",
+		dest: "./scaffold"
 	}
 };
 
@@ -101,6 +106,14 @@ g.task("quotes", () => {
 		}))
 		.pipe(g.dest("./"));
 });
+
+g.task("sass-settings", () => {
+	g.src(styles.settingsFile.src)
+		.pipe(removeCode({ scaffold: true }))
+		.pipe(g.dest(styles.settingsFile.dest));
+});
+
+
 
 // Fix Sass Files based on linter
 g.task("fix", ["quotes"], () => run("yarn fix").exec());

@@ -6,19 +6,19 @@
 // ------------------------------------
 // Basic Clearfix
 // ------------------------------------
-// .u_clearfix
+.u_clearfix
 	@extend %clearfix // sass-lint:disable-line no-extends
 	// Instead of extending, you can use the mixin if you need the
 	// clearfix to print in cascading order or within a media-query
 
 
 // ------------------------------------
-// Float left/right
+// Float Element left or right
 // ------------------------------------
-// .u_left
+.u_left
 	+move(left)
 
-// .u_right
+.u_right
 	+move(right)
 
 
@@ -37,14 +37,7 @@
 .u_hide_text
 	+hide_text
 
-// TODO: Maybe we should rename 'visuallyhidden' so that it's clear it is different from 'hide_text'?
-// Hides element visually, but keeps it
-// accessible to screen-readers.
-.u_visuallyhidden
-	+visuallyhidden
-
-// TODO: Maybe we should remove either this class/mixin or 'visuallyhidden' since they are the same?
-// Alias of 'visuallyhidden'
+// Hides element visually, but keeps it accessible to screen-readers.
 .u_sr_only
 	+sr_only
 

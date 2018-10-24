@@ -2,6 +2,20 @@
 // ------------------------------------------------------------------
 // TODO: Add info, notes, feedback, and tests.
 
+// -------------------------------------
+// Settings (to add to settings.scss
+// -------------------------------------
+
+// Baseline Height
+// Used for vertical rhythm and baseline grids
+// 2DO-YG: Test and add info - Possibly go back to using rem units
+$base_line_height: 24px !default;
+
+// Used for vertical rhythm (with baseline grids)
+// Incremental steps for vr
+// 2DO-YG: Test and add info - Possibly go back to using rem units
+$baseline-grid: 8px !default;
+
 
 // ------------------------------------
 // Classic Vertical-Rhythm Function

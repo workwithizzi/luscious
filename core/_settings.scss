@@ -1,17 +1,26 @@
-// @title: Project Settings
-// @since: v0.0.5
+//removeIf(scaffold)
+// @title: Default Settings (used for core & scaffold)
+// @desc:  This file is automatically copied to './scaffold/' and
+//         anything between the 'removeIf/endRemoveIf' tags is removed.
+//         DONT modify the file './scaffold/_settings.scss' directly.
+//endRemoveIf(scaffold)
+
+// @title  Project Settings
+// @since: v0.0.8
 // @desc:  Use this file to override Luscious default configs or create
-//         new configs. If overriding a default, remove the `!default`
-//         flag. You can remove any default here and the setting will
+//         new configs. If modifying a default, remove the `!default`
+//         flag. You can remove anything here and the setting will
 //         fall back to Luscious' settings.
+// TODO: Add url to Luscious documentation
 // @see:   url/to/luscious/documentation
 // ===================================================================
 
+//removeIf(scaffold)
 ////
 /// @group global-settings
 /// @since v0.0.7
 ////
-
+//endRemoveIf(scaffold)
 
 // Contents
 // 1. Development
@@ -49,16 +58,6 @@ $output_dev_color_classes: false !default;
 // To use multiples of '10' in your sizes,
 // declare 62.5% instead of the standard '100%'
 $document_font_size: 100% !default;
-
-// Baseline Height
-// Used for vertical rhythm and baseline grids
-// 2DO-YG: Test and add info - Possibly go back to using rem units
-$base_line_height: 24px !default;
-
-// Used for vertical rhythm (with baseline grids)
-// Incremental steps for vr
-// 2DO-YG: Test and add info - Possibly go back to using rem units
-$baseline-grid: 8px !default;
 
 // Base Font-Size
 $base_font_size: 1rem !default;
@@ -185,9 +184,9 @@ $base_animation: all $base_delay $base_timing !default;
 // 6. Typography
 // -------------------------------------
 
-// ----------------
+// -----------------
 // 6.1 Font-Stacks
-// ----------------
+// -----------------
 // Base: Project font-stacks are built using these as fallback.
 // REVIEW: 2DO-YG: Should we remove these default stacks all together and just use the ones specific to UI usage?
 // Sans-Serif

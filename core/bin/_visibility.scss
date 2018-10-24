@@ -56,18 +56,17 @@ $info_hide_text: info-log(
 // Hide only visually, but have it available for screen-readers
 
 $info_vissuallyhidden: info-log(
-	'The `visuallyhidden` mixin hides the element for visual browsers
+	'The `sr_only` mixin hides the element for visual browsers
 	but keeps it accessible to screen readers.
 	Type  : Included Mixin
-	Params: none
-	Alias : `sr_only`'
+	Params: none'
 );
 
 @mixin __info_vissuallyhidden {
 	@debug $info_vissuallyhidden;
 }
 
-@mixin visuallyhidden($info: null) {
+@mixin sr_only($info: null) {
 	@if $info { @debug $info_vissuallyhidden; }
 
 	@else {
@@ -80,7 +79,7 @@ $info_vissuallyhidden: info-log(
 		position: absolute;
 		width: 1px;
 
-		// Extends the .visuallyhidden class to allow the element to be focusable
+		// Extends the .sr_only class to allow the element to be focusable
 		// when navigated to via the keyboard: h5bp.com/p
 
 		&.focusable {
@@ -96,15 +95,6 @@ $info_vissuallyhidden: info-log(
 		}
 	}
 
-}
-
-// Alias
-@mixin __info_sr_only {
-	@include __info_vissuallyhidden;
-}
-
-@mixin sr_only($info: null) {
-	@include visuallyhidden($info);
 }
 
 // -------------------------------------
@@ -164,8 +154,7 @@ $info_visibility_utility_classes: info-log(
 	'Adds utility classes:
 	- .#{$utility_class_prefix}hidden         (mixin: +hidden)
 	- .#{$utility_class_prefix}hide_text      (mixin: +hide_text)
-	- .#{$utility_class_prefix}visuallyhidden (mixin: +visuallyhidden)
-	- .#{$utility_class_prefix}sr_only        (mixin: +sr_only)
+	- .#{$utility_class_prefix}sr_only (mixin: +sr_only)
 	- .#{$utility_class_prefix}invisible      (mixin: +invisible)
 	- .#{$utility_class_prefix}show           (mixin: +show)
 
@@ -185,8 +174,7 @@ $info_visibility_utility_classes: info-log(
 	@else {
 		.#{$utility_class_prefix}hidden         { @include hidden;         }
 		.#{$utility_class_prefix}hide_text      { @include hide_text;      }
-		.#{$utility_class_prefix}visuallyhidden { @include visuallyhidden; }
-		.#{$utility_class_prefix}sr_only        { @include sr_only;        }
+		.#{$utility_class_prefix}sr_only { @include sr_only; }
 		.#{$utility_class_prefix}invisible      { @include invisible;      }
 		.#{$utility_class_prefix}show           { @include show;           }
 	}
@@ -228,31 +216,18 @@ $info_visibility_utility_classes: info-log(
 }
 
 
-@mixin __test_visuallyhidden {
-	@if $output_test_message { @debug '[TESTING] `visuallyhidden`'; }
-	/* `visuallyhidden` ----------------- */
-	/*
-	.test.visuallyhidden {
-		@include visuallyhidden;
-	}
-	*/
-	.test.visuallyhidden {
-		@include visuallyhidden;
-	}
-	/*
-	.test.sr_only {
-		@include sr_only;
-	}
-	*/
-	.test.sr_only {
-		@include sr_only;
-	}
-	/* End `visuallyhidden` ------------- */
-}
-
-// Alias
 @mixin __test_sr_only {
-	@include __test_visuallyhidden;
+	@if $output_test_message { @debug '[TESTING] `sr_only`'; }
+	/* `sr_only` ----------------- */
+	/*
+	.test.sr_only {
+		@include sr_only;
+	}
+	*/
+	.test.sr_only {
+		@include sr_only;
+	}
+	/* End `sr_only` ------------- */
 }
 
 

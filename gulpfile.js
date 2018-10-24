@@ -107,7 +107,7 @@ g.task("quotes", () => {
 		.pipe(g.dest("./"));
 });
 
-g.task("sass-settings", () => {
+g.task("clean:settings", () => {
 	g.src(styles.settingsFile.src)
 		.pipe(removeCode({ scaffold: true }))
 		.pipe(g.dest(styles.settingsFile.dest));

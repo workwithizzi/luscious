@@ -133,6 +133,7 @@
 	} //@each
 
 	// Modifications Applied
+	// sass-lint:disable-block declarations-before-nesting
 	margin: $_margin-top $_margin-right $_margin-bottom $_margin-left;
 	width: $_width;
 	display: $_display;

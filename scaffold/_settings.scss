@@ -215,7 +215,8 @@ $modularscale     : (
 /// A map for your default breakpoint widths. Prefer `em` units as
 /// they are the most consistent for media queries across browsers
 /// @since v0.0.4
-/// @see {mixin} breakpoint
+/// @see {mixin} bp
+/// @see {mixin} between_bp
 ///
 $breakpoints: (
 	xs : 37.437em, // 599px

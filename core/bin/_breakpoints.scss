@@ -1,16 +1,13 @@
 // BreakPoint Mixins
-// - breakpoint
-//   - alias: bp
-// - between_breakpoints
-//   - alias: between_bp
-// - for_print
+//   Creates: a media query mixin for min OR max-width,
+//   a mixin for between min and max-width (between_bp),
+//   and a print media query (for_print)
 // ===================================================================
 
 ////
 /// @group utilities-layout
 /// @since v0.0.6
 ////
-
 
 
 /// ## Media Query Mixin
@@ -28,11 +25,11 @@
 /// @content [CSS content for the breakpoint]
 ///
 /// @see {variable} $breakpoints
-/// @see {mixin} between_breakpoints
+/// @see {mixin} between_bp
 /// @see {mixin} for_print
 ///
 /// @example scss
-///  @include breakpoint(md) {
+///  @include bp(md) {
 ///    .element {
 ///      font-size: 2rem;
 ///    }
@@ -45,7 +42,7 @@
 ///    }
 ///  }
 ///
-@mixin breakpoint($size, $query: 'min-width', $map: $breakpoints) {
+@mixin bp($size, $query: 'min-width', $map: $breakpoints) {
 
 	@if $query == 'min' { $query: 'min-width'; }
 	@if $query == 'max' { $query: 'max-width'; }
@@ -77,19 +74,6 @@
 	}
 }
 
-/// ## BP
-/// Alias for `breakpoint`
-///
-/// @alias breakpoint
-///
-@mixin bp($size, $query: 'min-width', $map: $breakpoints) {
-	@include breakpoint($size, $query, $map) {
-		@content;
-	}
-}
-
-// -----------------
-
 
 /// ## Min-Max Media Query Mixin
 /// Creates a `screen-only` media-query between a min and max size.
@@ -108,11 +92,11 @@
 /// @content [CSS content for the breakpoint]
 ///
 /// @see {variable} $breakpoints
-/// @see {mixin} breakpoint
+/// @see {mixin} bp
 /// @see {mixin} for_print
 ///
 /// @example scss
-///  @include between_breakpoints(sm, md) {
+///  @include between_bp(sm, md) {
 ///    .element {
 ///      font-size: 2rem;
 ///    }
@@ -120,12 +104,12 @@
 /// @example scss
 ///  .element {
 ///    font-size: 2rem;
-///    @include between_breakpoints(480px, 890px) {
+///    @include between_bp(480px, 890px) {
 ///      font-size: 2.4rem;
 ///    }
 ///  }
 ///
-@mixin between_breakpoints($min, $max: null, $map: $breakpoints) {
+@mixin between_bp($min, $max: null, $map: $breakpoints) {
 
 	// Provide info to terminal
 	@if $min == 'info' {
@@ -158,27 +142,13 @@
 }
 
 
-/// ## Between_BP
-/// Alias for `between_breakpoints`
-///
-/// @alias between_breakpoints
-///
-@mixin between_bp($min, $max: null, $map: $breakpoints) {
-	@include between_breakpoints($min, $max, $map) {
-		@content;
-	}
-}
-
-// ----------------
-
-
 /// ## Print Media Query Mixin
 /// Creates a `@media print` media-query.
 ///
 /// @content [CSS content for the breakpoint]
 ///
-/// @see {mixin} breakpoint
-/// @see {mixin} between_breakpoints
+/// @see {mixin} bp
+/// @see {mixin} between_bp
 ///
 /// @example scss
 ///  @include for_print {

@@ -1,12 +1,12 @@
-// Img & Font path Functions
-// - Creates paths to images and fonts directorys
+// Img & Font asset-path Functions
+//   Creates paths to images/font directories using
+//   variables defined in `settings.scss` file.
 // ===================================================================
 
 ////
 /// @group utilities-utilities
 /// @since v0.0.6
 ////
-
 
 
 /// ## Image Path Function
@@ -35,8 +35,6 @@
 		@return url($path + '/' + $file);
 	}
 }
-
-// ----------------
 
 
 /// ## Font Path Function

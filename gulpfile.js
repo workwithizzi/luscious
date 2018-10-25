@@ -14,9 +14,9 @@ var g = require("gulp"),
 	removeCode = require('gulp-remove-code'),
 	run = require("gulp-run");
 
-// ------------------------------------
+// -------------------------------------
 // Paths
-// ------------------------------------
+// -------------------------------------
 // SASS
 var styles = {
 	src: [
@@ -65,9 +65,9 @@ g.task("production", [
 	"clean:button-configs"
 ]);
 
-// ------------------------------------
+// -------------------------------------
 // SASS
-// ------------------------------------
+// -------------------------------------
 g.task("styles", ["styles:build", "styles:watch"]);
 
 // - Compile Sass
@@ -136,9 +136,9 @@ g.task("clean:button-configs", () => {
 // Fix Sass Files based on linter
 g.task("fix", ["quotes"], () => run("yarn fix").exec());
 
-// ------------------------------------
+// -------------------------------------
 // Sassdoc
-// ------------------------------------
+// -------------------------------------
 // - Watch & Compile Styles
 // - Watch & Compile Sassdoc
 // - Run local server

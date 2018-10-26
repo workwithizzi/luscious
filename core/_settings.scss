@@ -215,8 +215,6 @@ $font_stack_code: (
 // 6.2 Modular Scale (font sizes)
 // ----------------
 // 2DO-YG: Test and add info
-$ms-base          : 1em !default;
-$ms-ratio         : 1.5 !default;
 $modularscale     : (
 	base: $base_font_size,
 	ratio: 1.33

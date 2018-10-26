@@ -21,8 +21,8 @@ var g = require("gulp"),
 var styles = {
 	src: [
 		"./test/**/*.s+(a|c)ss",
-		"./core/**/*.s+(a|c)ss"
-		// './scaffold/**/*.s+(a|c)ss'
+		"./core/**/*.s+(a|c)ss",
+		"./scaffold/**/*.s+(a|c)ss"
 	],
 	dest: "test/",
 	lintConfig: {
@@ -53,7 +53,7 @@ var docs = {
 // -------------------------------------
 // - Compile & Watch SASS
 g.task("default", [
-	// 'styles',
+	'styles',
 	"docs"
 ]);
 

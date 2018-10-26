@@ -20,8 +20,8 @@ var g = require("gulp"),
 // SASS
 var styles = {
 	src: [
-		"./test/**/*.s+(a|c)ss",
-		"./core/**/*.s+(a|c)ss",
+		// "./test/**/*.s+(a|c)ss",
+		// "./core/**/*.s+(a|c)ss",
 		"./scaffold/**/*.s+(a|c)ss"
 	],
 	dest: "test/",

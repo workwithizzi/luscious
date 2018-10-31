@@ -246,14 +246,14 @@ $z_bottomless   : -9999 !default;
 // Susy Map Docs: https://goo.gl/BDui9p
 
 // Default Config
-$susy: (
-	// Number of columns
-	'columns': susy-repeat(12),
-	// Spaces between each column
-	'gutters': 0.25,
-	// Controls outer gutters. Can be narrow, wide, or wider
-	'spread': 'narrow',
-	// Controls outer gutters of parent-container.
-	// Can be narrow, wide, or wider
-	'container-spread': 'narrow',
-) !default;
+// $susy: (
+// 	// Number of columns
+// 	'columns': susy-repeat(12),
+// 	// Spaces between each column
+// 	'gutters': 0.25,
+// 	// Controls outer gutters. Can be narrow, wide, or wider
+// 	'spread': 'narrow',
+// 	// Controls outer gutters of parent-container.
+// 	// Can be narrow, wide, or wider
+// 	'container-spread': 'narrow',
+// ) !default;

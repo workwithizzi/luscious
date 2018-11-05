@@ -14,15 +14,15 @@ var g = require("gulp"),
 	removeCode = require('gulp-remove-code'),
 	run = require("gulp-run");
 
-// ------------------------------------
+// -------------------------------------
 // Paths
-// ------------------------------------
+// -------------------------------------
 // SASS
 var styles = {
 	src: [
-		"./test/**/*.s+(a|c)ss",
-		"./core/**/*.s+(a|c)ss"
-		// './scaffold/**/*.s+(a|c)ss'
+		// "./test/**/*.s+(a|c)ss",
+		// "./core/**/*.s+(a|c)ss",
+		"./scaffold/**/*.s+(a|c)ss"
 	],
 	dest: "test/",
 	lintConfig: {
@@ -34,6 +34,10 @@ var styles = {
 	settingsFile: {
 		src: "./core/_settings.scss",
 		dest: "./scaffold"
+	},
+	buttonFile: {
+		src: "./core/bin/_button_config.scss",
+		dest: "./scaffold/objects"
 	}
 };
 
@@ -44,18 +48,26 @@ var docs = {
 	watch: styles.dest + "test.css"
 };
 
-// ------------------------------------
+// -------------------------------------
 // Main Task
-// ------------------------------------
+// -------------------------------------
 // - Compile & Watch SASS
 g.task("default", [
-	// 'styles',
+	'styles',
 	"docs"
 ]);
 
-// ------------------------------------
+// -------------------------------------
+// Production Tasks
+// -------------------------------------
+g.task("production", [
+	"clean:settings",
+	"clean:button-configs"
+]);
+
+// -------------------------------------
 // SASS
-// ------------------------------------
+// -------------------------------------
 g.task("styles", ["styles:build", "styles:watch"]);
 
 // - Compile Sass
@@ -107,10 +119,16 @@ g.task("quotes", () => {
 		.pipe(g.dest("./"));
 });
 
-g.task("sass-settings", () => {
+g.task("clean:settings", () => {
 	g.src(styles.settingsFile.src)
 		.pipe(removeCode({ scaffold: true }))
 		.pipe(g.dest(styles.settingsFile.dest));
+});
+
+g.task("clean:button-configs", () => {
+	g.src(styles.buttonFile.src)
+		.pipe(removeCode({ scaffold: true }))
+		.pipe(g.dest(styles.buttonFile.dest));
 });
 
 
@@ -118,9 +136,9 @@ g.task("sass-settings", () => {
 // Fix Sass Files based on linter
 g.task("fix", ["quotes"], () => run("yarn fix").exec());
 
-// ------------------------------------
+// -------------------------------------
 // Sassdoc
-// ------------------------------------
+// -------------------------------------
 // - Watch & Compile Styles
 // - Watch & Compile Sassdoc
 // - Run local server

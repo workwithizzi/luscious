@@ -33,11 +33,10 @@ rules:
   mixins-before-declarations:
     - 1
     - exclude:
-        - breakpoint
         - bp
-        - between_breakpoints
         - between_bp
         - for_print
+        - nav-bp
 
   # Selectors
   no-attribute-selectors: 0

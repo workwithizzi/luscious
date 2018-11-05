@@ -37,7 +37,7 @@
 		"sassdoc-theme-herman": "^3.0.0"
 	},
 	"dependencies": {
-		"modularscale-sass": "^3.0.5",
+		"modularscale-sass": "^3.0.8",
 		"susy": "^3.0.5"
 	}
 }

@@ -5,12 +5,12 @@
 // Should be overwritten in _settings.scss (project settings)
 // ===================================================================
 
-// $base_grid_columns: 12 !default;
-// $base_grid_gutters: 0.25 !default;
+$base_grid_columns: 12 !default;
+$base_grid_gutters: 0.25 !default;
 // [INFO] Possible options for 'spread': 'wide', 'narrow', 'wider'. See: https://goo.gl/Mf6z6Z
-// $base_grid_spread: 'wide' !default;
+$base_grid_spread: 'wide' !default;
 // [INFO] Possible options for 'container-spread': 'wide', 'narrow', 'wider'. See: https://goo.gl/Mf6z6Z
-// $base_grid_container-spread: 'wide' !default;
+$base_grid_container-spread: 'wide' !default;
 
 
 // ===================================================================

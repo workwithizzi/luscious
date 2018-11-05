@@ -272,9 +272,7 @@ $z_bottomless   : -9999 !default;
 // ) !default;
 
 // ------------------------------------------------------------------
-// Susy config
-// ------------------------------------------------------------------
-// This variables override the !default variables that are declared in '_luscious.scss'.
+// This variables override the !default variables that are declared in './bin/_susy_grid.scss'.
 // All the susy map options were turned into variables and control $susy from here in form of variables.
 
 $base_grid_columns: 6;

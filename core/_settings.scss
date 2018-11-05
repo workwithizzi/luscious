@@ -255,27 +255,12 @@ $z_bottomless   : -9999 !default;
 // -------------------------------------
 // 11. Grid - Susy Config
 // -------------------------------------
+// These variables override the !default $susy map settings
+// More info:
 // Susy 3 Docs: https://goo.gl/Ak5Bo8
 // Susy Map Docs: https://goo.gl/BDui9p
 
-// Default Config
-// $susy: (
-// 	// Number of columns
-// 	'columns': susy-repeat(12),
-// 	// Spaces between each column
-// 	'gutters': 0.25,
-// 	// Controls outer gutters. Can be narrow, wide, or wider
-// 	'spread': 'narrow',
-// 	// Controls outer gutters of parent-container.
-// 	// Can be narrow, wide, or wider
-// 	'container-spread': 'narrow',
-// ) !default;
-
-// ------------------------------------------------------------------
-// This variables override the !default variables that are declared in './bin/_susy_grid.scss'.
-// All the susy map options were turned into variables and control $susy from here in form of variables.
-
-$base_grid_columns: 6;
-$base_grid_gutters: 0.25;
-$base_grid_spread: 'narrow';
-$base_grid_container-spread: 'narrow';
+$base_grid_columns: 12 !default;
+$base_grid_gutters: 0.25 !default;
+$base_grid_spread: 'narrow' !default;
+$base_grid_container-spread: 'narrow' !default;

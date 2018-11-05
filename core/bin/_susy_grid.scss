@@ -1,20 +1,21 @@
 @import './../../node_modules/susy/sass/susy';
 
 // ===================================================================
-// Susy default variables that are defined at _luscious.scss
+// Susy3 default variables
 // Should be overwritten in _settings.scss (project settings)
 // ===================================================================
 
 // $base_grid_columns: 12 !default;
 // $base_grid_gutters: 0.25 !default;
+// [INFO] Possible options for 'spread': 'wide', 'narrow', 'wider'. See: https://goo.gl/Mf6z6Z
 // $base_grid_spread: 'wide' !default;
+// [INFO] Possible options for 'container-spread': 'wide', 'narrow', 'wider'. See: https://goo.gl/Mf6z6Z
 // $base_grid_container-spread: 'wide' !default;
 
 
 // ===================================================================
-// This map is used just to override the Susy map in their library.
+// This map is used just to override the Susy3 map in their library.
 // All the settings turned into variables and controled from the project settings file.
-// The variables declared in Luscious settings file which mirror the project settings file by default.
 // ===================================================================
 
 $susy: (

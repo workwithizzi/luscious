@@ -20,17 +20,6 @@ $sassdoc_base_url: 'http://localhost:3000/' !default;
 // -------------------------------------------------------------------
 
 
-// -------------------------------------------------------------------
-// Default Variables to control Susy Map
-// Should be overwritten in _settings.scss (project settings) file
-
-$base_grid_columns: 12 !default;
-$base_grid_gutters: 0.25 !default;
-$base_grid_spread: 'wide' !default;
-$base_grid_container-spread: 'wide' !default;
-// -------------------------------------------------------------------
-
-
 // Default Settings
 @import 'settings';
 

@@ -18,26 +18,33 @@
 //removeIf(scaffold)
 ////
 /// @group global-settings
-/// @since v0.0.7
+/// @since v0.0.8
 ////
 //endRemoveIf(scaffold)
 
-// Contents
-// 1. Development
-// 2. Base
-// 3. Colors
-// 4. Accessibility
-// 5. Animation
-// 6. Typography
-//   6.1 Font-Stacks
-//   6.2 Modular Scale
-// 7. Breakpoints
-// 8. Z-Index
-// 9. Asset Paths
-// 10. Icons
-// 11. Grid
-// 12. Buttons
 
+// --------------------------------------------------------------------
+// Table of Contents
+// -------------------------------------
+// |	1. Development
+// -------------------------------------
+// |	2. Base
+// -------------------------------------
+// |	3. Colors
+// -------------------------------------
+// |	4. A11Y
+// -------------------------------------
+// |	5. Animation
+// -------------------------------------
+// |	6. Typography
+//	|- 6.1 Font-Stacks
+//	|- 6.2 Modular Scale (font sizes)
+// -------------------------------------
+// | 7. Breakpoints
+// -------------------------------------
+// | 8. Z-Index
+// -------------------------------------
+// | 9. Grid - Susy Config
 // --------------------------------------------------------------------
 
 
@@ -253,8 +260,22 @@ $z_base         : 1     !default;
 $z_bottomless   : -9999 !default;
 
 // -------------------------------------
-// 11. Grid - Susy Config
+// 9. Grid - Susy Config
 // -------------------------------------
+<<<<<<< HEAD
+// These vars override !defaults declared in Luscious settings.
+// All $susy map options available as variables so they can
+// be controled globally here.
+// @see: goo.gl/Ak5Bo8
+
+// @IVAN: Can you add a really short description for what each one of these does?
+$susy: (
+	'columns': susy-repeat(6),
+	'gutters': 0.25,
+	'spread': 'narrow',
+	'container-spread': 'narrow',
+) !default;
+=======
 // These variables override the !default $susy map settings
 // More info:
 // Susy 3 Docs: https://goo.gl/Ak5Bo8
@@ -264,3 +285,4 @@ $base_grid_columns: 12 !default;
 $base_grid_gutters: 0.25 !default;
 $base_grid_spread: 'narrow' !default;
 $base_grid_container-spread: 'narrow' !default;
+>>>>>>> release/v0.0.8

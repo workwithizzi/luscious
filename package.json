@@ -17,20 +17,27 @@
 		"scss",
 		"scaffold"
 	],
+	"scripts": {
+		"fix": "sass-lint-auto-fix -c .sasslint-fix.yml"
+	},
 	"devDependencies": {
 		"browser-sync": "^2.24.7",
 		"gulp": "^3.9.1",
 		"gulp-autoprefixer": "^6.0.0",
+		"gulp-remove-code": "^3.0.4",
+		"gulp-replace-quotes": "^1.0.1",
+		"gulp-run": "^1.7.1",
 		"gulp-sass": "^4.0.1",
 		"gulp-sass-lint": "^1.4.0",
 		"gulp-sourcemaps": "^2.6.4",
 		"node-sass": "^4.9.3",
+		"sass-lint-auto-fix": "^0.15.0",
 		"sass-true": "^4.0.0",
 		"sassdoc": "^2.5.0",
 		"sassdoc-theme-herman": "^3.0.0"
 	},
 	"dependencies": {
-		"modularscale-sass": "^3.0.5",
+		"modularscale-sass": "^3.0.8",
 		"susy": "^3.0.5"
 	}
 }

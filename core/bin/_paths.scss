@@ -1,12 +1,12 @@
-// Img & Font path Functions
-// - Creates paths to images and fonts directorys
+// Img & Font asset-path Functions
+//   Creates paths to images/font directories using
+//   variables defined in `settings.scss` file.
 // ===================================================================
 
 ////
 /// @group utilities-utilities
 /// @since v0.0.6
 ////
-
 
 
 /// ## Image Path Function
@@ -23,20 +23,18 @@
 ///
 /// @example scss
 ///  .element {
-///    background: img("photo.jpg");
+///    background: img('photo.jpg');
 ///  }
 ///
 @function img($file, $path: $img_base_path) {
-	@if $file == "info" {
-		@debug more-info("img", "function", "utilities-utilities");
+	@if $file == 'info' {
+		@debug more-info('img', 'function', 'utilities-utilities');
 		@return null;
 	}
 	@else {
 		@return url($path + '/' + $file);
 	}
 }
-
-// ----------------
 
 
 /// ## Font Path Function
@@ -53,12 +51,12 @@
 ///
 /// @example scss
 ///  @font-face {
-///    src: font("my-font.otf");
+///    src: font('my-font.otf');
 ///  }
 ///
 @function font($file, $path: $font_base_path) {
-	@if $file == "info" {
-		@debug more-info("font", "function", "utilities-utilities");
+	@if $file == 'info' {
+		@debug more-info('font', 'function', 'utilities-utilities');
 		@return null;
 	}
 	@else {

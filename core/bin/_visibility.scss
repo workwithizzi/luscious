@@ -6,7 +6,7 @@
 
 
 // Hidden
-// Hide from both screenreaders and browsers
+// Hide from both screen-readers and browsers
 
 $info_hidden: info-log(
 	'The `hidden` mixin hides the element from
@@ -20,7 +20,7 @@ $info_hidden: info-log(
 }
 
 @mixin hidden($info: null) {
-	display: none !important;
+	display: none !important; // sass-lint:disable-line no-important
 	visibility: hidden;
 	@if $info { @debug $info_hidden; }
 }
@@ -53,21 +53,20 @@ $info_hide_text: info-log(
 // -------------------------------------
 
 // Visually Hidden
-// Hide only visually, but have it available for screenreaders
+// Hide only visually, but have it available for screen-readers
 
 $info_vissuallyhidden: info-log(
-	'The `visuallyhidden` mixin hides the element for visual browsers
+	'The `sr_only` mixin hides the element for visual browsers
 	but keeps it accessible to screen readers.
 	Type  : Included Mixin
-	Params: none
-	Alias : `sr_only`'
+	Params: none'
 );
 
 @mixin __info_vissuallyhidden {
 	@debug $info_vissuallyhidden;
 }
 
-@mixin visuallyhidden($info: null) {
+@mixin sr_only($info: null) {
 	@if $info { @debug $info_vissuallyhidden; }
 
 	@else {
@@ -80,7 +79,7 @@ $info_vissuallyhidden: info-log(
 		position: absolute;
 		width: 1px;
 
-		// Extends the .visuallyhidden class to allow the element to be focusable
+		// Extends the .sr_only class to allow the element to be focusable
 		// when navigated to via the keyboard: h5bp.com/p
 
 		&.focusable {
@@ -98,23 +97,14 @@ $info_vissuallyhidden: info-log(
 
 }
 
-// Alias
-@mixin __info_sr_only {
-	@include __info_vissuallyhidden;
-}
-
-@mixin sr_only($info: null) {
-	@include visuallyhidden($info);
-}
-
 // -------------------------------------
 
 // Invisible
-// Hide visually and from screenreaders, but maintains layout
+// Hide visually and from screen-readers, but maintains layout
 
 $info_invisible: info-log(
 	'The `invisible` mixin hides the element visually
-	and from screenreaders, but maintains layout.
+	and from screen-readers, but maintains layout.
 	Type  : Included Mixin
 	Params: none'
 );
@@ -148,7 +138,8 @@ $info_show: info-log(
 	@if $info { @debug $info_show; }
 
 	@else {
-		display: block !important;
+		display: block !important; // sass-lint:disable-line no-important
+		visibility: visible;
 	}
 }
 
@@ -160,11 +151,10 @@ $info_show: info-log(
 $utility_class_prefix: 'u_' !default;
 
 $info_visibility_utility_classes: info-log(
-	"Adds utilitiy classes:
+	'Adds utility classes:
 	- .#{$utility_class_prefix}hidden         (mixin: +hidden)
 	- .#{$utility_class_prefix}hide_text      (mixin: +hide_text)
-	- .#{$utility_class_prefix}visuallyhidden (mixin: +visuallyhidden)
-	- .#{$utility_class_prefix}sr_only        (mixin: +sr_only)
+	- .#{$utility_class_prefix}sr_only (mixin: +sr_only)
 	- .#{$utility_class_prefix}invisible      (mixin: +invisible)
 	- .#{$utility_class_prefix}show           (mixin: +show)
 
@@ -172,7 +162,7 @@ $info_visibility_utility_classes: info-log(
 	parameter to see what it specifically does.
 
 	Example:
-	+__info(hidden)"
+	+__info(hidden)'
 );
 
 @mixin __info_visibility_utility_classes {
@@ -184,8 +174,7 @@ $info_visibility_utility_classes: info-log(
 	@else {
 		.#{$utility_class_prefix}hidden         { @include hidden;         }
 		.#{$utility_class_prefix}hide_text      { @include hide_text;      }
-		.#{$utility_class_prefix}visuallyhidden { @include visuallyhidden; }
-		.#{$utility_class_prefix}sr_only        { @include sr_only;        }
+		.#{$utility_class_prefix}sr_only { @include sr_only; }
 		.#{$utility_class_prefix}invisible      { @include invisible;      }
 		.#{$utility_class_prefix}show           { @include show;           }
 	}
@@ -198,7 +187,7 @@ $info_visibility_utility_classes: info-log(
 // ===================================================================
 
 @mixin __test_hidden {
-	@if $output_test_message { @debug "[TESTING] `hidden`"; }
+	@if $output_test_message { @debug '[TESTING] `hidden`'; }
 	/* `hidden` ------------------------- */
 	/*
 	.test.hidden {
@@ -213,7 +202,7 @@ $info_visibility_utility_classes: info-log(
 
 
 @mixin __test_hide_text {
-	@if $output_test_message { @debug "[TESTING] `hide_text`"; }
+	@if $output_test_message { @debug '[TESTING] `hide_text`'; }
 	/* `hide_text` ---------------------- */
 	/*
 	.test.hide_text {
@@ -227,36 +216,23 @@ $info_visibility_utility_classes: info-log(
 }
 
 
-@mixin __test_visuallyhidden {
-	@if $output_test_message { @debug "[TESTING] `visuallyhidden`"; }
-	/* `visuallyhidden` ----------------- */
-	/*
-	.test.visuallyhidden {
-		@include visuallyhidden;
-	}
-	*/
-	.test.visuallyhidden {
-		@include visuallyhidden;
-	}
-	/*
-	.test.sr_only {
-		@include sr_only;
-	}
-	*/
-	.test.sr_only {
-		@include sr_only;
-	}
-	/* End `visuallyhidden` ------------- */
-}
-
-// Alias
 @mixin __test_sr_only {
-	@include __test_visuallyhidden;
+	@if $output_test_message { @debug '[TESTING] `sr_only`'; }
+	/* `sr_only` ----------------- */
+	/*
+	.test.sr_only {
+		@include sr_only;
+	}
+	*/
+	.test.sr_only {
+		@include sr_only;
+	}
+	/* End `sr_only` ------------- */
 }
 
 
 @mixin __test_invisible {
-	@if $output_test_message { @debug "[TESTING] `invisible`"; }
+	@if $output_test_message { @debug '[TESTING] `invisible`'; }
 	/* `invisible` ---------------------- */
 	/*
 	.test.invisible {
@@ -271,7 +247,7 @@ $info_visibility_utility_classes: info-log(
 
 
 @mixin __test_show {
-	@if $output_test_message { @debug "[TESTING] `show`"; }
+	@if $output_test_message { @debug '[TESTING] `show`'; }
 	/* `show` --------------------------- */
 	/*
 	.test.show {
@@ -286,7 +262,7 @@ $info_visibility_utility_classes: info-log(
 
 
 @mixin __test_visibility_utility_classes {
-	@if $output_test_message { @debug "[TESTING] `visibility_utility_classes`"; }
+	@if $output_test_message { @debug '[TESTING] `visibility_utility_classes`'; }
 	/* `visibility_utility_classes` ----------- */
 	/*
 	@include visibility_utility_classes;

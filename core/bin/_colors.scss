@@ -12,18 +12,18 @@
 @function color_mix($mix, $color, $amount) {
 	$mix_with: ();
 	@if type-of($color) != color {
-		@debug "`#{$color}` is not a color.
-		For more info try the `__info(#{$mix})` mixin.";
+		@debug '`#{$color}` is not a color.
+		For more info try the `__info(#{$mix})` mixin.';
 		@return null;
-	} @else if type-of($amount) != number or unit($amount) != "%" {
-		@debug "`#{$amount}` is not a number percent.
-		For more info try the `__info(#{$mix})` mixin.";
+	} @else if type-of($amount) != number or unit($amount) != '%' {
+		@debug '`#{$amount}` is not a number percent.
+		For more info try the `__info(#{$mix})` mixin.';
 		@return null;
 	} @else {
 
-		@if $mix == "tint" { $mix_with: #fff; }
-		@if $mix == "shade" { $mix_with: #000; }
-		@if $mix == "tone" { $mix_with: #808080; }
+		@if $mix == 'tint' { $mix_with: #fff; }
+		@if $mix == 'shade' { $mix_with: #000; }
+		@if $mix == 'tone' { $mix_with: #808080; }
 
 		@return mix($mix_with, $color, $amount);
 	}
@@ -33,14 +33,14 @@
 
 // Used to make the __info mixins dryer for the color mods
 @mixin __color_mod_debugger($mod, $color) {
-	@debug "[INFO]
+	@debug '[INFO]
 	The `#{$mod}` function mixes your $color with
 	`#{$color}` based on the $amount you pass.
 	Type  : Function
 	Params:
 	- $color : Any color value.
 	- $amount: Any percentage amount.
-	";
+	';
 }
 
 // -------------------------------------
@@ -118,20 +118,20 @@
 		@return adjust-hue($color, $amount);
 	}
 	@else if $function == 'transparentize' {
-		@if unit($amount) == "%" {
+		@if unit($amount) == '%' {
 			$amount: $amount / 100%;
 		}
 		@return transparentize($color, $amount);
 	}
 	@else if $function == 'rgba' {
-		@if unit($amount) == "%" {
+		@if unit($amount) == '%' {
 			$amount: $amount / 100%;
 		}
 		@return rgba($color, $amount);
 	}
 	@else {
-		@debug "#{$function} is not an available color function.
-		For more info try the `__info(color_function)` mixin.";
+		@debug '#{$function} is not an available color function.
+		For more info try the `__info(color_function)` mixin.';
 		@return null;
 	}
 }
@@ -162,7 +162,7 @@ $info_color_function: info-log(
 
 
 @mixin __test_tint {
-	@if $output_test_message { @debug "[TESTING] `tint`"; }
+	@if $output_test_message { @debug '[TESTING] `tint`'; }
 	/* `tint` --------------------------- */
 	/*
 	.test.tint {
@@ -170,14 +170,14 @@ $info_color_function: info-log(
 	}
 	*/
 	.test.tint {
-		color: tint(red, 30%);
+		color: tint(#ff0000, 30%);
 	}
 	/* End `tint` ----------------------- */
 }
 
 
 @mixin __test_shade {
-	@if $output_test_message { @debug "[TESTING] `shade`"; }
+	@if $output_test_message { @debug '[TESTING] `shade`'; }
 	/* `shade` -------------------------- */
 	/*
 	.test.shade {
@@ -185,14 +185,14 @@ $info_color_function: info-log(
 	}
 	*/
 	.test.shade {
-		color: shade(red, 30%);
+		color: shade(#ff0000, 30%);
 	}
 	/* End `shade` ---------------------- */
 }
 
 
 @mixin __test_tone {
-	@if $output_test_message { @debug "[TESTING] `tone`"; }
+	@if $output_test_message { @debug '[TESTING] `tone`'; }
 	/* `tone` --------------------------- */
 	/*
 	.test.tone {
@@ -200,14 +200,14 @@ $info_color_function: info-log(
 	}
 	*/
 	.test.tone {
-		color: tone(red, 30%);
+		color: tone(#ff0000, 30%);
 	}
 	/* End `tone` ----------------------- */
 }
 
 
 @mixin __test_color_function {
-	@if $output_test_message { @debug "[TESTING] `color_function`"; }
+	@if $output_test_message { @debug '[TESTING] `color_function`'; }
 	/* `color_function` ----------------- */
 	/*
 	.test.color_function {
@@ -215,7 +215,7 @@ $info_color_function: info-log(
 	}
 	*/
 	.test.color_function {
-		color: color_function(tint, red, 30%);
+		color: color_function(tint, #ff0000, 30%);
 	}
 	/* End `color_function` ------------- */
 }

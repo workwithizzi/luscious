@@ -1,9 +1,9 @@
 # Luscious SASS
-*A Library of SASS functions/mixin/variables/stuff*
 
-**Current Version: v0.0.7: Unstable**
+_A Library of SASS functions/mixin/variables/stuff_
+
+**Current Version: v0.0.8: Unstable**
 Don't use this package until v1.0.0
-
 
 ## Installation
 
@@ -17,26 +17,31 @@ or
 yarn add -D luscious
 ```
 
-
 ## Setup
 
 ### Import
+
 In your main SASS file, import Luscious
+
 ```scss
 // main.scss
 @import 'node_modules/luscious/core/luscious';
 ```
 
 or, using Gulp:
+
 ```js
 // gulpfile.js
 gulp.task('sass', function() {
-	return gulp.src('sass/*.scss')
-			.pipe(sass({
-					outputStyle: 'compressed',
-					includePaths: ['node_modules/luscious/core']
-			}).on('error', sass.logError))
-			.pipe(gulp.dest('dist/css'));
+	return gulp
+		.src('sass/*.scss')
+		.pipe(
+			sass({
+				outputStyle: 'compressed',
+				includePaths: ['node_modules/luscious/core'],
+			}).on('error', sass.logError)
+		)
+		.pipe(gulp.dest('dist/css'));
 });
 ```
 
@@ -46,6 +51,7 @@ gulp.task('sass', function() {
 ```
 
 ### Override Luscious Settings
+
 If you want to override default settings in Luscious, copy the settings file to your `sass` directory and import it before Luscious.
 
 ```sh

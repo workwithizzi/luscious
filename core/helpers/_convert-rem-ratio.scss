@@ -1,6 +1,9 @@
 // TODO: Add info, notes, error handling, and tests
 
 
+$rembase: ($document_font_size / 100%) * 16;
+
+
 @function convert_rem_ratio($num) {
 	$unitless: strip_unit($num);
 	$convert: ($unitless / $rembase);

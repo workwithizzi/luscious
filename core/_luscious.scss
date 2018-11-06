@@ -1,31 +1,33 @@
 @charset 'utf-8';
-// Luscious
+// Import Luscious
 // ===================================================================
 
-
 // Luscious Current Version
-$lus_current_version: 'v0.0.7';
+$lus_current_version: 'v0.0.8';
+
 // Output a notification of a test to the console
 $output_test_message: false !default;
+
 // Warn user of a deprecated function/mixin
 $output_deprecation_warnings: true !default;
+
 // Output warnings for pesticide and dev_colors during production
 $production_mode: false !default;
+
 // Base URL for Sassdoc
-$sassdoc_base_url: "http://localhost:3000/" !default;
+$sassdoc_base_url: 'http://localhost:3000/' !default;
+
+// -------------------------------------------------------------------
 
 
-// -------------------------------------
-
-// Settings
-// TODO: Make sure to add this import back before production. Also make sure to incorporate updates (that we want to keep as defaults) from src/sass/-settings.scss.
+// Default Settings
 @import 'settings';
 
-// Import Susy Grid for layouts
-@import '../../node_modules/susy/sass/susy';
+// // Import Vendor: Susy Grid for layouts
+// @import '../node_modules/susy/sass/susy';
 
-// Imort Modular Scale Typography
-@import '../../node_modules/modularscale-sass/stylesheets/modularscale';
+// Import Vendor: Modular Scale Typography
+@import '../node_modules/modularscale-sass/stylesheets/modularscale';
 
 
 // Helpers
@@ -43,7 +45,6 @@ $sassdoc_base_url: "http://localhost:3000/" !default;
 @import
 	'bin/dev_config',
 	'bin/rem_em_calc',
-	'bin/fonts',
 	'bin/breakpoints',
 	'bin/colors',
 	'bin/disable_outline',
@@ -59,8 +60,12 @@ $sassdoc_base_url: "http://localhost:3000/" !default;
 	'bin/move',
 	'bin/visibility',
 	'bin/alignment-classes',
-	'bin/vertical-rhythm',
 	'bin/when_is',
 	'bin/placeholder',
 	'bin/google_fonts',
-	'bin/font-face';
+	'bin/font-face',
+	'bin/susy_grid';
+
+
+// Unstable features that we need to play around with more.
+@import 'unstable/vertical-rhythm';

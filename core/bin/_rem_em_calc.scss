@@ -21,7 +21,7 @@ $info_rem_calc: info-log(
 
 
 @function rem_calc($pxval) {
-	@if unit($pxval) == "px" or unitless($pxval) {
+	@if unit($pxval) == 'px' or unitless($pxval) {
 		// Get the rembase from font_size in 'settings/base'
 		$rembase: ($document_font_size / 100%) * 16;
 		// Remove units if they exist
@@ -31,8 +31,8 @@ $info_rem_calc: info-log(
 		@return $remval;
 	}
 	@else {
-		@debug "The `rem_calc` function only accepts unitless or px numbers.
-		Try `__info(rem)` for more info.";
+		@debug 'The `rem_calc` function only accepts unitless or px numbers.
+		Try `__info(rem)` for more info.';
 	}
 }
 
@@ -63,7 +63,7 @@ $info_em_calc: info-log(
 
 
 @function em_calc($pxval) {
-	@if unit($pxval) == "px" or unitless($pxval) {
+	@if unit($pxval) == 'px' or unitless($pxval) {
 		// Get the embase from font_size in 'settings/base'
 		$embase: ($document_font_size / 100%) * 16;
 		// Remove units if they exist
@@ -73,8 +73,8 @@ $info_em_calc: info-log(
 		@return $emval;
 	}
 	@else {
-		@debug "The `em_calc` function only accepts unitless or px numbers.
-		Try `__info(em)` for more info.";
+		@debug 'The `em_calc` function only accepts unitless or px numbers.
+		Try `__info(em)` for more info.';
 	}
 }
 
@@ -92,7 +92,7 @@ $info_em_calc: info-log(
 // ===================================================================
 
 @mixin __test_rem_calc {
-	@if $output_test_message { @debug "[TESTING] `rem_calc`"; }
+	@if $output_test_message { @debug '[TESTING] `rem_calc`'; }
 	/* `rem_calc` ----------------------- */
 	/*
 	.test.rem_calc {
@@ -132,7 +132,7 @@ $info_em_calc: info-log(
 
 
 @mixin __test_em_calc {
-	@if $output_test_message { @debug "[TESTING] `em_calc`"; }
+	@if $output_test_message { @debug '[TESTING] `em_calc`'; }
 	/* `em_calc` ------------------------ */
 	/*
 	.test.em_calc {

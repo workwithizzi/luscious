@@ -5,18 +5,18 @@
 
 
 @function more-info($name, $type, $group: null, $base_url: $sassdoc_base_url) {
-	$br: "\A ";
-	$tab: "   ";
+	$br: '\A ';
+	$tab: '   ';
 	
-	@if $name == "info" {
-		@debug "TODO: ADD INFO or link to docs.";
+	@if $name == 'info' {
+		@debug 'TODO: ADD INFO or link to docs.';
 		@return null;
 		
 	} @else {
-		$header: " ❓[#{$name} - #{$type}]❓";
-		$message: "To view details about this #{$type}, visit:";
+		$header: ' ❓[#{$name} - #{$type}]❓';
+		$message: 'To view details about this #{$type}, visit:';
 		
-		$url: "#{$base_url}#{$group}.html##{$type}--#{$name}";
+		$url: '#{$base_url}#{$group}.html##{$type}--#{$name}';
 		@if $base_url != $sassdoc_base_url {
 			$url: $base_url;
 		}

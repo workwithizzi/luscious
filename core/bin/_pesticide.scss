@@ -29,7 +29,7 @@ $pesticide_debug_depth: false !default;
 // Info
 
 $info_pesticide: info-log(
-	"The mixin `pesticide` makes it easier to see what's
+	'The mixin `pesticide` makes it easier to see what\'s
 	going on in your DOM.
 	Type  :    Standalone Mixin
 	Params:
@@ -37,7 +37,7 @@ $info_pesticide: info-log(
 	-          outlines: Adds colored borders to all html elements.
 	-          depth:    Adds box-shadows to all html elements.
 	Pesticide can also be turned on from the main
-	Luscious Config in settings."
+	Luscious Config in settings.'
 );
 
 @mixin __info_pesticide {
@@ -49,16 +49,16 @@ $info_pesticide: info-log(
 
 	// Notify me if I'm outputting these classes during production build.
 	@if $production_mode {
-		@warn "[TIP] [Production Mode]
+		@warn '[TIP] [Production Mode]
 		Don\'t forget to remove the `pesticide`
 		mixin from the output before final production so
-		things aren\'t jacked up!";
+		things aren\'t jacked up!';
 	}
 
-	@if $output == "info" { @debug $info_pesticide; }
+	@if $output == 'info' { @debug $info_pesticide; }
 
 
-	@if $output == "outlines" {
+	@if $output == 'outlines' {
 		/* ************************ */
 		/* Pesticide Debug Outlines */
 		/* ************************ */
@@ -168,7 +168,7 @@ $info_pesticide: info-log(
 
 	// -------------------------------------
 
-	@if $output == "depth" {
+	@if $output == 'depth' {
 		/* ********************* */
 		/* Pesticide Debug Depth */
 		/* ********************* */
@@ -296,7 +296,7 @@ $info_pesticide: info-log(
 // ===================================================================
 
 @mixin __test_pesticide {
-	@if $output_test_message { @debug "[TESTING] `pesticide`"; }
+	@if $output_test_message { @debug '[TESTING] `pesticide`'; }
 	/* `pesticide` ---------------------- */
 	/*
 	@include pesticide(outlines);

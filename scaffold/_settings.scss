@@ -1,10 +1,3 @@
-//removeIf(scaffold)
-// @desc:  Default Settings (used for core & scaffold)
-//         This file is automatically copied to './scaffold/' and
-//         anything between the 'removeIf/endRemoveIf' tags is removed.
-//         DONT modify the file './scaffold/_settings.scss' directly.
-//endRemoveIf(scaffold)
-
 // @since: v0.0.8
 // @desc:  Project Settings
 //         Use this file to override Luscious default configs or create
@@ -14,14 +7,6 @@
 // TODO: Add url to Luscious documentation
 // @see:   url/to/luscious/documentation
 // ===================================================================
-
-//removeIf(scaffold)
-////
-/// @group global-settings
-/// @since v0.0.8
-////
-//endRemoveIf(scaffold)
-
 
 // --------------------------------------------------------------------
 // Table of Contents
@@ -262,20 +247,6 @@ $z_bottomless   : -9999 !default;
 // -------------------------------------
 // 9. Grid - Susy Config
 // -------------------------------------
-<<<<<<< HEAD
-// These vars override !defaults declared in Luscious settings.
-// All $susy map options available as variables so they can
-// be controled globally here.
-// @see: goo.gl/Ak5Bo8
-
-// @IVAN: Can you add a really short description for what each one of these does?
-$susy: (
-	'columns': susy-repeat(6),
-	'gutters': 0.25,
-	'spread': 'narrow',
-	'container-spread': 'narrow',
-) !default;
-=======
 // These variables override the !default $susy map settings
 // More info:
 // Susy 3 Docs: https://goo.gl/Ak5Bo8
@@ -285,4 +256,3 @@ $base_grid_columns: 12 !default;
 $base_grid_gutters: 0.25 !default;
 $base_grid_spread: 'narrow' !default;
 $base_grid_container-spread: 'narrow' !default;
->>>>>>> release/v0.0.8

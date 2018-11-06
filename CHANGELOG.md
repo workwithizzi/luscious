@@ -2,6 +2,15 @@ Luscious Changelog
 ==================
 
 
+0.0.8
+----------------
+- Set proper file imports in `./scaffold/main.sass` so that compiling/linting doesn't cause errors.
+- Fixed issues with Susy3 Grid functions.
+- Updated Font paths: Font paths are updated in `core/_settings.scss` and `scaffold/base/_typo-font_import.scss` to match the open-sans fonts installed from npm `open-sans-fonts` and matching the install path in [fresh](https://git.io/fpf3e) `./src/fonts/open-sans/`.
+- Organized `_settings.scss` Table of Contents.
+- Each var/map in `_settings.scss` have the `!default` flag now so that they can be overridden as needed from the project.
+
+
 0.0.7 - HOTFIX
 ----------------
 - Fixed broken `@import` for [susy](https://www.npmjs.com/package/susy) and [modularscale](https://github.com/modularscale/modularscale-sass).

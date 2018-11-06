@@ -5,7 +5,7 @@
 // To turn on/off, change vars from the luscious import file
 // or from here
 //
-// sass-lint:disable class-name-format
+// sass-lint:disable no-important
 // ===================================================================
 
 
@@ -21,15 +21,15 @@ $dev_colors: (
 	s7: #00b0ff,
 	s8: #388e3c,
 	s9: #ff3d00,
-	d1: #F1A9A0,
-	d2: #BE90D4,
-	d3: #89C4F4,
-	d4: #A2DED0,
-	d5: #F5D76E,
-	d6: #F4B350,
-	d7: #FDE3A7,
-	d8: #DADFE1,
-	d9: #446CB3,
+	d1: #f1a9a0,
+	d2: #be90d4,
+	d3: #89c4f4,
+	d4: #a2ded0,
+	d5: #f5d76e,
+	d6: #f4b350,
+	d7: #fde3a7,
+	d8: #dadfe1,
+	d9: #446cb3,
 ) !default;
 
 // -------------------------------------
@@ -41,7 +41,7 @@ $info_dev_color: info-log(
 	Params:
 	- $color:        Required. Accepts any color from the map `$dev_colors`
 	-                s1-s9 for saturated colors, d1-d9 for desaturated.
-	- $type:         Optional. Either `bg` (defualt) for background, or `border`.
+	- $type:         Optional. Either `bg` (default) for background, or `border`.
 	- $border-width: Optional. Defaults to `1px`.
 	- $border-style: Optional. Defaults to `solid`.
 	Alias:    `dev_cl`'
@@ -56,14 +56,14 @@ $info_dev_color: info-log(
 @mixin dev_color($color, $type: bg, $width: 1px, $style: solid) {
 	// Notify me if I'm outputting these classes during production build.
 	@if $production_mode {
-		@warn "[TIP] [Production Mode]
+		@warn '[TIP] [Production Mode]
 		Don\'t forget to remove the `dev_colors` (`dev_cl` - alias) mixin from
-		the output before final production so things aren\'t jacked up!";
+		the output before final production so things aren\'t jacked up!';
 	}
-	@if $color == "info" { @debug $info_dev_color; }
+	@if $color == 'info' { @debug $info_dev_color; }
 	@else {
 		$color: map_get_check($dev_colors, $color);
-		@if $type == "bg" {
+		@if $type == 'bg' {
 			background-color: $color !important;
 		}
 		@else {
@@ -111,13 +111,13 @@ $info_dev_color_utility_classes: info-log(
 
 // Outputs Utility Classes for `dev_colors`
 @mixin dev_color_utility_classes($width: 1px, $style: solid) {
-	@if $width == "info" { @debug $info_dev_color_utility_classes; }
+	@if $width == 'info' { @debug $info_dev_color_utility_classes; }
 	@else {
 		// Notify me if I'm outputting these classes.
 		@if $production_mode {
-			@warn "[TIP] [Production Mode]
+			@warn '[TIP] [Production Mode]
 			Don\'t forget to remove the `dev_color_utility_classes` mixin from the output
-			before production so things stay clean!";
+			before production so things stay clean!';
 		}
 		// Output CSS
 		@if variable-exists(dev_colors) {
@@ -134,7 +134,7 @@ $info_dev_color_utility_classes: info-log(
 				}
 			}
 		} @else {
-			@warn "The map `$dev_colors` isn’t defined or isn't found.";
+			@warn 'The map `$dev_colors` isn\’t defined or isn\'t found.';
 		}
 	} // end: @else
 } // end: mixin
@@ -152,7 +152,7 @@ $info_dev_color_utility_classes: info-log(
 // ===================================================================
 
 @mixin __test_dev_color {
-	@if $output_test_message { @debug "[TESTING] `dev_color`"; }
+	@if $output_test_message { @debug '[TESTING] `dev_color`'; }
 	/* `dev_color` or `dev_cl` ---------- */
 	/*
 	.test.dev_color.default {
@@ -190,7 +190,7 @@ $info_dev_color_utility_classes: info-log(
 
 
 @mixin __test_dev_color_utility_classes {
-	@if $output_test_message { @debug "[TESTING] `dev_color_utility_classes`"; }
+	@if $output_test_message { @debug '[TESTING] `dev_color_utility_classes`'; }
 	/* `dev_color_utility_classes` ------ */
 	/*
 	@include dev_color_utility_classes;

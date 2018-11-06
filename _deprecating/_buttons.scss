@@ -68,13 +68,13 @@ $info_btn: info-log(
 	-           Accepts any 1st level map in the `$button_styles` map.
 	- $options: Optional. Order of options doesn't matter. Will accept:
 	-           hollow : bg color transparent, color/border use the bg color.
-	-           expand : epands button to 100% width with 0 left/right margin.
+	-           expand : expands button to 100% width with 0 left/right margin.
 	-           disable: lowers opacity, disables mouse
 	-           block  : makes the button `display: block`
 	Alias :     `button`
 	The rules that are applied will come from the 1st level map in
 	`$button_styles` map. If there isn't a rule in that map, then
-	it will fall back to the `defualt` key in the same map."
+	it will fall back to the `default` key in the same map."
 );
 
 // Create the button styling based on parameters
@@ -103,7 +103,7 @@ $info_btn: info-log(
 	@if index($mods, hollow) or $button_fill == 'hollow' {
 		$btn_is_hollow: true;
 	}
-	// Is Epanded
+	// Is Expanded
 	@if index($mods, expand) or index($mods, expanded) {
 		$btn_is_expanded: true;
 	}

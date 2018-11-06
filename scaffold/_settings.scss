@@ -8,22 +8,28 @@
 // @see:   url/to/luscious/documentation
 // ===================================================================
 
-// Contents
-// 1. Development
-// 2. Base
-// 3. Colors
-// 4. Accessibility
-// 5. Animation
-// 6. Typography
-//   6.1 Font-Stacks
-//   6.2 Modular Scale
-// 7. Breakpoints
-// 8. Z-Index
-// 9. Asset Paths
-// 10. Icons
-// 11. Grid
-// 12. Buttons
-
+// --------------------------------------------------------------------
+// Table of Contents
+// -------------------------------------
+// |	1. Development
+// -------------------------------------
+// |	2. Base
+// -------------------------------------
+// |	3. Colors
+// -------------------------------------
+// |	4. A11Y
+// -------------------------------------
+// |	5. Animation
+// -------------------------------------
+// |	6. Typography
+//	|- 6.1 Font-Stacks
+//	|- 6.2 Modular Scale (font sizes)
+// -------------------------------------
+// | 7. Breakpoints
+// -------------------------------------
+// | 8. Z-Index
+// -------------------------------------
+// | 9. Grid - Susy Config
 // --------------------------------------------------------------------
 
 
@@ -239,7 +245,7 @@ $z_base         : 1     !default;
 $z_bottomless   : -9999 !default;
 
 // -------------------------------------
-// 11. Grid - Susy Config
+// 9. Grid - Susy Config
 // -------------------------------------
 // These variables override the !default $susy map settings
 // More info:

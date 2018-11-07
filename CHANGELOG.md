@@ -4,7 +4,7 @@ Luscious Changelog
 
 0.0.9 - HOTFIX
 ----------------
-
+- Deleted a deprecated vendor import for Susy at `core/_luscious.scss`.
 
 0.0.8
 ----------------

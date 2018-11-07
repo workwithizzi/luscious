@@ -5,6 +5,7 @@ Luscious Changelog
 0.0.9 - HOTFIX
 ----------------
 - Deleted a deprecated vendor import for Susy at `core/_luscious.scss`.
+- Fixed paths at `core/_luscious.scss` for `modularscale-sass` dependency and at `scaffold/main.sass` for production.
 
 0.0.8
 ----------------

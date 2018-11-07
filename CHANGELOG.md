@@ -2,6 +2,10 @@ Luscious Changelog
 ==================
 
 
+0.0.9 - HOTFIX
+----------------
+
+
 0.0.8
 ----------------
 - Set proper file imports in `./scaffold/main.sass` so that compiling/linting doesn't cause errors.

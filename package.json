@@ -1,6 +1,6 @@
 {
 	"name": "luscious",
-	"version": "0.0.9",
+	"version": "0.1.0",
 	"description": "A library of SASS mixins, functions, and variables to use in your front-end projects.",
 	"repository": {
 		"type": "git",
@@ -37,7 +37,6 @@
 		"sassdoc-theme-herman": "^3.0.0"
 	},
 	"dependencies": {
-		"modularscale-sass": "^3.0.8",
-		"susy": "^3.0.5"
+		"modularscale-sass": "^3.0.8"
 	}
 }

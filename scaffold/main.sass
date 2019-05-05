@@ -1,33 +1,23 @@
 @charset 'utf-8'
 
-// Normalize:
-// Don't add it to your project, it's baked into the scaffold.
-// Any properties that have the tag '@nrml' are from normalize.css.
-// You can modify these properties, but completely
-// removing them will have UNPREDICTABLE OUTCOMES.
-
 // Project Settings
 @import 'settings'
 
-// Utilities/Vendors/Tools
+// Imported Utilities/Vendors/Tools
 // Path for Luscious core development (comment at production)
 // @import '../core/luscious'
 // Path for production (comment at Luscious core development)
 @import './../../node_modules/luscious/core/luscious'
 
-// Import Font Awesome Sass
-// @import '../../node_modules/font-awesome/scss/font-awesome'
-
-// Project Utilities
+// Project (Local) Utilities
 @import 'utils/font_import'
 @import 'utils/utility_classes'
 @import 'utils/buttons'
 
 // Base Styles
 @import 'base/base'
-@import 'base/typo-base'
-@import 'base/typo-headings'
-@import 'base/typo-misc'
+@import 'base/typography'
+@import 'base/typography-headings'
 @import 'base/forms'
 @import 'base/forms-inputs'
 @import 'base/media'

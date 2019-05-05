@@ -1,6 +1,13 @@
 Luscious Changelog
 ==================
 
+0.1.0 - HOTFIX
+----------------
+- Removed Susy dependency
+- Scaffold
+	- Moved button configs and utility classes to `utils/`.
+	- Moved typography import file to `utils/` and changed the import method from local font files to Google font import.
+	- Moved button file from `objects/` to `components/` and deleted `objects/`.
 
 0.0.9 - HOTFIX
 ----------------

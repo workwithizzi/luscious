@@ -258,16 +258,3 @@ $z_scrim        : 100   !default;
 $z_overlay_base : 100   !default;
 $z_base         : 1     !default;
 $z_bottomless   : -9999 !default;
-
-// -------------------------------------
-// 9. Grid - Susy Config
-// -------------------------------------
-// These variables override the !default $susy map settings
-// More info:
-// Susy 3 Docs: https://goo.gl/Ak5Bo8
-// Susy Map Docs: https://goo.gl/BDui9p
-
-$base_grid_columns: 12 !default;
-$base_grid_gutters: 0.25 !default;
-$base_grid_spread: 'narrow' !default;
-$base_grid_container-spread: 'narrow' !default;

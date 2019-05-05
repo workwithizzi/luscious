@@ -64,9 +64,7 @@ $sassdoc_base_url: 'http://localhost:3000/' !default;
 	'bin/when_is',
 	'bin/placeholder',
 	'bin/google_fonts',
-	'bin/font-face',
-	'bin/susy_grid';
-
+	'bin/font-face';
 
 // Unstable features that we need to play around with more.
 @import 'unstable/vertical-rhythm';

@@ -1,6 +1,10 @@
 Luscious Changelog
 ==================
 
+0.1.1 - HOTFIX
+----------------
+- Cleaned up a few files in `scaffold/`. Removed an old Susy mixin that was deprecated in `v0.1.0`
+
 0.1.0 - HOTFIX
 ----------------
 - Removed Susy dependency

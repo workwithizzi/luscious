@@ -3,14 +3,10 @@
 // Project Settings
 @import 'settings'
 
-// Imported Utilities/Vendors/Tools
-// Path for Luscious core development (comment at production)
-@import '../core/luscious'
-// Path for production (comment at Luscious core development)
-// @import './../../node_modules/luscious/core/luscious'
+// Import Luscious (with SASS Load Path)
+@import 'luscious'
 
 // Project (Local) Utilities
-@import 'utils/font_import'
 @import 'utils/utility_classes'
 @import 'utils/buttons'
 
@@ -22,8 +18,6 @@
 @import 'base/forms-inputs'
 @import 'base/media'
 @import 'base/misc-html5'
-
-// Objects
 
 // Components
 @import 'components/buttons'

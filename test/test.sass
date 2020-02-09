@@ -5,7 +5,8 @@
 
 
 // Sass Unit Testing (http://oddbird.net/true/docs/)
-@import true
+// Loading path to '../node_modules/sass-true/sass/' via node-sass '--include-path'
+@import 'true'
 
 // Terminal output for True
 $true-terminal-output: true
@@ -14,7 +15,8 @@ $true-css-output: false
 
 
 // Import Luscious
-@import '../core/luscious'
+// Loading path to '../core/' via node-sass '--include-path'
+@import 'luscious'
 
 
 // Test Tools

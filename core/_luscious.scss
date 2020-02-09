@@ -21,14 +21,13 @@ $sassdoc_base_url: 'http://localhost:3000/' !default;
 
 
 // Default Settings
-@import 'settings';
+@import '../scaffold/settings';
 
 
 // Import Vendor: Modular Scale Typography
-// Path for Luscious core development (comment at production)
-// @import '../node_modules/modularscale-sass/stylesheets/modularscale';
-// Path for production release(commend at development)
-@import './../../modularscale-sass/stylesheets/modularscale';
+// Loading path from '/node_modules' via node-sass
+@import 'stylesheets/modularscale';
+
 
 
 // Helpers

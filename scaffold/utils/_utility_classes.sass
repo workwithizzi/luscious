@@ -3,18 +3,11 @@
 // ------------------------------------------------------------------
 
 
-// ------------------------------------
 // Basic Clearfix
-// ------------------------------------
 .u_clearfix
-	@extend %clearfix // sass-lint:disable-line no-extends
-	// Instead of extending, you can use the mixin if you need the
-	// clearfix to print in cascading order or within a media-query
+	+clearfix
 
-
-// ------------------------------------
 // Float Element left or right
-// ------------------------------------
 .u_left
 	+move(left)
 
@@ -67,7 +60,6 @@
 	+t-center
 	&--justify
 		+t-center--justify
-		// 2DO-LUS: Check on browser support
 
 
 // ------------------------------------

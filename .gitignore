@@ -1,4 +1,7 @@
 
+# VSCode
+.vscode/*
+
 # Development and Testing Environment for Luscious
 
 docs/

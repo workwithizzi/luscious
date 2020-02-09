@@ -1,33 +1,39 @@
-// @since: v0.1.0
+// @since: v0.1.2
 // @desc:  Project Settings
 //         Use this file to override Luscious default configs or create
 //         new configs. If modifying a default, remove the `!default`
 //         flag. You can remove anything here and the setting will
 //         fall back to Luscious' settings.
-// TODO: Add url to Luscious documentation
 // @see:   url/to/luscious/documentation
 // ===================================================================
+
+////
+/// @group global-settings
+/// @since v0.1.2
+////
+
 
 // --------------------------------------------------------------------
 // Table of Contents
 // -------------------------------------
-// |	1. Development
+//  1. Development
 // -------------------------------------
-// |	2. Base
+//  2. Base
 // -------------------------------------
-// |	3. Colors
+//  3. Colors
 // -------------------------------------
-// |	4. A11Y
+//  4. A11Y
 // -------------------------------------
-// |	5. Animation
+//  5. Animation
 // -------------------------------------
-// |	6. Typography
-//	|- 6.1 Font-Stacks
-//	|- 6.2 Modular Scale (font sizes)
+//  6. Typography
+//   - 6.1 Font-Imports
+//   - 6.2 Font-Stacks
+//   - 6.3 Modular Scale (font sizes)
 // -------------------------------------
-// | 7. Breakpoints
+//  7. Breakpoints
 // -------------------------------------
-// | 8. Z-Index
+//  8. Z-Index
 // --------------------------------------------------------------------
 
 
@@ -45,7 +51,7 @@ $output_dev_color_classes: false !default;
 // 2. Base
 // -------------------------------------
 // HTML Root Font Size (use percent values)
-// To use multiples of '10' in your sizes,
+// To use multiples of '10' in your site,
 // declare 62.5% instead of the standard '100%'
 $document_font_size: 100% !default;
 
@@ -174,7 +180,12 @@ $base_animation: all $base_delay $base_timing !default;
 // -------------------------------------
 
 // -----------------
-// 6.1 Font-Stacks
+// 6.1 Font-Imports
+// -----------------
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+
+// -----------------
+// 6.2 Font-Stacks
 // -----------------
 // Default Body
 $font_stack_body: (
@@ -187,10 +198,11 @@ $font_stack_body: (
 
 // Default Headings
 $font_stack_heading: (
-	'Georgia',
-	'Times',
-	'Times New Roman',
-	serif
+	'Open Sans',
+	'Helvetica Neue',
+	'Helvetica',
+	'Arial',
+	sans-serif
 	) !default;
 
 // Default Code/Monospace
@@ -202,7 +214,7 @@ $font_stack_code: (
 	) !default;
 
 // ----------------
-// 6.2 Modular Scale (font sizes)
+// 6.3 Modular Scale (font sizes)
 // ----------------
 // 2DO-YG: Test and add info
 $modularscale     : (

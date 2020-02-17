@@ -31,13 +31,7 @@ rules:
   # Write them first (other than media queries)
   # in-case you need to override something.
   mixins-before-declarations:
-    - 1
-    - exclude:
-        - bp
-        - _bp
-        - between_bp
-        - for_print
-        - nav-bp
+    - 0
 
   # Selectors
   no-attribute-selectors: 0
@@ -136,7 +130,7 @@ rules:
   leading-zero: 0 #false
 
   # Spacing
-  one-declaration-per-line: 1
+  one-declaration-per-line: 0
   single-line-per-selector: 1
   no-trailing-whitespace: 0 # Should be removed onSave
   space-after-comma: 1 #true

@@ -4,81 +4,139 @@
 //
 // sass-lint:disable class-name-format
 // ===================================================================
-// TODO: Add info and tests helpers
-
+// TODO: Add tests
 
 // ------------------------------------
 // Text Alignment Classes
 // ------------------------------------
 
-// TODO: Need to add info about the text alignment outputs and utility classes.
-
-
 // Align Left
 @mixin t-left($info: null) {
-	@if $info { @debug more-info('t-left', 'mixin', 'gr-typo'); }
-	@else {
-		text-align: left;
-	}
+	$info-text: info(
+	't-left', 'mixin', 'typography',
+	$details: 'Left-aligns text in the element.
+  Params: none
+  CSS Output:
+  - text-align: left;'
+  );
+
+	@if $info { @debug $info-text; }
+
+	text-align: left;
 }
+
 
 // Align Left-Justify
 @mixin t-left--justify($info: null) {
-	@if $info { @debug more-info('t-left--justify', 'mixin', 'gr-typo'); }
-	@else {
-		text-align: justify;
-		direction: ltr;
-	}
+	$info-text: info(
+	't-left--justify', 'mixin', 'typography',
+	$details: 'Left-aligns and justifies text in the element.
+  Params:
+  - none
+  CSS Output:
+  - text-align: justify;
+  - direction: ltr;'
+  );
+
+	@if $info { @debug $info-text; }
+
+	text-align: justify;
+	direction: ltr;
 }
+
 
 // Align Right
 @mixin t-right($info: null) {
-	@if $info { @debug more-info('t-right', 'mixin', 'gr-typo'); }
-	@else {
-		text-align: right;
-	}
+	$info-text: info(
+	't-right', 'mixin', 'typography',
+	$details: 'Right-aligns text in the element.
+  Params:
+  - none
+  CSS Output:
+  - text-align: right;'
+  );
+
+	@if $info { @debug $info-text; }
+
+	text-align: right;
 }
+
 
 // Align Right-Justify
 @mixin t-right--justify($info: null) {
-	@if $info { @debug more-info('t-right--justify', 'mixin', 'gr-typo'); }
-	@else {
-		text-align: justify;
-		direction: rtl;
-	}
+	$info-text: info(
+  't-right--justify', 'mixin', 'typography',
+  $details: 'Right-aligns and justifies text in the element.
+  Params:
+  - none
+  CSS Output:
+  - text-align: justify;
+  - direction: rtl;'
+  );
+
+	@if $info { @debug $info-text; }
+
+	text-align: justify;
+	direction: rtl;
 }
+
 
 // Align Center
 @mixin t-center($info: null) {
-	@if $info { @debug more-info('t-center', 'mixin', 'gr-typo'); }
-	@else {
-		text-align: center;
-	}
+	$info-text: info(
+  't-center', 'dependent-mixin', 'typography',
+  $details: 'Center-aligns text in the element.
+  Params:
+  - none
+  CSS Output:
+  - text-align: center;'
+  );
+
+	@if $info { @debug $info-text; }
+
+	text-align: center;
 }
+
 
 // Align Center-Justify
 @mixin t-center--justify($info: null) {
-	@if $info { @debug more-info('t-center--justify', 'mixin', 'gr-typo'); }
-	@else {
-		text-align: justify;
-		text-align-last: center;
-		// 2DO-LUS: Check on browser support
-	}
-}
+	$info-text: info(
+  't-center--justify', 'dependent-mixin', 'typography',
+  $details: 'Justifies text and center-aligns last line in the element.
+  Params:
+  - none
+  CSS Output:
+  - text-align: justify;
+  - text-align-last: center;'
+  );
 
+	@if $info { @debug $info-text; }
+
+	text-align: justify;
+	text-align-last: center;
+}
 
 
 // ------------------------------------
 // Image Alignment Classes
 // ------------------------------------
 
-
-// TODO: Need to add info about the image alignment outputs and utility classes. Include note about adding `+container` to <main>
-
 // Img Left
-@mixin img-left($info: null, $margin: r(10)) {
-	// TODO: Add error handler to make sure margin is not unitless
-	@if $info { @debug more-info('img-left', 'mixin', 'utilities-images'); }
+@mixin img-left($margin: 1rem) {
+	$info-text: info(
+  'img-left', 'dependent-mixin', 'media',
+  $details: 'Floats image left.
+  Params:
+  - margin (right): Defaults to `1rem`
+  CSS Output:
+  - float: left;
+  - margin-right: $margin;'
+	);
+
+	@if $margin == 'info' { @debug $info-text; }
+	@else if $margin != 'auto' and unitless($margin) {
+		@debug 'You entered `#{$margin}`, $margin cannot be unitless';
+	}
 	@else {
 		float: left;
 		margin-right: $margin;
@@ -86,19 +144,45 @@
 }
 
 // Img Right
-@mixin img-right($info: null, $margin: r(10)) {
-	// TODO: Add error handler to make sure margin is not unitless
-	@if $info { @debug more-info('img-right', 'mixin', 'utilities-images'); }
+@mixin img-right($margin: 1rem) {
+	$info-text: info(
+  'img-right', 'dependent-mixin', 'media',
+  $details: 'Floats image right.
+  Params:
+  - margin (left): Defaults to `1rem`
+  CSS Output:
+  - float: right;
+  - margin-left: $margin;'
+  );
+
+	@if $margin == 'info' { @debug $info-text; }
+	@else if $margin != 'auto' and unitless($margin) {
+		@debug 'You entered `#{$margin}`, $margin cannot be unitless';
+	}
 	@else {
 		float: right;
 		margin-left: $margin;
 	}
 }
 
+
 // Img Center
-@mixin img-center($info: null) {
-	// TODO: Add error handler to make sure margin is not unitless
-	@if $info { @debug more-info('img-center', 'mixin', 'utilities-images'); }
+@mixin img-center($margin: auto) {
+	$info-text: info(
+  'img-center', 'dependent-mixin', 'media',
+  $details: 'Centers Image.
+  Params:
+  - margin (left & right): Defaults to `auto`
+  CSS Output:
+  - display: block;
+  - margin-left: auto;
+  - margin-right: auto;'
+  );
+
+	@if $margin == 'info' { @debug $info-text; }
+	@else if $margin != 'auto' and unitless($margin) {
+		@debug 'You entered `#{$margin}`, $margin cannot be unitless';
+	}
 	@else {
 		display: block;
 		margin-left: auto;

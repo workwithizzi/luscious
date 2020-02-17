@@ -34,33 +34,55 @@ $dev_colors: (
 
 // -------------------------------------
 
-$info_dev_color: info-log(
-	'The `dev_color` mixin adds a background-color
-	to the element for easier dev.
-	Type  :   Standalone Mixin
-	Params:
-	- $color:        Required. Accepts any color from the map `$dev_colors`
-	-                s1-s9 for saturated colors, d1-d9 for desaturated.
-	- $type:         Optional. Either `bg` (default) for background, or `border`.
-	- $border-width: Optional. Defaults to `1px`.
-	- $border-style: Optional. Defaults to `solid`.
-	Alias:    `dev_cl`'
-);
-
-@mixin __info_dev_color {
-	@debug $info_dev_color;
-}
-
-
 // Creates Background or Border Color for testing/dev
-@mixin dev_color($color, $type: bg, $width: 1px, $style: solid) {
+@mixin dev_color($color: 'info', $type: bg, $width: 1px, $style: solid) {
 	// Notify me if I'm outputting these classes during production build.
 	@if $production_mode {
 		@warn '[TIP] [Production Mode]
 		Don\'t forget to remove the `dev_colors` (`dev_cl` - alias) mixin from
 		the output before final production so things aren\'t jacked up!';
 	}
-	@if $color == 'info' { @debug $info_dev_color; }
+
+	$info-text: info(
+	'dev_color', 'mixin-dependent', 'dev-tools',
+  $details: 'A simple way to add some colors to elements
+  for testing and dev.
+  - Params:
+    - $color: Required. Accepts any color from the map `$dev_colors`
+    -         using the key as the name of the color.
+    -         s1-s9 for saturated colors, d1-d9 for desaturated.
+    - $type:  Either `bg` (default) for background, or `border`.
+    - $width: Border-width. Defaults to `1px`.
+    - $style: Accepts any border-style. Defaults to `solid`.
+  - SCSS Input:
+    - 1) @include dev_color(s1);
+    - 2) @include dev_color(d1, border);
+  - CSS Output:
+    - 1) background-color: #00ffff !important;
+    - 2) border: #f1a9a0 1px solid !important;
+  - Alias Mixin: `dev_cl`
+  - Available Colors:
+    - s1: #00ffff
+    - s2: #ff00ff
+    - s3: #ffff00
+    - s4: #ff1744
+    - s5: #4a148c
+    - s6: #3949ab
+    - s7: #00b0ff
+    - s8: #388e3c
+    - s9: #ff3d00
+    - d1: #f1a9a0
+    - d2: #be90d4
+    - d3: #89c4f4
+    - d4: #a2ded0
+    - d5: #f5d76e
+    - d6: #f4b350
+    - d7: #fde3a7
+    - d8: #dadfe1
+    - d9: #446cb3
+  ');
+	@if $color == 'info' { @debug $info-text; }
+
 	@else {
 		$color: map_get_check($dev_colors, $color);
 		@if $type == 'bg' {
@@ -72,13 +94,8 @@ $info_dev_color: info-log(
 	}
 }
 
-
-// Alias
-@mixin __info_dev_cl {
-	@include __info_dev_color;
-}
-
-@mixin dev_cl($color, $type: bg, $width: 1px, $style: solid) {
+// Alias Mixin
+@mixin dev_cl($color: 'info', $type: bg, $width: 1px, $style: solid) {
 	@include dev_color($color, $type, $width, $style);
 }
 
@@ -87,38 +104,32 @@ $info_dev_color: info-log(
 // Utility Classes
 $utility_class_prefix: 'u_' !default;
 
-$info_dev_color_utility_classes: info-log(
-	'The mixin `dev_color_utility_classes` outputs background-color
-	and border utility classes for each color
-	listed in the map `$dev_colors`.
-	Type  :  Standalone Mixin
-	Params:
-	- $border-width: Optional. Defaults to `1px`.
-	- $border-style: Optional. Defaults to `solid`.
-	Class Naming:
-	- .u_dev_color_s1  - Background color class
-	- .u_dev_border_s1 - Border color class
-	Available:
-	- Saturated Colors:   (s1-s9)
-	- Desaturated Colors: (d1-d9)'
-);
-
-// Helper Mixin
-@mixin __info_dev_color_utility_classes {
-	@debug $info_dev_color_utility_classes;
-}
-
 
 // Outputs Utility Classes for `dev_colors`
 @mixin dev_color_utility_classes($width: 1px, $style: solid) {
-	@if $width == 'info' { @debug $info_dev_color_utility_classes; }
+	// Notify me if I'm outputting these classes.
+	@if $production_mode {
+		@warn '[TIP] [Production Mode]
+		Don\'t forget to remove the `dev_color_utility_classes` mixin from the output
+		before production so things stay clean!';
+	}
+
+	$info-text: info(
+		'dev_color_utility_classes', 'standalone-mixin', 'dev-tools',
+    $details: 'Uses the `dev_color` mixin to output background-color
+    and border utility classes for each color listed in the
+    map `$dev_colors`.
+    - Color Names:
+      - Saturated Colors  : s1 - s9
+      - Desaturated Colors: d1 - d9
+      - (Just replace `s1` in the class with another name)
+    - Class Names:
+      - Background classes: `.u_dev_color_s1`
+      - Border color classes: `.u_dev_border_s1`
+  ');
+	@if $width == 'info' { @debug $info-text; }
+
 	@else {
-		// Notify me if I'm outputting these classes.
-		@if $production_mode {
-			@warn '[TIP] [Production Mode]
-			Don\'t forget to remove the `dev_color_utility_classes` mixin from the output
-			before production so things stay clean!';
-		}
 		// Output CSS
 		@if variable-exists(dev_colors) {
 			// Background Colors
@@ -141,10 +152,6 @@ $info_dev_color_utility_classes: info-log(
 
 // -------------------------------------
 
-// Output based on config file
-@if $output_dev_color_classes {
-	@include dev_color_utility_classes;
-}
 
 
 // ===================================================================

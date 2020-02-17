@@ -19,12 +19,13 @@
 // Example input/output at the bottom
 
 @mixin btn($args: null) {
+
 	// -------------------------------------
 	// CONFIGURE:
-	// Default colors from color $_map in settings.scss $btn-colors
+	// Default colors from color $map in settings.scss $btn-colors
 	// -------------------------------------
-	$_profile: 'primary';
-	$_map: $btn-colors;
+	$profile: 'primary';
+	$map: $btn-colors;
 
 	// -------------------------------------
 	// CONFIGURE:
@@ -32,24 +33,24 @@
 	// -------------------------------------
 	$_text-decoration: none;
 	$_display: inline-block;
-	$_margin-top: r(5);
+	$_margin-top: .5rem;
 	$_margin-right: 0;
-	$_margin-bottom: r(5);
+	$_margin-bottom: .5rem;
 	$_margin-left: 0;
 	$_width: auto;
 	$_cursor: pointer;
 	$_opacity: 1;
 
 	// @nrml: Remove the margin in Firefox and Safari.
-	padding: r(8);
+	padding: .8rem;
 	// @nrml: Change the font family/size/weight in all browsers.
 	font-family: $font_stack_body;
-	font-size: r(16);
+	font-size: 1.6rem;
 	font-weight: 600;
 	line-height: vr(base);
-	border: r(1) solid;
+	border: .1rem solid;
 	border-radius: 0;
-	transition: all 250ms ease-in-out;
+	transition: $base_animation;
 
 	// ----------------
 	// CSS resets
@@ -66,15 +67,17 @@
 		outline: 0;
 	}
 
+
 	// -------------------------------------
 	// IGNORE: You can ignore everything below
 	// -------------------------------------
+	@if $args == 'info' { @debug $btn-info-text; }
 
 	// If one of the params doesn't match a profile in the color map,
 	// keep using the default color profile
 	@each $arg in $args {
-		@if index(map-keys($_map), $arg) {
-			$_profile: $arg;
+		@if index(map-keys($map), $arg) {
+			$profile: $arg;
 		}
 		// 2DO-YG: Add feedback for when a param doesn't match a profile or
 		// a mod option
@@ -82,12 +85,12 @@
 
 	// Default Colors based on map ($btn-colors) from 'settings.scss'
 	// 2DO-YG: Add feedback function for when a profile is missing a key below
-	$_text         : map_get_nested($_map, $_profile, color);
-	$_bg           : map_get_nested($_map, $_profile, background);
-	$_border       : map_get_nested($_map, $_profile, border);
-	$_text-hover   : map_get_nested($_map, $_profile, hover-color);
-	$_bg-hover     : map_get_nested($_map, $_profile, hover-background);
-	$_border-hover : map_get_nested($_map, $_profile, hover-border);
+	$_text         : map_get_nested($map, $profile, color);
+	$_bg           : map_get_nested($map, $profile, background);
+	$_border       : map_get_nested($map, $profile, border);
+	$_text-hover   : map_get_nested($map, $profile, hover-color);
+	$_bg-hover     : map_get_nested($map, $profile, hover-background);
+	$_border-hover : map_get_nested($map, $profile, hover-border);
 
 
 	// Button Modifications

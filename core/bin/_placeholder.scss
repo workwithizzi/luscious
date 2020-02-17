@@ -5,22 +5,31 @@
 //
 // sass-lint:disable class-name-format
 // ===================================================================
-// 2DO-LUS: Review this mixin and make sure it works properly
 
-$info_placeholder: info-log(
-	'The `placeholder` mixin adds cross-browser support for
-	placeholder elements. More info: `https://goo.gl/ZrdsAe`
-	Type    : Standalone Mixin
-	Params  : none
-	Required: Content Block'
-);
-
-@mixin __info_placeholder {
-	@debug $info_placeholder;
-}
 
 @mixin placeholder($info: null) {
-	@if $info { @debug $info_placeholder; }
+	$info-text: info(
+	'placeholder', 'dependent-mixin', 'styles',
+  $details: 'Adds cross-browser support for placeholder elements.
+  See: https://goo.gl/ZrdsAe
+  - Params: none
+  - Requires: [content block]
+  - SCSS Input
+  .element {
+    @include placeholder {
+      color: blue;
+    }
+  }
+  - CSS Output
+  .element::-webkit-input-placeholder,
+  .element:-moz-placeholder,
+  .element::-moz-placeholder,
+  .element:-ms-input-placeholder {
+    color: blue;
+  }
+  ');
+	@if $info { @debug $info-text; }
+
 	@else {
 		&::-webkit-input-placeholder,
 		&:-moz-placeholder,

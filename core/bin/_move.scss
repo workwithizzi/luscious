@@ -7,56 +7,28 @@
 
 // Bootstrap style quick float mixins and utility classes
 
-$info_move: info-log(
-	'The `move` mixin simply declares `float: left or right` Like
-	Bootstrap`s `pull` `https://goo.gl/KbpwNs` but without `!important`
-	Type  : Included Mixin
-	Params:
-	$direction: Required. Accepts either `left` or `right`'
-);
-
-@mixin __info_move {
-	@debug $info_move;
-}
-
 @mixin move($val) {
-	@if $val == 'info' { @debug $info_move; }
+	$info-text: info(
+	'move', 'dependent-mixin', 'styles',
+  $details: 'Floats an element left or right depending on $val.
+  - Params:
+    - $val: [Required] Accepts either `left` or `right`
+  - SCSS Input
+    .element {
+      @include move(left);
+    }
+  - CSS Output
+    .element {
+      float: left;
+    }
+  ');
+	@if $val == 'info' { @debug $info-text; }
+
 	@else {
 		@if $val == 'left'  { float: left;  }
 		@if $val == 'right' { float: right; }
 	}
-
 }
-
-
-// -------------------------------------------------------------------
-// Utility Classes
-// -------------------------------------------------------------------
-// Global Utility Class Prefix
-$utility_class_prefix: 'u_' !default;
-
-$info_move_utility_classes: info-log(
-	'The `move_utility_classes` mixin creates `.#{$utility_class_prefix}left`
-	and `.#{$utility_class_prefix}right` utility classes
-	using the `move` mixin.
-	Utility classes can also be turned on from `settings/utility_classes`.
-	Type  : Standalone Mixin
-	Params: none'
-);
-
-// Output Utility classes with a mixin
-@mixin __info_move_utility_classes {
-	@debug $info_move_utility_classes;
-}
-
-@mixin move_utility_classes($info: null) {
-	@if $info { @debug $info_move_utility_classes; }
-	@else {
-		.#{$utility_class_prefix}left  { @include move(left);  }
-		.#{$utility_class_prefix}right { @include move(right); }
-	}
-}
-
 
 
 // ===================================================================

@@ -45,7 +45,27 @@ $info_when_is: info-log(
 }
 
 @mixin when_is($selector) {
-	@if $selector == 'info' { @debug $info_when_is; }
+	$info-text: info(
+	'name', 'dependent-mixin', 'styles',
+  $details: 'Adds the `@at-root` sass declaration to the selector
+  to add a parent class to the current selector.
+  - Aliases: `at_root` mixin
+  - Requires: Content Block
+  - Params:
+    - $selector: [Required] Any CSS tag or class.
+  - SCSS Input
+  a {
+    @include when_is('nav ul ') {
+  		color: red;
+  	}
+  }
+  - CSS Output
+  nav ul a {
+    color: red;
+  }
+  ');
+	@if $selector == 'info' { @debug $info-text; }
+
 	@else {
 		@at-root #{$selector + &} {
 			@content;
@@ -54,15 +74,12 @@ $info_when_is: info-log(
 }
 
 // Alias
-@mixin __info_at_root {
-	@include __info_when_is;
-}
-
 @mixin at_root($selector) {
 	@include when_is($selector){
 		@content;
 	}
 }
+
 
 
 // ===================================================================

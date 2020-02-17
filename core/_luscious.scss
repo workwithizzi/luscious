@@ -8,9 +8,6 @@ $lus_current_version: 'v0.0.9';
 // Output a notification of a test to the console
 $output_test_message: false !default;
 
-// Warn user of a deprecated function/mixin
-$output_deprecation_warnings: true !default;
-
 // Output warnings for pesticide and dev_colors during production
 $production_mode: false !default;
 
@@ -32,9 +29,7 @@ $sassdoc_base_url: 'http://localhost:3000/' !default;
 
 // Helpers
 @import
-	'helpers/more-info',
-	'helpers/deprecation_warning',
-	'helpers/info-log',
+	'helpers/info',
 	'helpers/maps',
 	'helpers/in-list',
 	'helpers/strip_unit',
@@ -43,7 +38,7 @@ $sassdoc_base_url: 'http://localhost:3000/' !default;
 
 // Bin - Core functions/mixins
 @import
-	'bin/dev_config',
+	'bin/btn_info',
 	'bin/rem_em_calc',
 	'bin/breakpoints',
 	'bin/colors',
@@ -62,8 +57,10 @@ $sassdoc_base_url: 'http://localhost:3000/' !default;
 	'bin/alignment-classes',
 	'bin/when_is',
 	'bin/placeholder',
-	'bin/google_fonts',
-	'bin/font-face';
+	'bin/google_fonts';
 
 // Unstable features that we need to play around with more.
 @import 'unstable/vertical-rhythm';
+
+
+@import 'helpers/dev_config';

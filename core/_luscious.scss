@@ -32,9 +32,8 @@ $sassdoc_base_url: 'http://localhost:3000/' !default;
 
 // Helpers
 @import
-	'helpers/more-info',
+	'helpers/info',
 	'helpers/deprecation_warning',
-	'helpers/info-log',
 	'helpers/maps',
 	'helpers/in-list',
 	'helpers/strip_unit',
@@ -43,7 +42,7 @@ $sassdoc_base_url: 'http://localhost:3000/' !default;
 
 // Bin - Core functions/mixins
 @import
-	'bin/dev_config',
+	'bin/btn_info',
 	'bin/rem_em_calc',
 	'bin/breakpoints',
 	'bin/colors',
@@ -62,8 +61,10 @@ $sassdoc_base_url: 'http://localhost:3000/' !default;
 	'bin/alignment-classes',
 	'bin/when_is',
 	'bin/placeholder',
-	'bin/google_fonts',
-	'bin/font-face';
+	'bin/google_fonts';
 
 // Unstable features that we need to play around with more.
 @import 'unstable/vertical-rhythm';
+
+
+@import 'helpers/dev_config';

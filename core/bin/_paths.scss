@@ -27,10 +27,29 @@
 ///  }
 ///
 @function img($file, $path: $img_base_path) {
+	$info-text: info(
+	'img', 'function', 'utilities',
+  $details: 'Creates a file path to your image including the
+  CSS \'url()\' syntax to make it easier to insert images.
+  - Params:
+    - $file: [Required] File name with extension
+    - $path: [Defaults to $img_base_path from settings.scss]
+    -        Path from CSS output file to image directory.
+    -        Current $img_base_path: `#{$path}`
+    - SCSS Input
+    .element {
+      background-image: img(\'bg.jpg\');
+    }
+    - CSS Output
+    .element {
+      background-image: url("../images/bg.jpg");
+    }
+  ');
 	@if $file == 'info' {
-		@debug more-info('img', 'function', 'utilities-utilities');
+		@debug $info-text;
 		@return null;
-	}
+		}
+
 	@else {
 		@return url($path + '/' + $file);
 	}
@@ -55,10 +74,29 @@
 ///  }
 ///
 @function font($file, $path: $font_base_path) {
+	$info-text: info(
+	'font', 'function', 'utilities',
+  $details: 'Creates a file path to your font-file including the
+  CSS \'url()\' syntax to make it easier to insert fonts.
+  - Params:
+    - $file: [Required] File name with extension
+    - $path: [Defaults to $font_base_path from settings.scss]
+    -        Path from CSS output file to font directory.
+    -        Current $font_base_path: `#{$path}`
+  - SCSS Input
+  @font-face {
+  	src: font(\'my-font.otf\');
+  }
+  - CSS Output
+  @font-face {
+    src: url("../fonts/my-font.otf");
+  }
+  ');
 	@if $file == 'info' {
-		@debug more-info('font', 'function', 'utilities-utilities');
+		@debug $info-text;
 		@return null;
-	}
+		}
+
 	@else {
 		@return url($path + '/' + $file);
 	}

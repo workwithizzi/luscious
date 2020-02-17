@@ -43,18 +43,26 @@
 ///  }
 ///
 @mixin bp($size, $query: 'min-width', $map: $breakpoints) {
+	$info-text: info(
+	'bp', 'mixin', 'media-queries',
+  $details: 'Adds media queries using given size or
+  $map of sizes from `settings.scss`
+  Can be used as a standalone-mixin or dependent-mixin.
+  Params:
+  - $size: (required) accepts either a size or a key from $map
+  - $query: defaults to `min-width`
+    - options: `min`, `max`, and `print`
+  - $map: defaults to `$breakpoints` from `settings.scss`'
+  );
 
 	@if $query == 'min' { $query: 'min-width'; }
 	@if $query == 'max' { $query: 'max-width'; }
 	@if $query == 'print' {
 		@warn 'Use the `for_print` mixin for `print` media queries only.';
 	}
-	// Print info to terminal
-	@if $size == 'info' {
-		@debug more-info('breakpoint', 'mixin', 'utilities-layout');
-	}
-	@else {
+	@if $size == 'info' { @debug $info-text; }
 
+	@else {
 		// Use the sass map if the key matches the map
 		@if map-has-key($map, $size) {
 			@media only screen and (#{$query}: map-get($map, $size)) {
@@ -110,13 +118,18 @@
 ///  }
 ///
 @mixin between_bp($min, $max: null, $map: $breakpoints) {
-
-	// Provide info to terminal
-	@if $min == 'info' {
-		@debug more-info('between_breakpoints', 'mixin', 'utilities-layout');
-	}
+	$info-text: info(
+  'between_bp', 'mixin', 'media-queries',
+  $details: 'Adds min/max media queries using given size or
+  $map of sizes from `settings.scss`
+  Can be used as a standalone-mixin or dependent-mixin.
+  Params:
+  - $min: (required) accepts either a size or a key from $map
+  - $max: accepts either a size or a key from $map
+  - $map: defaults to `$breakpoints` from `settings.scss`'
+  );
+	@if $min == 'info' { @debug $info-text; }
 	@else {
-
 		// Validate $min param
 		@if map-has-key($map, $min) {
 			$min: map-get($map, $min);
@@ -165,12 +178,16 @@
 ///  }
 ///
 @mixin for_print($info: null) {
-	@if $info {
-		@debug more-info('for_print', 'mixin', 'utilities-layout');
+	$info-text: info(
+  'for_print', 'mixin', 'media-queries',
+  $details: 'Adds print media query.
+  Can be used as a standalone-mixin or dependent-mixin.
+  Params: none'
+  );
+	@if $info { @debug $info-text; }
+
+	@media print {
+		@content;
 	}
-	@else {
-		@media print {
-			@content;
-		}
-	}
+
 }

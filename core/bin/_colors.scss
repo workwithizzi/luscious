@@ -9,38 +9,42 @@
 
 // Helper for other color functions/mixins
 // Used internally in Luscious
-@function color_mix($mix, $color, $amount) {
-	$mix_with: ();
-	@if type-of($color) != color {
-		@debug '`#{$color}` is not a color.
-		For more info try the `__info(#{$mix})` mixin.';
+@function color_mix($mix: 'info', $color: null, $amount: null) {
+	$info-text: info(
+	'color_mix', 'function', 'internal',
+  $details: 'Internal function used in other color utilities in Luscious.
+  Makes it easier to mix colors while adding debugging helpful info.
+  - Params: (all 3 are required)
+    - $mix   : The type of color function you want to do
+    - $color : The color you want to mix
+    - $amount: How much the mixture should be'
+	);
+	@if $mix == 'info' {
+		@debug $info-text;
 		@return null;
-	} @else if type-of($amount) != number or unit($amount) != '%' {
-		@debug '`#{$amount}` is not a number percent.
-		For more info try the `__info(#{$mix})` mixin.';
-		@return null;
-	} @else {
-
-		@if $mix == 'tint' { $mix_with: #fff; }
-		@if $mix == 'shade' { $mix_with: #000; }
-		@if $mix == 'tone' { $mix_with: #808080; }
-
-		@return mix($mix_with, $color, $amount);
 	}
-}
 
-// -------------------------------------
+	@else {
+		$mix_with: ();
+		@if type-of($color) != color {
+			@debug '`#{$color}` is not a color.';
+			@debug $info-text;
+			@return null;
 
-// Used to make the __info mixins dryer for the color mods
-@mixin __color_mod_debugger($mod, $color) {
-	@debug '[INFO]
-	The `#{$mod}` function mixes your $color with
-	`#{$color}` based on the $amount you pass.
-	Type  : Function
-	Params:
-	- $color : Any color value.
-	- $amount: Any percentage amount.
-	';
+		} @else if type-of($amount) != number or unit($amount) != '%' {
+			@debug '`#{$amount}` is not a number percent.';
+			@debug $info-text;
+			@return null;
+
+		} @else {
+
+			@if $mix == 'tint' { $mix_with: #fff; }
+			@if $mix == 'shade' { $mix_with: #000; }
+			@if $mix == 'tone' { $mix_with: #808080; }
+
+			@return mix($mix_with, $color, $amount);
+		}
+	}
 }
 
 // -------------------------------------
@@ -48,13 +52,29 @@
 // # Tint Function
 // Mixes a color with white.
 // ref: http://bourbon.io/docs/#tint-shade
-@function tint($color, $amount) {
-	@return color_mix(tint, $color, $amount);
-}
-
-// Info mixin
-@mixin __info_tint {
-	@include __color_mod_debugger(tint, white);
+@function tint($color: 'info', $amount: null) {
+	$info-text: info(
+	'tint', 'function', 'color',
+  $details: 'Mixes the given color with `white` by the percentage
+  amount that you specify.
+  - Params: (both are required)
+    - $color : The color you want to mix
+    - $amount: The percentage of `white` that the resulting
+    -          color should have.
+  - CSS Input:
+    - color: tint(red, 50%);
+    - background: tint(red, 100%);
+  - CSS Output:
+    - color: #ff8080;
+    - background: #ffffff;'
+	);
+	@if $color == 'info' {
+		@debug $info-text;
+		@return null;
+	}
+	@else {
+		@return color_mix(tint, $color, $amount);
+	}
 }
 
 // -------------------------------------
@@ -62,37 +82,84 @@
 // # Shade
 // Mixes a color with black.
 // ref: http://bourbon.io/docs/#tint-shade
-@function shade($color, $amount) {
-	@return color_mix(shade, $color, $amount);
-}
-
-// Info mixin
-@mixin __info_shade {
-	@include __color_mod_debugger(shade, black);
+@function shade($color: 'info', $amount: null) {
+	$info-text: info(
+	'shade', 'function', 'color',
+  $details: 'Mixes the given color with `black` by the percentage
+  amount that you specify.
+  - Params: (both are required)
+    - $color : The color you want to mix
+    - $amount: The percentage of `black` that the resulting
+    -          color should have.
+  - CSS Input:
+    - color: shade(red, 50%);
+    - background: shade(red, 100%);
+  - CSS Output:
+    - color: maroon;
+    - background: black;'
+	);
+	@if $color == 'info' {
+		@debug $info-text;
+		@return null;
+	}
+	@else {
+		@return color_mix(shade, $color, $amount);
+	}
 }
 
 // -------------------------------------
 
 // # Tone
-// Blends a color with another color (mid-grey by default).
-@function tone($color, $amount) {
-	@return color_mix(tone, $color, $amount);
+// Blends a color with another color (mid-gray by default).
+@function tone($color: 'info', $amount: null) {
+	$info-text: info(
+	'tone', 'function', 'color',
+  $details: 'Mixes the given color with `gray` by the percentage
+  amount that you specify.
+  - Params: (both are required)
+    - $color : The color you want to mix
+    - $amount: The percentage of `gray` that the resulting
+    -          color should have.
+  - CSS Input:
+    - color: tone(red, 50%);
+    - background: tone(red, 100%);
+  - CSS Output:
+    - color: #c04040;
+    - background: gray;'
+	);
+	@if $color == 'info' {
+		@debug $info-text;
+		@return null;
+	}
+	@else {
+		@return color_mix(tone, $color, $amount);
+	}
 }
-
-// Info mixin
-@mixin __info_tone {
-	@include __color_mod_debugger(tone, mid-grey);
-}
-
-
-
-
 
 // -------------------------------------
 
 // Make color functions more dynamic so they can be called with a sass
 // map or variable.
-@function color_function($function, $color, $amount) {
+// TODO: Add input/output usage to info
+@function color_function($function: 'info', $color: null, $amount: null) {
+	$info-text: info(
+	'color_function', 'function', 'color',
+  $details: 'A work-around so that you can turn on/off
+  color functions from a previously imported file
+  by using a variable..
+  - Params: (All 3 are required)
+  - $function : Accepts: lighten, darken, saturate,
+    -           desaturate, adjust-hue, transparentize, rgba,
+    -           tint, shade, and tone
+    - $color : The color you want to mix. Accepts any color value.
+    - $amount: The percentage that the resulting
+    -          color should have mixed in.'
+	);
+	@if $function == 'info' {
+		@debug $info-text;
+		@return null;
+	}
+
 	@if $function == 'tint' {
 		@return tint($color, $amount);
 	}
@@ -130,30 +197,11 @@
 		@return rgba($color, $amount);
 	}
 	@else {
-		@debug '#{$function} is not an available color function.
-		For more info try the `__info(color_function)` mixin.';
+		@debug '#{$function} is not an available color function';
+		@debug $info-text;
 		@return null;
 	}
 }
-
-$info_color_function: info-log(
-	'The `color_function` function is a work-around so that
-	you can turn on/off color functions from a previously
-	imported file by using a variable.
-	Type  : Function
-	Params:
-	- $function : Required. Accepts: lighten, darken, saturate,
-	-             desaturate, adjust-hue, transparentize, rgba,
-	-             tint, shade, and tone
-	- $color    : Required. Accepts any color value.
-	- $percent  : Required. Accepts any percent value.'
-);
-
-// Info
-@mixin __info_color_function {
-	@debug $info_color_function;
-}
-
 
 
 // ===================================================================

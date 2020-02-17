@@ -31,27 +31,22 @@
 //   }
 //
 
-$info-bg_image: info-log(
-	'The `bg_image` mixin creates a background-image in an element.
-	Type  : Included Mixin
-	Params:
-	- $attachment: Optional. Defaults to `fixed`.
-	-              Will also accept: scroll, local, initial, and inherit.
-	Outputs:
-	- background-repeat: no-repeat;
-	- background-attachment: $attachment;
-	- background-position: center center;
-	- background-size: cover;
-	Alias:  none.'
-);
-
-@mixin __info_bg_image {
-	@debug $info-bg_image;
-}
-
 
 @mixin bg_image($attachment: fixed) {
-	@if $attachment == 'info' { @debug $info-bg_image; }
+	$info-text: info(
+  'bg_image', 'dependent-mixin', 'media',
+  $details: 'Creates a styled background-image for an element.
+  Params:
+  - $attachment: Optional. Defaults to `fixed`.
+    - Also accepts: scroll, local, initial, and inherit.
+  CSS Output:
+  - background-repeat: no-repeat;
+  - background-attachment: $attachment;
+  - background-position: center center;
+  - background-size: cover;'
+  );
+
+	@if $attachment == 'info' { @debug $info-text; }
 	@else {
 		background-repeat: no-repeat;
 		background-attachment: $attachment;

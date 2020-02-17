@@ -1,0 +1,39 @@
+// @title: More Info Function
+// @since: v0.0.6
+// @desc:  Print link in terminal to additional info about a mixin/function
+// ===================================================================
+
+// Will turn this on once documentation (sass-docs) is set up.
+$include-docs-url: false;
+
+@function info($name, $type: null, $group: null, $details: null, $base_url: $sassdoc_base_url) {
+	$nl: '\A   ';
+
+	// $print-type: null;
+	$output: '#{$nl}❓❓[#{$name}]';
+
+	@if $type {
+		$print-type: '#{$nl}Type: #{$type}';
+		$output: $output + $print-type;
+	}
+
+	@if $group {
+		$meta1: '#{$nl}Group: #{$group}';
+		$output: $output + $meta1;
+	}
+
+	@if $include-docs-url {
+		$url: '#{$base_url}#{$group}.html##{$type}--#{$name}';
+		@if $base_url != $sassdoc_base_url {
+			$url: $base_url;
+		}
+		$meta2: '#{$nl}Docs: #{$url}';
+		$output: $output + $meta2;
+	}
+
+	@each $item in $details {
+		$output: $output + $nl + $item + $nl;
+	}
+
+	@return quote($output);
+}

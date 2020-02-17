@@ -1,0 +1,32 @@
+// Button Mixin
+// This is only used to add the 'info-text' to the btn mixin
+// and displayed when using '@include btn('info')
+// The mixin is actually added in '/scaffold/utils/_buttons.scss'
+
+
+$btn-info-text: info(
+	'btn', 'dependent-mixin', 'styling',
+  $details: 'Creates all CSS styling needed for
+  <button> tag and any other element that you want to
+  look like a button. Unlike the other Luscious tools,
+  this mixin is stored in the scaffold `utils` files
+  so that its easy to see all the rules that are added when
+  using it.
+  Params:
+  - Color Profile:
+    Profile name comes from your `$btn-colors` map.
+    Add more profiles to the map in `settings.scss`
+    - primary : (default)
+    - secondary
+    - Can only use those listed in your `$btn-colors` map
+  - Style: (Defaults to basic, solid-primary button
+    - link    : styled like a basic link but with btn colors
+    - hollow  : transparent background with a border
+    - block   : makes the button a `display: block`
+    - expand  : makes the button a `block` and removes side margins
+    - disable : makes the button appear disabled
+  - Implementation:
+    - All params are optional and can be used in any order.
+    - Only one `color` param is allowed.
+    - All `style` params can be used together.'
+);

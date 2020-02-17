@@ -10,7 +10,7 @@
 
 // Usage:
 // Create an info variable for the mixin or function in the form of a nested List. The first list item will be treated like the title if it is only a single item. If it's multiple items then it will be treated like the Body/Description (at which point, you can not include a body).
-// 
+//
 // Example:
 // $valid-example: logger(
 // 	'This is the title',
@@ -33,7 +33,7 @@
 	$problem: false;
 	$br: '\A ';
 	$indent: '   ';
-	
+
 	// Print Head as Default
 	$output: $br + ' ❓❓INFO LOGGER:' + $br;
 
@@ -47,7 +47,7 @@
 	}
 	// Title: if multi-line AND Body, only print the error
 	@else if length($title) > 1 and $body {
-		@warn "If you include a 'body' section, the title can only be 1 line.";
+		@warn 'If you include a 'body' section, the title can only be 1 line.';
 		$problem: true;
 		// Remove default output
 		$output: '';
@@ -65,6 +65,3 @@
 	// $output: $output;
 	@return quote($output);
 }
-
-
-

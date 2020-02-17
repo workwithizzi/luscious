@@ -27,9 +27,8 @@
 //  5. Animation
 // -------------------------------------
 //  6. Typography
-//   - 6.1 Font-Imports
-//   - 6.2 Font-Stacks
-//   - 6.3 Modular Scale (font sizes)
+//   - 6.1 Font-Stacks
+//   - 6.2 Modular Scale (font sizes)
 // -------------------------------------
 //  7. Breakpoints
 // -------------------------------------
@@ -53,10 +52,10 @@ $output_dev_color_classes: false !default;
 // HTML Root Font Size (use percent values)
 // To use multiples of '10' in your site,
 // declare 62.5% instead of the standard '100%'
-$document_font_size: 100% !default;
+$document_font_size: 62.5% !default;
 
 // Base Font-Size
-$base_font_size: 1rem !default;
+$base_font_size: 1.6rem !default;
 
 // How much things like lists and blockquotes are indented.
 $base_indent_amount: 4rem !default;
@@ -136,19 +135,19 @@ $btn_bg-secondary-hover : $cl_secondary-dk  !default;
 // the map with the same keys.
 $btn-colors: (
 	primary: ( // Only required array
-		color: $cl_white,
-		background: $cl_primary,
+		color: $btn_text-primary,
+		background: $btn_bg-primary,
 		border: transparent,
-		hover-color: $cl_white,
-		hover-background: $cl_primary-dk,
+		hover-color: $btn_text-primary,
+		hover-background: $btn_bg-primary-hover,
 		hover-border: transparent
 	),
 	secondary: (
-		color: $cl_white,
-		background: $cl_secondary,
+		color: $btn_text-secondary,
+		background: $btn_bg-secondary,
 		border: transparent,
-		hover-color: $cl_white,
-		hover-background: $cl_secondary-dk,
+		hover-color: $btn_text-secondary,
+		hover-background: $btn_bg-secondary-hover,
 		hover-border: transparent
 	)
 ) !default;
@@ -180,12 +179,7 @@ $base_animation: all $base_delay $base_timing !default;
 // -------------------------------------
 
 // -----------------
-// 6.1 Font-Imports
-// -----------------
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
-
-// -----------------
-// 6.2 Font-Stacks
+// 6.1 Font-Stacks
 // -----------------
 // Default Body
 $font_stack_body: (
@@ -214,7 +208,7 @@ $font_stack_code: (
 	) !default;
 
 // ----------------
-// 6.3 Modular Scale (font sizes)
+// 6.2 Modular Scale (font sizes)
 // ----------------
 // 2DO-YG: Test and add info
 $modularscale     : (

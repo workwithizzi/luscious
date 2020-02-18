@@ -31,7 +31,6 @@
 	},
 	"devDependencies": {
 		"@workwithizzi/eslint-config": "^0.0.2",
-		"autoprefixer": "^9.7.4",
 		"node-sass": "^4.13.1",
 		"onchange": "^6.1.0",
 		"postcss-cli": "^7.1.0",

@@ -7,21 +7,19 @@
 // ===================================================================
 
 // Add error handling to the `map-get` function
-
-$info_map_get_check: info-log(
-	'The `map_get_check` function just adds error handling to the built-in
-	`map-get` function and is used in the exact same way.
-	Type  : Function
-	Params:
-	- $map: A single, predefined map.
-	- $key: A key that is contained in the map.'
-);
-
-@mixin __info_map_get_check {
-	@debug $info_map_get_check;
-}
-
 @function map_get_check($map, $key) {
+	$info-text: info(
+	'map_get_check', 'function', 'internal-utilities',
+  $details: 'Adds error handling to the built-in
+  `map-get` function and is used in the exact same way.
+  - Params:
+    - $map: [Required] The SASS map you are using
+    - $key: [Required] The key from the $map that you are checking for
+  - Output:
+    - @return map-get($map, $key);
+  ');
+	@if $map == 'info' { @debug $info-text; }
+
 	@if map-has-key($map, $key) {
 		@return map-get($map, $key);
 	}
@@ -33,21 +31,21 @@ $info_map_get_check: info-log(
 // -------------------------------------
 
 // Replace the `map-merge` function so that more than 2 maps can be merged.
-
-$info_map_collect: info-log(
-	'The `map_collect` function adds the ability to merge more than two maps.
-	Use it like you would use `map-merge` but add as many maps as you want.
-	Type  : Function
-	Params:
-	- $maps: 2 or more predefined maps separated by commas.'
-);
-
-@mixin __info_map_collect {
-	@debug $info_map_collect;
-}
-
 // 2DO-LUS: Add better error handling for when a map doesn't exist
 @function map_collect($maps...) {
+	$info-text: info(
+	'map_collect', 'function', 'internal-utilities',
+  $details: 'Adds the ability to merge multiple SASS $maps.
+  - Params:
+    - $maps: [Required] The list of maps to merge.
+  - Output:
+    @each $map in $maps {
+      $collection: map-merge($collection, $map);
+    }
+    @return $collection;
+  ');
+	@if $maps == 'info' { @debug $info-text; }
+
 	$collection: ();
 	@each $map in $maps {
 		$collection: map-merge($collection, $map);
@@ -60,32 +58,22 @@ $info_map_collect: info-log(
 // Get map nested 1 level deep
 // 2DO-LUS: Add error handling (maybe with map_get_check)
 @function map_get_nested($parent, $child, $key) {
+	$info-text: info(
+	'map_get_nested', 'function', 'internal-utilities',
+  $details: 'Works just like the `map-get` function
+  but for nested maps (1 layer deep).
+  - Params:
+    - $parent: The parent map
+    - $child : The map nested in parent
+    - $key   : The key defined in the $child map
+  - Output:
+    - @return map-get(map-get($parent, $child), $key);
+  ');
+	@if $parent == 'info' { @debug $info-text; }
+
 	@return map-get(map-get($parent, $child), $key);
 }
 
-$info_map_get_nested: info-log(
-	'The `map_get_nested` function works just like the `map-get` function
-	but for nested maps (1 layer deep).
-	Type  : Function
-	Params:
-	- $parent: The parent map
-	- $child : The map nested in parent
-	- $key   : The key defined in the $child map'
-);
-
-@mixin __info_map_get_nested {
-	@debug $info_map_get_nested;
-}
-
-// Loop through nested maps
-// @mixin map_loop_nest($map, $key) {
-// 	$nested_map: map_get_check($map, $key);
-// 	&:#{$key} {
-// 		@each $key, $value in $nested_map {
-// 			#{$key}: $value;
-// 		}
-// 	}
-// }
 
 
 // ===================================================================

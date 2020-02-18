@@ -69,13 +69,31 @@ $info_google_fonts: info-log(
 }
 
 
-@mixin google_fonts(
-	$name   : null,  //  string (unquoted will work too)
-	$weights: 400,      //  list or numeric value (100 200 300 400 ...)
-	$styles : normal,       //  list or string (normal and or italic)
-	$limit  : null          //  string (don\'t forget to unescape )
-	){
-
+@mixin google_fonts($name: null, $weights: 400, $styles: normal, $limit: null){
+	$info-text: info(
+	'google_fonts', 'standalone-mixin', 'utilities',
+  $details: 'Used to simplify embedding Google fonts.
+  - Params:
+    - $name   : Required. Accepts any Google font name. Ex: `Open Sans`
+    - $weights: [Defaults to `400`] Can be a $list or numeric value.
+    - $styles : [Defaults to `normal`] Accepts word (`italic`)
+    -           or numeric value (`400i`). If a word is used, it will
+    -           apply to all $weights.
+    - $limit  : [Defaults to `null`] Allows you to limit the request
+    -           to specific characters for code-optimization.
+  - Extra     : This mixin allows nesting within itself (parent accepts no params)
+  -             so that all fonts will be imported in the same request.
+  - See       : https://goo.gl/LSNXCF
+  -
+  - Example SCSS: (Single font import)
+    - @include google_fonts(\'Open Sans\', 400 700, normal);
+  -
+  - Example SCSS: (Multiple imports)
+    - @include google_fonts {
+      - @include google_fonts(Material Icons);
+      - @include google_fonts(Lato, 400 700, normal);
+    - };'
+  );
 		@if $name == 'info' { @debug $info_google_fonts; }
 
 		// base url

@@ -23,25 +23,22 @@
 //     margin-right: auto;
 //     margin-left: auto;
 //   }
-//
-
-$info_centerblock: info-log(
-	'The `centerblock` mixin sets `display: block;`, and left
-	and right margins to auto.
-	Type  : Included Mixin
-	Params: none'
-);
-
-@mixin __info_centerblock {
-	@debug $info_centerblock;
-}
 
 @mixin centerblock($info: null) {
+	$info-text: info(
+	'centerblock', 'dependent-mixin', 'styles',
+  $details: 'Turns an element into a block and centers.
+  - Params: none
+  - CSS Output:
+    - display: block;
+    - margin-right: auto;
+    - margin-left: auto;'
+	);
+	@if $info { @debug $info-text; }
+
 	display: block;
 	margin-right: auto;
 	margin-left: auto;
-
-	@if $info { @debug $info_centerblock; }
 }
 
 

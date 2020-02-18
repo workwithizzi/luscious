@@ -1,0 +1,17 @@
+// Luscious
+// @since v0.0.1
+//
+//
+//
+// sass-lint:disable class-name-format
+// ===================================================================
+
+// TODO: Add info mixins here.
+
+@mixin dev_config {
+	$info-text: info(
+	'dev_config', 'mixin', 'utilities',
+	$details: 'Add info about config settings here'
+	);
+	@debug $info-text;
+}

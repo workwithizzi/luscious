@@ -7,93 +7,124 @@
 
 // Hidden
 // Hide from both screen-readers and browsers
-
-$info_hidden: info-log(
-	'The `hidden` mixin hides the element from
-	screen readers and visual browsers.
-	Type  : Included Mixin
-	Params: none'
-);
-
-@mixin __info_hidden {
-	@debug $info_hidden;
-}
-
 @mixin hidden($info: null) {
+	$info-text: info(
+	'hidden', 'dependent-mixin', 'styles',
+  $details: 'Hides the element from both screen
+  readers and visual browsers.
+  - Params: none
+  - CSS Output:
+    - display: block;
+    - margin-right: auto;
+    - margin-left: auto;
+  - SCSS Input
+  .element {
+    @include hidden;
+  }
+  - CSS Output
+  .element {
+    display: none !important;
+    visibility: hidden;
+  }
+  ');
+	@if $info { @debug $info-text; }
+
 	display: none !important; // sass-lint:disable-line no-important
 	visibility: hidden;
-	@if $info { @debug $info_hidden; }
 }
 
 // -------------------------------------
 
 // Hide Text
-
-$info_hide_text: info-log(
-	'The `hide_text` mixin hides the text for visual browsers
-	but keeps it accessible to screen readers.
-	Type  : Included Mixin
-	Params: none'
-);
-
-@mixin __info_hide_text {
-	@debug $info_hide_text;
-}
-
 @mixin hide_text($info: null) {
-	@if $info { @debug $info_hide_text; }
+	$info-text: info(
+	'hide_text', 'dependent-mixin', 'styles',
+  $details: 'Hides the text in an element visually
+  but keeps it accessible to screen readers. Useful when
+  adding additional context to an element for screen-readers.
+  Similar to `sr_only` mixin but this only hides the text, not the
+  entire element.
+  - Params: none
+  - SCSS Input
+  .element {
+    @include hide_text;
+  }
+  - CSS Output
+  .element {
+    overflow: hidden;
+    text-indent: 101%;
+    white-space: nowrap;
+  }
+  ');
+	@if $info { @debug $info-text; }
 
-	@else {
-		overflow: hidden;
-		text-indent: 101%;
-		white-space: nowrap;
-	}
+	overflow: hidden;
+	text-indent: 101%;
+	white-space: nowrap;
 }
 
 // -------------------------------------
 
 // Visually Hidden
 // Hide only visually, but have it available for screen-readers
-
-$info_vissuallyhidden: info-log(
-	'The `sr_only` mixin hides the element for visual browsers
-	but keeps it accessible to screen readers.
-	Type  : Included Mixin
-	Params: none'
-);
-
-@mixin __info_vissuallyhidden {
-	@debug $info_vissuallyhidden;
-}
-
 @mixin sr_only($info: null) {
-	@if $info { @debug $info_vissuallyhidden; }
+	$info-text: info(
+	'sr_only', 'dependent-mixin', 'styles',
+  $details: 'Hides the element visually but keeps it
+  accessible to screen readers. Useful when adding additional
+  context to an element for screen-readers.
+  Similar to `hide_text` but hides the entire element.
+  - Params: none
+  - SCSS Input
+    .element {
+      @include sr_only;
+    }
+  - CSS Output
+    .element {
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    .element.focusable:active,
+    .element.focusable:focus {
+      clip: auto;
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      position: static;
+      width: auto;
+    }
+  ');
+	@if $info { @debug $info-text; }
 
-	@else {
-		border: 0;
-		clip: rect(0 0 0 0);
-		height: 1px;
-		margin: -1px;
-		overflow: hidden;
-		padding: 0;
-		position: absolute;
-		width: 1px;
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
 
-		// Extends the .sr_only class to allow the element to be focusable
-		// when navigated to via the keyboard: h5bp.com/p
-
-		&.focusable {
-			&:active,
-			&:focus {
-				clip: auto;
-				height: auto;
-				margin: 0;
-				overflow: visible;
-				position: static;
-				width: auto;
-			}
+	// Extends the .element class to allow the element to be focusable
+	// when navigated to via the keyboard: h5bp.com/p
+	&.focusable {
+		&:active,
+		&:focus {
+			clip: auto;
+			height: auto;
+			margin: 0;
+			overflow: visible;
+			position: static;
+			width: auto;
 		}
 	}
+
 
 }
 
@@ -101,83 +132,50 @@ $info_vissuallyhidden: info-log(
 
 // Invisible
 // Hide visually and from screen-readers, but maintains layout
-
-$info_invisible: info-log(
-	'The `invisible` mixin hides the element visually
-	and from screen-readers, but maintains layout.
-	Type  : Included Mixin
-	Params: none'
-);
-
-@mixin __info_invisible {
-	@debug $info_invisible;
-}
-
 @mixin invisible($info: null) {
-	@if $info { @debug $info_invisible; }
-	@else {
-		visibility: hidden;
-	}
+	$info-text: info(
+	'invisible', 'dependent-mixin', 'styles',
+  $details: 'Hides the an element both visually
+  and from screen-readers.
+  Similar to `hidden` mixin, but maintains the layout.
+  - Params: none
+  - SCSS Input
+  .element {
+    @include invisible;
+  }
+  - CSS Output
+  .element {
+    visibility: hidden;
+  }
+  ');
+	@if $info { @debug $info-text; }
+
+	visibility: hidden;
 }
 
 // -------------------------------------
 
 // Show
-
-$info_show: info-log(
-	'The `show` mixin sets `display: block !important`.
-	Type  : Included Mixin
-	Params: none'
-);
-
-@mixin __info_show {
-	@debug $info_show;
-}
-
 @mixin show($info: null) {
-	@if $info { @debug $info_show; }
+	$info-text: info(
+	'show', 'dependent-mixin', 'styles',
+  $details: 'Reverses the affects of the `hidden` and `invisible`
+  mixins. Useful for showing an element that was previously hidden.
+  - Params: none
+  - SCSS Input
+  .element {
+    @include show;
+  }
+  - CSS Output
+  .element {
+    display: block !important;
+    visibility: visible;
+  }
+  ');
+	@if $info { @debug $info-text; }
 
-	@else {
-		display: block !important; // sass-lint:disable-line no-important
-		visibility: visible;
-	}
-}
-
-
-// -------------------------------------------------------------------
-// Utility Classes
-// -------------------------------------------------------------------
-// Global Utility Class Prefix
-$utility_class_prefix: 'u_' !default;
-
-$info_visibility_utility_classes: info-log(
-	'Adds utility classes:
-	- .#{$utility_class_prefix}hidden         (mixin: +hidden)
-	- .#{$utility_class_prefix}hide_text      (mixin: +hide_text)
-	- .#{$utility_class_prefix}sr_only (mixin: +sr_only)
-	- .#{$utility_class_prefix}invisible      (mixin: +invisible)
-	- .#{$utility_class_prefix}show           (mixin: +show)
-
-	Pass the `__info` mixin with one of these as the
-	parameter to see what it specifically does.
-
-	Example:
-	+__info(hidden)'
-);
-
-@mixin __info_visibility_utility_classes {
-	@debug $info_visibility_utility_classes;
-}
-
-@mixin visibility_utility_classes($info: null) {
-	@if $info { @debug $info_visibility_utility_classes; }
-	@else {
-		.#{$utility_class_prefix}hidden         { @include hidden;         }
-		.#{$utility_class_prefix}hide_text      { @include hide_text;      }
-		.#{$utility_class_prefix}sr_only { @include sr_only; }
-		.#{$utility_class_prefix}invisible      { @include invisible;      }
-		.#{$utility_class_prefix}show           { @include show;           }
-	}
+	display: block !important; // sass-lint:disable-line no-important
+	visibility: visible;
 }
 
 

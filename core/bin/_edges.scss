@@ -6,41 +6,33 @@
 // sass-lint:disable class-name-format
 // ===================================================================
 
-
 // # Vertical (top/bottom) Properties
 // Simple mixin that targets top and bottom properties so you won't
 // have to write both out or uneccesarily declare values for sides.
+@mixin vertical($property: 'info', $value: null) {
+	$info_text: info(
+  'vertical', 'dependent-mixin', 'styles',
+  $details: 'Provides a shorthand for top/bottom declarations
+  of a property without having to declare anything for the sides.
+  - Params:
+    - $property: Required. Properties with a top/bottom
+    -            option like `margin` or `padding`.
+    - $value:    Required. Accepts any number value.
+  - Alias Mixin: `v`
+  - CSS Output:
+    - margin-top: $value;
+    - margin-bottom: $value;
+	');
+	@if $property == 'info' { @debug $info_text; }
 
-$info_vertical: info-log(
-	'The `vertical` mixin provides a shorthand for top/bottom declarations
-	of a property without having to declare anything for the sides.
-	Type  : Included Mixin
-	Params:
-	- $property: Required. Any property like `margin` or `padding`.
-	- $value:    Required. Accepts any value.
-	Alias: `v`'
-);
-
-@mixin __info_vertical {
-	@debug $info_vertical;
-}
-
-@mixin vertical($property, $val: null) {
-	@if $property == 'info' { @debug $info_vertical; }
 	@else {
-		#{$property}-top: $val;
-		#{$property}-bottom: $val;
+		#{$property}-top: $value;
+		#{$property}-bottom: $value;
 	}
 }
-
-
-// Alias
-@mixin __info_v {
-	@debug $info_vertical;
-}
-
-@mixin v($property, $val: null) {
-	@include vertical($property, $val);
+// Alias Mixin
+@mixin v($property: 'info', $value: null) {
+	@include vertical($property, $value);
 }
 
 
@@ -49,39 +41,32 @@ $info_vertical: info-log(
 // Horizontal (left/right) Properties
 // Simple mixin that targets left and right properties so you won't
 // have to write both out or uneccesarily declare values for top/bottom.
+@mixin horizontal($property: 'info', $value: null) {
+	$info_text: info(
+  'horizontal', 'dependent-mixin', 'styles',
+  $details: 'Provides a shorthand for left/right declarations
+  of a property without having to declare anything for the top/bottom.
+  - Params:
+    - $property: Required. Properties with a left/right
+    -            option like `margin` or `padding`.
+    - $value:    Required. Accepts any number value.
+  - Alias Mixin: `h`
+  - CSS Output:
+    - margin-left: $value;
+    - margin-right: $value;
+	');
+	@if $property == 'info' { @debug $info_text; }
 
-$info_horizontal: info-log(
-	'The `horizontal` mixin provides a shorthand for left/right declarations
-	of a property without having to declare anything for the top/bottom.
-	Type  :  Included Mixin
-	Params:
-	- $property: Required. Any property like `margin` or `padding`.
-	- $value:    Required. Accepts any value.
-	Alias: `h`'
-);
-
-@mixin __info_horizontal {
-	@debug $info_horizontal;
-}
-
-@mixin horizontal($property, $val: null) {
-	@if $property == 'info' { @debug $info_horizontal; }
 	@else {
-		#{$property}-right: $val;
-		#{$property}-left: $val;
+		#{$property}-right: $value;
+		#{$property}-left: $value;
 	}
 }
 
-
-// Alias
-@mixin __info_h {
-	@include __info_horizontal;
+// Alias Mixin
+@mixin h($property: 'info', $value: null) {
+	@include horizontal($property, $value);
 }
-
-@mixin h($property, $val: null) {
-	@include horizontal($property, $val);
-}
-
 
 
 // ===================================================================

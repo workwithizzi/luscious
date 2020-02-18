@@ -20,51 +20,54 @@ $baseline-grid: 8px !default;
 // ------------------------------------
 // Classic Vertical-Rhythm Function
 // ------------------------------------
-
-// ----------------
-// Info
-// ----------------
-$info-vr-classic: info-log(
-	'The `vr` function takes a unitless number and calculates the vertical-rhythm for the element using `$base_font_size` (#{$base_font_size}) and `$base_line_height` (#{$base_line_height}).'
-	'Type  : Function'
-	'Params: $val -- Not required. Accepts only a unitless number. If empty, defaults to the base vertical-rhythm: ($base_font_size * $base_line_height).'
-);
-
-@mixin __info_vr-classic {
-	@debug $info-vr-classic;
-}
-
-
-// ----------------
-// Function
-// ----------------
 @function vr-classic($val: base) {
 	// Calculate the base vertical-rhythm
 	$base: convert_rem_ratio($base_line_height) * $base_font_size;
 
+	$info-text: info(
+	'vr-classic', 'function', 'styles',
+  $details: 'EXPERIMENTAL FUNCTION! DO NOT USE!
+  Takes a unitless number and calculates the vertical-rhythm
+  for the element using $base_font_size and $base_line_height
+  $base_font_size:   #{$base_font_size}
+  $base_line_height: #{$base_line_height}
+  - Params:
+    - $val: Defaults to `base` ($base_font_size * $base_line_height)
+            Only accepts a unitless number
+  - SCSS Input:
+    .element {
+      line-height: vr-classic(1);
+    }
+  - CSS Output:
+    .element {
+      line-height: 7.68rem;
+    }
+  ');
+	@if $val == 'info' {
+		@debug $info-text;
+		@return 1000px;
+
 	// Make sure $base_font_size is unitless
-	@if unitless($base_font_size) {
+	} @else if unitless($base_font_size) {
 		@debug info-log('Your base font size CANNOT be a unitless number.'
 		'Current value is (#{$base_font_size})'
 		'@SEE: variable `$base_font_size`');
 		@return 1000px;
-	}
 
 	// Return the base vertical-rhythm
-	@else if $val == 'base' or $val == 0 {
+	} @else if $val == 'base' or $val == 0 {
 		@return $base;
-	}
 
 	// If $val is any other number & unitless:
-	@else if is-number($val) {
+	} @else if is-number($val) {
 		@if unitless($val) {
 			$step: $val + 1;
 			@return $base * $step;
-		}
-		@else {
+		} @else {
 			@debug 'You used (#{$val}), you must use a unitless number.';
 			@return 1000px;
 		}
+
 	// If all else fails, provide info about the function:
 	} @else {
 		@debug $info-vr-classic;
@@ -78,28 +81,31 @@ $info-vr-classic: info-log(
 // ------------------------------------
 // Baseline-Grid Vertical-Rhythm Function
 // ------------------------------------
-
-// ----------------
-// Info
-// ----------------
-$info-vr-blgrid: info-log(
-	'Need to add info for this function.'
-);
-
-@mixin __info_vr-blgrid {
-	@debug $info-vr-blgrid;
-}
-
-
-// ----------------
-// Function
-// ----------------
-@function vr-blgrid($val: base, $unit: rem) {
+@function vr($val: base, $unit: rem) {
 	// Calculate the base vertical-rhythm
 	$base-ratio: convert_rem_ratio($base_line_height);
 
+	$info-text: info(
+	'vr', 'function', 'styles',
+  $details: 'EXPERIMENTAL FUNCTION! DO NOT USE!
+  Takes a unitless number and calculates the vertical-rhythm
+  for the element using the rem/em equivalent to $base_line_height
+  $base_line_height: #{$base_line_height} == (#{$base-ratio + $unit})
+  - Params:
+    - $val: Defaults to `base` ($base_line_height)
+            Only accepts a unitless number
+    - $unit: Defaults to `rem`. Also accepts `em`
+  - SCSS Input:
+    .element {
+      line-height: vr(1);
+    }
+  - CSS Output:
+    .element {
+      line-height: 3.2rem;
+    }
+  ');
 	@if $val == 'info' {
-		@debug $info-vr-blgrid;
+		@debug $info-text;
 		@return 1000px;
 
 	} @else if $val == 'base' or $val == 0 {
@@ -111,29 +117,10 @@ $info-vr-blgrid: info-log(
 		@return ($base-ratio + $convert) + $unit;
 
 	} @else {
-		@debug $info-vr-blgrid;
+		@debug 'Something went wrong. Pass `info` as the parameter for more info.';
 		@return 1000px;
 	}
 }
-
-
-
-// ------------------------------------
-// VR Function
-// ------------------------------------
-@function vr($val: base, $function: blgrid, $unit: rem) {
-	// Baseline-Grid VR function
-	@if $function == 'blgrid' {
-		@return vr-blgrid($val, $unit);
-	}
-
-	// Classic VR function
-	@else {
-		@return vr-classic($val);
-	}
-
-}
-
 
 
 
@@ -160,4 +147,3 @@ $info-vr-blgrid: info-log(
 // 	/* End `vr` ------------------------- */
 // }
 //
-// // TODO: Add test and info mixins to the global mixins

@@ -6,24 +6,23 @@
 // sass-lint:disable no-css-comments
 // ===================================================================
 // http://foundation.zurb.com/sites/docs/accessibility.html
-// 2DO-LUS: Double check this with the `what input` library. https://git.io/v5D4x
-
-$info_disable_mouse_outline: info-log(
-	'The `disable_mouse_outline` mixin removes the focus outline for
-	mouse users, but not for keyboard users for accessibility.
-	Type  : Included Mixin
-	Params: none'
-);
-
-// Info Mixin
-@mixin __info_disable_mouse_outline {
-	@debug $info_disable_mouse_outline;
-}
+// TODO: Double check this with the `what input` library. https://git.io/v5D4x
 
 
 // Removes the focus outline for mouse users, but not for keyboard users.
 @mixin disable_mouse_outline($info: null) {
-	@if $info { @debug $info_disable_mouse_outline; }
+	$info_text: info(
+  'disable_mouse_outline', 'standalone-mixin', 'styles',
+  $details: 'Removes the focus outline for mouse users,
+  but not for keyboard users for accessibility.
+  - Params: none
+  - CSS Output:
+    - [data-whatinput=\'mouse\'] & {
+    -   outline: 0;
+    - }
+	');
+	@if $info { @debug $info_text; }
+
 	[data-whatinput='mouse'] & {
 		outline: 0;
 	}

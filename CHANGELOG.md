@@ -1,6 +1,13 @@
 Luscious Changelog
 ==================
 
+0.9.0
+----------------
+- All the updates...
+- Updated info parameters for all mixins/functions so that the are more helpful and stable
+- Removed some experimental features and other features that were not that usefull
+- Cleaned up a lot of code and structure
+
 0.1.1 - HOTFIX
 ----------------
 - Cleaned up a few files in `scaffold/`. Removed an old Susy mixin that was deprecated in `v0.1.0`

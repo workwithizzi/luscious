@@ -17,6 +17,13 @@ indent_style = tab
 # Remove whitespace characters preceding newline characters
 trim_trailing_whitespace = true
 
-# Don't use spaces for yaml
+# Make sure each file ends in a new line
+insert_final_newline = true
+
+# Don't use tabs for yaml
 [*.{yaml,yml}]
 indent_style = space
+
+# Don't add whitespace to markdown
+[*.md]
+trim_trailing_whitespace = false

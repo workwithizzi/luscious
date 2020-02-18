@@ -1,6 +1,6 @@
 {
 	"name": "luscious",
-	"version": "0.1.1",
+	"version": "0.9.0",
 	"description": "A library of SASS mixins, functions, and variables to use in your front-end projects.",
 	"repository": {
 		"type": "git",
@@ -10,12 +10,11 @@
 		"url": "https://github.com/workwithizzi/luscious/issues"
 	},
 	"homepage": "https://github.com/workwithizzi/luscious",
-	"author": "Yisrael Grimes <yisrael@ignitehere.com>",
+	"author": "Yisrael Grimes <yisraelgrimes@gmail.com>",
 	"license": "MIT",
 	"keywords": [
 		"sass",
-		"scss",
-		"scaffold"
+		"scss"
 	],
 	"scripts": {
 		"compile": "node-sass --include-path 'core' --include-path 'node_modules/modularscale-sass' --source-comments --output-style expanded -o test/ scaffold/main.sass",
@@ -27,7 +26,8 @@
 		"dev": "yarn run styles && yarn run watch",
 		"compile:test": "node-sass --include-path 'core' --include-path 'node_modules/modularscale-sass' --include-path 'node_modules/sass-true/sass' --quiet --source-comments --output-style expanded -o test/ test/test.sass && yarn run autoprefixer",
 		"styles:test": "yarn run lint && yarn run compile:test",
-		"watch:test": "onchange 'test/**/*.s+(a|c)ss' -- yarn run styles:test"
+		"watch:test": "onchange 'test/**/*.s+(a|c)ss' -- yarn run styles:test",
+		"postinstall": "node postinstall.js"
 	},
 	"devDependencies": {
 		"@workwithizzi/eslint-config": "^0.0.2",

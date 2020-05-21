@@ -6,7 +6,7 @@
 // ===================================================================
 // sass-lint:disable brace-style
 
-// TODO: Add info mixin
+// TODO: Add info
 
 // if global variable $true-css-output == true then class
 // '.test-output' with styles will print to your css file.
@@ -15,17 +15,13 @@
 // you would turn off output for all tests accept for the individual one
 // that you are working on.
 
-$info-true-report: info-log(
-	'Need to add info here.'
-);
-
-@mixin __info_true-report {
-	@debug $info-true-report;
-}
-
 
 @mixin true-report($solo-output: null) {
-	@if $solo-output == 'info' { @debug $info-true-report; }
+	$info-text: info(
+	'true-report', 'mixin', 'testing',
+	$details: 'Need to add info here.'
+  );
+	@if $solo-output == 'info' { @debug $info-text; }
 	@else if variable-exists('true-css-output') {
 		@if $true-css-output or ($solo-output == 'solo') {
 			@content;

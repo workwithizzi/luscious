@@ -1,6 +1,13 @@
 Luscious Changelog
 ==================
 
+0.9.1
+----------------
+- No changes were made to the actual production code
+- Fixed some random typos
+- Made some changes to the development workflow
+- Updated installer help-text
+
 0.9.0
 ----------------
 - All the updates...

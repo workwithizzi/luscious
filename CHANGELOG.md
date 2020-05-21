@@ -1,6 +1,12 @@
 Luscious Changelog
 ==================
 
+0.9.2
+----------------
+- Minor updates to improve dev-workflow
+  - Renamed `dev/` to `tmp/`
+  - Moved packages from `devDependencies` to `dependencies` so user will not have to install SASS packages
+
 0.9.1
 ----------------
 - No changes were made to the actual production code

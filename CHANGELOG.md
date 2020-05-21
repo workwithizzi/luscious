@@ -1,6 +1,11 @@
 Luscious Changelog
 ==================
 
+0.9.2
+----------------
+- Minor updates to improve dev-workflow
+  - Renamed `dev/` to `tmp/`
+
 0.9.1
 ----------------
 - No changes were made to the actual production code

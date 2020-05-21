@@ -2,7 +2,7 @@
 
 _A Library of SASS functions/mixin/variables/stuff_
 
-**Current Version: v0.0.9: Unstable**
+**Current Version: v0.9.1: Unstable**
 Don't use this package until v1.0.0
 
 ## Installation
@@ -83,4 +83,22 @@ To add the scaffold folder to your current `./styles` directory:
 
 ```sh
 cp -r ./node_modules/luscious/scaffold ./styles
+```
+
+## Linting Your SASS
+
+If you want to use the same linting setup that was used in the core project, copy the lint-config files to your root directory.
+
+```sh
+cp -r ./node_modules/luscious/.sasslint.yml ./.sasslint.yml
+cp -r ./node_modules/luscious/.sasslint-fix.yml ./.sasslint-fix.yml
+```
+
+You can also add these scripts to your `package.json` to make life easier:
+
+```json
+"scripts": {
+	"lint": "sass-lint -c .sasslint.yml '**/*.s+(a|c)ss' -v -q",
+	"fix": "sass-lint-auto-fix -c .sasslint-fix.yml '**/*.s+(a|c)ss' -v -q"
+}
 ```

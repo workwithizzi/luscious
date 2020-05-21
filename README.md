@@ -2,7 +2,7 @@
 
 _A Library of SASS functions/mixin/variables/stuff_
 
-**Current Version: v0.9.1: Unstable**
+**Current Version: v0.9.2: Unstable**
 Don't use this package until v1.0.0
 
 ## Installation
